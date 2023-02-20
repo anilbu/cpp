@@ -1,0 +1,10 @@
+img {
+    max-width: 100%;
+    height: auto
+}
+
+img [alt=50] {
+    max-width: 50%;
+    height: auto
+}
+

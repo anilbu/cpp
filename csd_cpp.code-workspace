@@ -1,0 +1,29 @@
+{
+	"folders": [
+		{
+			"name": "csd_cpp",
+			"path": "."
+		}
+	],
+	"settings": {
+		"markdown.preview.breaks": true,
+		"C_Cpp.default.cppStandard": "gnu++20",
+		"openInExternalApp.openMapper": [
+			{
+				"extensionName": "mkv",
+				"apps": "vlc"
+			}
+		],
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-vscode.cpptools-extension-pack",
+			"hediet.vscode-drawio",
+			"ms-vscode.makefile-tools",
+			"ms-vscode.cpptools",
+			"yzhang.markdown-all-in-one",
+			"bierner.github-markdown-preview",
+			"YuTengjing.open-in-external-app",
+		]
+	}
+}
