@@ -102,7 +102,7 @@ Boyle bir durumda value semantiginin korunmasi isteniyor ise, [deep copy](020_te
 > ```
 > `Person` sinifinin default ctor'u, `mname`'i kopyalarken `String` sinifinin copy ctor'unu cagiracagi icin gerekmezdi.
 
-> **Not**
+> **Not**  
 > Bazi sinif nesneleri icin bir nedenden dolayi copy ctor **user defined-deleted** olarak kopyalamaya karsi kapatilabilir. 
 > *Dipnot: Eski C++'da bir fonksiyon silinemedigi icin kopyalamaya kapatilmak istenen sinifin copy ctor'u private yapiliyordu.*
 
@@ -157,7 +157,7 @@ y = x;          // x.operator=(y);
 * C++'da `x = y` ifadesi bir `lvalue expr`'dir. Atama islemi tum degerler icin *(primitive turler dahil)* boyledir.
 * `operator=` fonksiyonun geri donus degeri ancak bir lvalue ise olusturdugu ifade de lvalue expression olur.
 
-> **Hatirlatma**  
+> **Hatirlatma**    
 > C'de ve C++'da;
 > 
 > * Atama operatorunun urettigi deger, **nesneye atanan deger**dir:
@@ -173,7 +173,7 @@ y = x;          // x.operator=(y);
 [Ornek: Date sinifi](res/src/smf_copy_assign01.cpp)
 [Ornek: String sinifi](res/src/smf_copy_assign02.cpp)
 
-> **DIKKAT!**
+> **DIKKAT!**  
 > Copy assignment implement edilirken **self assignment** problemine dikkat edilmelidir.  
 > Alternatif olarak [copy & swap idiom](999_kavramlar.md#copy--swap-idiom)'u kullanabilir: 
 > * strong exception guarentee
@@ -182,7 +182,7 @@ y = x;          // x.operator=(y);
 **Copy ctor'da bahsedilen durumdan kaynakli problemlere ek olarak, copy assigment default edildiginde**
 1. **Resource-leak olusacaktir**: Sinif kendi kaynaklarinin uzerine yazacagi icin, dtor calistiginda kopyalamadan onceki kaynaklari release etmeyecektir!
 
-> **DIKKAT!**
+> **DIKKAT!**  
 > Tipik olarak eger bir sinifa destructor yazilmasi gerekiyor ise, copy assignment da **yazilmali**dir yada **delete** edilmelidir.
 
 

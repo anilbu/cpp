@@ -14,7 +14,7 @@
 * Diziler atanabilir varliklar degildir.
   ```C++
   char str[10] = "ali";
-  str = "veli";   // syntax error
+  str = "veli";   // sentaks hatasi
   ```
 
 * `[]` operatoru

@@ -5,27 +5,27 @@
 
 **Association**
 Iki sinif turunden nesnenin birlikte calisarak bir isi gerceklestirmesini ifade eden iliski bicimidir.
-<center>
+<p align="center">
 <img src="res/img/association.png" width="480px"/><br/>
 Sekil: UML Class Diagram
-</center>
+</p>
 
 **Aggregation**
 Nesnelerden birinin digerini sahiplendigi bir iliski bicimidir. *Association*'in alt kumesidir. 
-<center>
+<p align="center">
 <img src="res/img/aggregation.png" width="480px"/><br/>
 Sekil: UML Class Diagram
-</center>
+</p>
 
 **Composition**
 Nesnelerden birinin digerini sahiplenmesi ile beraber hayatini da kontrol ettigi iliskisi bicimidir. Sahip olan nesne hayata geldiginde sahip olacagi nesne de hayata gelmekte, sonlandiginda sahip olduklari da sonlanmaktadir. *Aggregation*'in alt kumesidir.
 
 Composition, siniflar arasinda **`has-a`** iliskisi ile bir varligin baska bir varligin sahibi oldugunu ifade eder.
 
-<center>
+<p align="center">
 <img src="res/img/composition.png" width="480px"/><br/>
 Sekil: UML Class Diagram
-</center>
+</p>
 
 > 
 > $$
@@ -93,7 +93,7 @@ private:
 Eger sinifin default ctor'i derleyici tarafindan yazilirsa, veri elemanlari da default init edilmektedir. Bu, veri elemanlarinin sinif turunden oldugunda [default ctor](210_ctors_dtor.md#default-constructor)'u cagrilmaktadir.
 **Istisna**: Eger [default member initializer](210_ctors_dtor.md#default-member-initializer) ile initialize edilmis ise, derleyicinin yazdigi default ctor'da belirtilen ctor cagrilacaktir.
 
-> **DIKKAT!**  
+> **DIKKAT!**    
 > Eger sinifin data memberlarindan birinin default ctor'u bulunmuyor ise, derleyici sinifin default ctor'u `delete` etmektedir!
 
 
@@ -101,11 +101,11 @@ Bir sinif olustururken:
 1. Sinifin default ctor'u olsun mu?
    *Bir sinifin default ctor'u bulunmayabilir, ancak dezavantajlarinin farkinda olunmasi gerekiyor.*
 2. Sinif kopyalanabilmeli mi?
-   > **DIKKAT!**
+   > **DIKKAT!**  
    > Bir sinif icin **copy ctor** yaziyorsaniz, sinifin tum veri elemanlarinin copy construct edilmesinden programci sorumludur. Eger veri elemanlarindan biri icin copy ctor'unu calistiracak cagri eklenmez ise **default ctor** cagrilir. 
    
-   > **DIKKAT!**
-   > Bir sinifin data memberlarindan birinin copy ctor'u `delete` edilmis ise, derleyicinin urettigi default copy ctor'da syntax hatasi olusacaktir. Derleyici, dilin kurallarina aykiri bir durumla karsilastiginda `default` etmesi gereken bildirimi `delete` eder!
+   > **DIKKAT!**  
+   > Bir sinifin data memberlarindan birinin copy ctor'u `delete` edilmis ise, derleyicinin urettigi default copy ctor'da sentaks hatasi olusacaktir. Derleyici, dilin kurallarina aykiri bir durumla karsilastiginda `default` etmesi gereken bildirimi `delete` eder!
    
    `std::unique_ptr` kopyalanamayan ancak tasinabilen bir siniftir.
    
@@ -117,6 +117,6 @@ Bir sinif olustururken:
    ```
    ```C++
    Myclass m1;
-   Myclass m2(m1);              // syntax error
+   Myclass m2(m1);              // sentaks hatasi
    Myclass m3(std::move(m1));   // gecerli
    ```

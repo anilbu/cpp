@@ -136,8 +136,6 @@ Ancak, derleyici `user-defined conversion + user-defined conversion` donusumu mu
     C cx = ax;    // syntax error: implicit user-def + user-def conv.
     ```
   </details>
-  ceblk
-
 
 
 ## Explicit Type Conversion
@@ -206,7 +204,7 @@ char* mystrchr(const char* p, int c)
 
 mystrchr("abc", 0);
 ```
-> **Not**
+> **Not**  
 > p parametresinin `const char*` olmasinin nedeni adresi verilen nesnenin degistirilmeyecek olmasidir. 
 > Geri donus degerinin `char*` turu olmasinin nedeni `p` parametresine verilen argumanin `const` olup olmadiginin bilinmemesidir. 
 

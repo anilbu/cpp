@@ -4,7 +4,7 @@ Copy ctor ve copy assignment bolumunde bahsedilen problemlerden dolayi iki adet 
 ### Rule of Zero
 Zorunda olmadikca SMF hicbirini yazma, derleyici kodu uretsin.
 
-> **Not**
+> **Not**  
 > Sinifin SMF'lerinin default hali isinizi bozmuyorsa, derleyicinin yazdigini birakmak daha iyi.
 
 

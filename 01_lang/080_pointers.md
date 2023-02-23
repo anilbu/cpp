@@ -43,7 +43,7 @@ Degeri kullanilabilir bir pointeri ifade etmek icin kullanilir.
   int a[5] = {0};
   int* p = &a[5];   // valid pointer
   ```
-  > **DIKKAT!**
+  > **DIKKAT!**  
   > Bir pointer'in valid olmasi, adresdeki nesneye erisimin *  (dereferencing)* mumkun oldugu anlamina gelmemektedir.
   > ```C++
   > a[5];  // UB
@@ -61,10 +61,10 @@ Degeri kullanilabilir bir pointeri ifade etmek icin kullanilir.
   ```
 * Hayati sonlanmis bir nesnenin adresine sahip pointer. **Dangling pointer** olarak da isimlendirilir.
 
-> **DIKKAT!**
+> **DIKKAT!**  
 > Invalid pointer kullanimi **UB**dir!
 
-## Nullptr
+## `nullptr`
 <!-- TODO 8. Derste nullptr, NULL ve 0 arasindaki fark anlatiliyor, eksigi tamamla -->
 `nullptr`'nin turu `nullptr_t`dir. Bu bir **pointer turu degildir**, ancak pointer turune **donusebilen** bir turdur.
 
@@ -98,13 +98,13 @@ Bir adres degerinde bulunan varliga erisim icin kullanilir.
 * Aritmetik turlerden adres turlerine implicit donusum yoktur.
   ```C++
   int x = 10;
-  int* p = x;     // syntax error
+  int* p = x;     // sentaks hatasi
   ```
   
 * Farkli adres turleri arasinda implicit donusum yoktur.
   ```C++
   int x = 10;
-  char* p = &x;   // syntax error 
+  char* p = &x;   // sentaks hatasi 
   ```
   
 ## Pointer aritmetigi
@@ -115,7 +115,7 @@ Bir adres degerinde bulunan varliga erisim icin kullanilir.
   ```
 * Iki pointer adresi birbiri ile toplanamaz.
   ```C++
-  T* + T* // syntax hatasi
+  T* + T* // sentaks hatasi
   ```
 * Ancak iki pointer adresi birbirinden cikarilabilir. Ifade sonucu uretilen deger `ptrdiff_t` turundendir. Tipik olarak `int`e tures isimdir.
   ```C++
@@ -130,8 +130,8 @@ Bir fonksiyon 3 farkli sekilde gecerli adres donebilir.
 2. Dinamik omurlu nesne adresi
 3. Cagirandan aldigi adresi gondermesi
 
-> **DIKKAT!**
-> auto omurlu nesneler pointer olarak dondurulmemelidir!
+> **DIKKAT!**  
+> Fonksiyon icinde bildirilmis bir otomatik omurlu nesnenin adresi pointer ile geri dondurulmemelidir!
 > [Ornek](res/src/pointers01.cpp)
 
 ## Pointers ve `const`

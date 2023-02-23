@@ -38,7 +38,7 @@ cout << getmax("ayse", "zeliha") << '\n';
 ```
 `"zeliha"` ve `"ayse"` karsilastirmasinda `const char*` turunden pointer adres karsilastirmasi yapilmaktadir. Bu durum icin ayri bir template specialization'i belirtilmelidir.
 
-> **Not**
+> **Not**  
 > string literalleri `.data` segmentinde **static omurlu** olarak olusturulur.
   
 Bu durumda kullanilabilecek farkli araclar:
@@ -77,7 +77,7 @@ Bu durumda kullanilabilecek farkli araclar:
 * `template <>` ile bildirilir. Birden fazla template parametresi var ise **tum parametreler icin argumanlar** belirtilmelidir. *Bu nedenle full specialization denir.*
 
 * Template secimi once primary templateler arasinda overload resolution'a uygun olarak yapilir, **secilen template'den kod uretilmesi gerektiginde** secilen template'e ait uygun bir explicit specialization var ise kullanilir.
-  > **DIKKAT!**
+  > **DIKKAT!**  
   > Explicit specialization overload resolution'a ait bir mekanizma degil, bir template'den kod uretilmesi sirasinda kod secimini saglayan bir mekanizmadir.
   
   ```C++
@@ -103,7 +103,7 @@ Bu durumda kullanilabilecek farkli araclar:
   func(p);  // 4
   ```
 
-> **DIKKAT!**  
+> **DIKKAT!**    
 > Fonksiyon sablonlari icin explicit specialization bazi durumlarda gorulmesi zor hatalara neden olabildiginden; programcilar fonksiyon sablonlarinda explicit specialization yerine template'leri overload etmeyi terchi ediyorlar.
 
 * class template icin explicit specialization bildirimi:

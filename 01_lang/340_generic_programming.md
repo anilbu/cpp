@@ -25,7 +25,7 @@ C++ dilinde derleyiciye kod urettirilmesini saglayan bir arac setidir.
   3. Sablonlar araciligi ile kod uretiminden faydalanarak
 
 * Cagrilmayan fonksiyonlar icin kod uretilmemesi
-  *Kod uretilmez ise syntax hatasi da olusmamaktadir.*
+  *Kod uretilmez ise sentaks hatasi da olusmamaktadir.*
 * Kullanilan turlerin kisitlanabilmesi
 
 <!--  -->

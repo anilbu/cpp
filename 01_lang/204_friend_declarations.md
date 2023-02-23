@@ -70,7 +70,7 @@ void Nec::foo() {
   x.foo();
 }
 ```
-> **DIKKAT!**
+> **DIKKAT!**  
 > `friend` verilen sinifin **complete type** olmasi gerekmektedir.  
 > *friend declaration yapilan noktada friend verilen uye fonksiyonun isminin gorunebilir olmasi gerekmektedir.*
 

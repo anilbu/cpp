@@ -19,7 +19,7 @@ func(10, 20);
   ```C++
   void func(int x, int y = x);  // gecersiz
   ```
-* Varsayilan arguman hem bildirimde hem tanimda yer almasi syntax hatasidir. 
+* Varsayilan arguman hem bildirimde hem tanimda yer almasi sentaks hatasidir. 
   Ancak birden fazla bildirimde farkli parametreler icin bulunabilir.
 * Varsayilan argumanlar derleyici tarafindan kumulatif olarak degerlendirilir. Fakat ayni parametreye ikici bir default arg. verilmemelidir. *Bu nedenle baska bir modulden elde edilen fonksiyona varsayilan arguman verilebilir.*
   *my_header.h:*

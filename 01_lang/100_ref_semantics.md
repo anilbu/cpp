@@ -85,10 +85,10 @@ r   //  r ifadesi = int, r degiskeni = int&
   > **Not**
   > C dilinde pointerlar kullanmadan call by reference kullanimi mumkun degildir. Bu durum C++ icin gecerli degildir.
   
-  > **Not**
+  > **Not**  
   > C dilinde fonksiyon cagri ifadesi karsiligi her zaman rvalue expr'dir. C++ dilinde ise geri donus degir bir ref turunden ise lvalue expr olabilir.
   
-  > **DIKKAT!**
+  > **DIKKAT!**  
   > Omuru sonlanmis bir nesneyi referans olarak geri dondurmek **UB**dir!
   > [bknz: storage classes](090_storage_classes.md)
   
@@ -98,7 +98,7 @@ r   //  r ifadesi = int, r degiskeni = int&
   ```C++
   int x = 45;
   const int& r = x; // r is a lvalue ref to const int
-  r++;              // syntax error
+  r++;              // sentaks hatasi
   ```
   ```C++
   int& const r = x; // ignore ediliyor: cunku ref zaten dogasi geregi top-level const
@@ -110,8 +110,8 @@ r   //  r ifadesi = int, r degiskeni = int&
   const int& cr = cx;
   ```
   ```C++
-  int& r = cx;  // syntax error
-  int* p = &cx; // syntax error
+  int& r = cx;  // sentaks hatasi
+  int* p = &cx; // sentaks hatasi
   ```
 
 * Normalde ref initializationda tur donusumu uygulanmamasina ragmen `const&`'lere farkli turden ve deger kategorisinde bulunan nesneler baglanabilir.

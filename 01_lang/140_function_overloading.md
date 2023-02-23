@@ -28,7 +28,7 @@ Function overloading'den soz edilebilmesi icin iki yada daha fazla fonksiyonun a
 > 2. namespace scope
 > 3. class scope
 > 
-> **DIKKAT!**  
+> **DIKKAT!**    
 > Fonksiyonlari parametre turu ve geri donus turu `dizi` ve/ya `fonksiyon turu` olamaz! Ancak fonksiyona yada diziye pointer olabilir. Aksi halde **decay uygulanarak ilgili tur pointer'a donusturulur**.
 > 
 
@@ -98,7 +98,7 @@ Asagidaki orneklerde function overloading var midir?
   int foo(const int);     // degil: function redeclaration soz konusu
   ```
   Imzalar farkli degil, parametrenin `const` olmasi imzayi degistirmez!
-  **function redeclaration**: Ayni fonksiyonun tekrar bildirilmesidir. Function redeclaration kontrolu icin body eklenebilir. Bu durumda redeclaration varsa compiler syntax hatasi verecektir.
+  **function redeclaration**: Ayni fonksiyonun tekrar bildirilmesidir. Function redeclaration kontrolu icin body eklenebilir. Bu durumda redeclaration varsa compiler sentaks hatasi verecektir.
   ```C++
   int foo(int) { return 1; }
   int foo(const int) { return 1; }  
@@ -213,7 +213,7 @@ Asagidaki orneklerde function overloading var midir?
   int a7[7] {};   //
   
   int(*p1)[5] = &a5;  // int[5] turunden bir dizinin adresini ifade eden bir pointer
-  int(*p1)[6] = &a5;  // syntax error: tur uyusmazligi
+  int(*p1)[6] = &a5;  // sentaks hatasi: tur uyusmazligi
                       // &a5, &a6, &a7 farkli turden adresler
   
   void foo(decltype(&a5));  
@@ -234,7 +234,7 @@ Asagidaki orneklerde function overloading var midir?
 
 --------------
 
-> **DIKKAT!**
+> **DIKKAT!**  
 > **Genellikle yanlis ogrenilen yada cok yapilan hatalar**  
 > 1. Ayni isimli yanlis fonksiyonun cagrilmasi
 > 2. Ortada (kodda) bir function overloading var mi yok mu?

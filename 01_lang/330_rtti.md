@@ -47,7 +47,7 @@ void func(Car* carptr)
   ```C++
   Der der;
   Base* baseptr = &der;
-  Der* derptr = dynamic_cast<Der*>(baseptr);  // syntax error: Base* bir polymorphic sinif degildir
+  Der* derptr = dynamic_cast<Der*>(baseptr);  // sentaks hatasi: Base* bir polymorphic sinif degildir
   ```
   </details>
   <!--  -->
@@ -157,7 +157,7 @@ const std::type_info& ti = typeid(expr)
   </details>
   <!--  -->
   
-  > **Not**
+  > **Not**  
   > Bazi derleyiciler tur isimleri [mangling](020_temel_kavramlar.md#mangling)'e ugramis hali ile donebilmektedir. Tur ismini demangle etmek icin `boost::core::demangle` fonksiyonundan faydalanabilir.
   > ```C++
   > #include <boost/core/demangle.hpp>

@@ -7,10 +7,10 @@ class Der final : public Base {};
 ```
 Yukarida `Der` sinifi `final` olarak bildirilmesi nedeniyle taban sinif olarak kullanilamaz.
 ```C++
-class DerDer : public Der{}; // syntax error
+class DerDer : public Der{}; // sentaks hatasi
 ```
 
-> **DIKKAT!**
+> **DIKKAT!**  
 > *Kalitim, genel (her yerde) kullanima uygun bir arac degildir.*
 > Teknik olarak final olmayan tum siniflardan kalitim kullanilarak sinif  turetilebilmektedir. Ancak her sinif kalitim ile kullanilmaya uygun bicimde tasarlanmadigini goz onune almayi unutmayin. 
 
@@ -32,7 +32,7 @@ public:
 
 class DerDer : public Der{
 public:
-    virtual void foo() override;   // syntax error: Cunku Der::func final
+    virtual void foo() override;   // sentaks hatasi: Cunku Der::func final
 };
 ```
 

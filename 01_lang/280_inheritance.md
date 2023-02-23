@@ -21,17 +21,17 @@ Kalitimi gerceklestirme fiili
 **Single-level inheritance**
 <!-- TODO Tanim ekle -->
 UML Modelleme dilinde inheritance, turemis siniftan taban sinifa giden bir ok isareti ile `is-a` iliskisi gosterilir.
-<center>
+<p align="center">
   <img src="res/img/21_inheritance_uml.png" width=300px /><br/>
   <i>Sekil: Single-level inheritance</i>
-</center>
+</p>
 
 **Multi-level inheritance**
 <!-- TODO Tanim ekle -->
-<center>
+<p align="center">
   <img src="res/img/21_multilevel_inheritance.png" width="100px"/><br/>
   <i>Sekil: Multi-level inheritance</i>
-</center>
+</p>
 
 **Direct base class**
 Kalitim yapilan bir sinifin direkt olarak taban sinifidir. Ornegin; `Mercedes` sinifi `Merceder_S500`'un direct base classidir.  
@@ -39,10 +39,10 @@ Kalitim yapilan bir sinifin direkt olarak taban sinifidir. Ornegin; `Mercedes` s
 
 **Multiple inheritance**
 Bir sinifin birden fazla taban sinifi direct base class olarak kullanarak olusturulan kalitim bicimidir.
-<center>
+<p align="center">
   <img src="res/img/21_multiple_inheritance.png" width=200px /><br/>
   <i>Sekil: Multiple inheritance</i>
-</center>
+</p>
 
 
 ## Genel kurallar
@@ -171,7 +171,7 @@ public:
 
 `.` operatorunun yada `->` operatorunun saginda kullanilan isim, eger sol operand bir `derived` sinif turunden ise once `derived` sinifin scope'unda, bulunamaz ise `base` sinifin scope'unda aranmaktadir.
 
-> **Hatirlatma**
+> **Hatirlatma**  
 > Farkli scopelarda bildirilmis cakisan isimlerden once bildirilen name-hiding'e ugrar.
   
 *Eger turemis sinifta ki bir isim taban sinifta ki bir varlik ile ayni isim verilmis ise, taban siniftaki isim gizlenir.*
@@ -264,7 +264,7 @@ public:
 </details>
 <!--  -->
 
-> **Hatirlatma**
+> **Hatirlatma**  
 >  Access control en son yapilir.  
 >  *Once name-lookup, sonra context control, en son access control*
 >  <details>
@@ -312,7 +312,7 @@ Bir turemis sinif turunun taban sinif turune yapilan donusumdur. C++'da upcastin
   Der& derptr = base;     // gecersiz: implicit downcasting yok!
   ```
   
-  > **DIKKAT!**  
+  > **DIKKAT!**    
   > `Base` sinif nesnesine dogrudan `derived` turunden bir nesne atanabiliyor olsa da kullanilmasi istenen bir arac degildir. Bu duruma **object slicing** (nesne dilimlenmesi) denir.
   > 
   > *-ileride detayli aciklanacak-*
@@ -414,7 +414,7 @@ derleyici `derived` sinif nesnesi icindeki `base` sinif nesnesi icin default cto
   </details>
   <!--  -->
 
-  > **Hatirlatma**  
+  > **Hatirlatma**    
   > Derleyici default ettigi bir SMF icin dilin kurallari geregi hata olusturacak bir kod uretmesi gerekiyorsa, **sentaks hatasi vermek yerine** ilgili SMF'i **delete** eder.
 
 * Eger `derived` sinif ctor'unun user-declared olmasi durumunda, derleyici `base` sinif icin default ctor cagrisini ekler.
@@ -502,7 +502,7 @@ derleyici `derived` sinif nesnesi icindeki `base` sinif nesnesi icin default cto
   
   
 * Eger `Derived` sinifin `copy ctor` user-defined ise, `base` sinif copy ctor'u ctor initializer list'e **eklenmelidir**.
-  > **DIKKAT!**  
+  > **DIKKAT!**    
   > Eger `derivied` sinif ctorlarinda initializer list'e `base` sinif **copy ctor'u eklenmez ise**, derleyici `base` sinif icin copy ctor yerine **default ctor** cagrisini ekleyecektir!
   
   Benzer durum `move ctor` icin de gecerlidir.
@@ -727,7 +727,7 @@ Der::x = 5;       // legal
 </details>
 <!--  -->
 
-> **Hatirlatma**  
+> **Hatirlatma**    
 > C++'da `using` keyword kullanimlari:
 > * `using std::cout`
 > * `using namespace std;`
@@ -760,6 +760,6 @@ Der der2(1, 2);     // gecerli
 Der der3(3.14);     // gecerli
 ```
 
-> **Not**
+> **Not**  
 > Inherited ctor araci ozellikle generic programlamada cok ise yaramaktadir.
 

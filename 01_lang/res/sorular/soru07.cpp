@@ -75,7 +75,7 @@ int main(int argc, char const *argv[])
 /*
 cevap:
 
- (1) syntax error: must be an lvalue
+ (1) sentaks hatasi: must be an lvalue
  
  (2) p bir pointer to function, x ise pointer to function pointer
      p = int(*)(int)

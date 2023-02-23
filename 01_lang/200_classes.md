@@ -18,7 +18,7 @@ Bir siinifin detaylarinin tanimlanmasidir.
   *Yani, tanim birebir ayni oldugu surece header dosyasinda tanimlanip, birden fazla kaynak dosyada derlenebilir.*
 * Memberi bulunmayan bir **empty class**in, `sizeof` degeri 1'dir.
 * `class` yerine `struct` anahtar sozcugu ile de sinif tanimi yapilabilmektedir.
-  > **DIKKAT!**
+  > **DIKKAT!**  
   > C'deki struct'lar C++'da bulunan `struct` ile ayni degil!
 
 [bknz: Scopes](050_basics.md#scope)
@@ -48,7 +48,7 @@ Class taniminda erisim kontrolu belirtme amaci ile kullanilir.
 * `protected`: Sinifin kendi kodlari ve bu siniftan turetilen siniflarin siniflarin erisimi ile kisitlanmis kisimdir.
 * `public`: Erisim kisitlamasi olmayan uyelerin bulundugu kisimdir.
 
-> **DIKKAT!**  
+> **DIKKAT!**    
 > Sinifin `public`, `private`, `protected` bolumleri ayri scopelar degildir.
 
 Bir sinif `class` tagi ile tanimlanmis ise default access **private**, `struct` tagi ile tanimlanmis ise default access **public**'dir.
@@ -76,10 +76,10 @@ Myclass m;
 foo(&m);    // name-lookup hatasi
 ```
 ```C++
-Myclass::foo(&m);   // syntax hatasi, dilin kurallarinda boyle bir cagrim yok.
+Myclass::foo(&m);   // sentaks hatasi, dilin kurallarinda boyle bir cagrim yok.
 ```
 
-> **Not**
+> **Not**  
 > Sinifin veri elemanlari arasinda padding olabilir, ancak bildirilen sira ile olmak zorunda degildir.
 
 

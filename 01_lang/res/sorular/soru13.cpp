@@ -93,7 +93,7 @@ int main() {
         operator<<(std::cout, "Hello world");
     
     (2)
-        syntax hatasi olusur, ADL soz konusu degil.
+        sentaks hatasi olusur, ADL soz konusu degil.
         std::cout.operator<<(endl);
     
     (3)

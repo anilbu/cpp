@@ -20,7 +20,7 @@ int ival = m;
 * `T*` ve `T&` turleri de hedef tur olarak ayrica overload edilebilir.
 * [C++11] Tur donusumu operator fonksiyonlari ile otomatik donusum yapilmamasi icin `explicit` keywordu kullanilabilir.
 
-> **Hatirlatma**  
+> **Hatirlatma**    
 > 
 > * Eger bir donusum implicit olarak;
 > 
@@ -56,7 +56,7 @@ public:
 Myclass m;
 int x = m;  // int x = m.operator int();
 
-Nec n1 = m;                   // syntax hatasi: explicit donusum yapilmali
+Nec n1 = m;                   // sentaks hatasi: explicit donusum yapilmali
 Nec n2 = static_cast<Nec>(m); // legal
 
 double dval = m;  // once Myclass'dan int'e, sonra int'ten double'a donusum gerceklesir.
@@ -85,14 +85,14 @@ auto val2 = +cnt;    // gecerli: +(cnt.operator int()) ve auto = int olacak.
 
 // Eger Counter::operator int() overload edilmemis ise:
 auto val3 = cnt;     // auto = int, cunku copy ctor calisacak
-auto val4 = +cnt;    // syntax error: Counter nesnesinin isaret operatoru  yok
+auto val4 = +cnt;    // sentaks hatasi: Counter nesnesinin isaret operatoru  yok
 ```
 ```C++
 Counter cnt1 {10};
 Counter cnt2 {20};
 
 // Eger Counter::operator int() overload edilmemis ise:
-cnt1 + cnt2;     // syntax error: Counter'un toplama operatoru yok
+cnt1 + cnt2;     // sentaks hatasi: Counter'un toplama operatoru yok
 
 // Eger Counter::operator int() overload edilmis ise:
 cnt1 + cnt2;     // gecerli: cnt1.operator int() + cnt2.operator int()
@@ -105,11 +105,11 @@ cnt1 + cnt2;     // gecerli: cnt1.operator int() + cnt2.operator int()
   
   // operator int() overload edilmemis ise
   Nec nec1, nec2;
-  if(nec1);       // syntax error
-  !nec1;          // syntax error
-  nec1 && nec2;   // syntax error
-  nec1 || nec2;   // syntax error
-  nec1 ? 10 : 20; // syntax error
+  if(nec1);       // sentaks hatasi
+  !nec1;          // sentaks hatasi
+  nec1 && nec2;   // sentaks hatasi
+  nec1 || nec2;   // sentaks hatasi
+  nec1 ? 10 : 20; // sentaks hatasi
   
   // operator int() overload edilmis ise
   Nec nec1, nec2;
@@ -138,7 +138,7 @@ cnt1 + cnt2;     // gecerli: cnt1.operator int() + cnt2.operator int()
   
   // operator bool() explicit ise
   Nec nec1, nec2;
-  int x = nec1;   // syntax error: static_cast yapilmali
+  int x = nec1;   // sentaks hatasi: static_cast yapilmali
   if(nec1);       // gecerli
   !nec1;          // gecerli
   nec1 && nec2;   // gecerli
@@ -147,7 +147,7 @@ cnt1 + cnt2;     // gecerli: cnt1.operator int() + cnt2.operator int()
   ```
   
 > **Mulakat Sorusu**  
-> Asagidaki programda bir syntax hatasi var midir?  
+> Asagidaki programda bir sentaks hatasi var midir?  
 > Eger yok ise auto turu ve program ciktisi nedir?  
 > Eger operator bool explicit olsaydi ne olurdu?
 > ```C++
@@ -170,7 +170,7 @@ cnt1 + cnt2;     // gecerli: cnt1.operator int() + cnt2.operator int()
 > ```
 > 1. Nec nesnelerinin toplanabilmesi icin derleyici x ve y'ye implicit olarak bool'a donusum uygular. 
 > 2. Iki bool degerinin toplanabilmesi icin integral promotion uygulanarak bool degerleri int'e 1 degerini alacak bicimde donusur.
-> 3. Eger explicit olsaydi x + y ifadesinde syntax error olusurdu.
+> 3. Eger explicit olsaydi x + y ifadesinde sentaks hatasi olusurdu.
 
 ```C++
 #include <memory>
@@ -222,9 +222,9 @@ enum class Weekday {
 
 Weekday wd{ Weekday::MONDAY };
 
-++wd;             // syntax error: oper. overl. yok
-wd++;             // syntax error: oper. overl. yok
-std::cout << wd;  // syntax error: oper. overl. yok
+++wd;             // sentaks hatasi: oper. overl. yok
+wd++;             // sentaks hatasi: oper. overl. yok
+std::cout << wd;  // sentaks hatasi: oper. overl. yok
 
 // prefix
 Weekday& operator++(Weekday& wd){

@@ -1,5 +1,5 @@
 
-<center><img src="res/img/23_type_of_inheritances.png" width=55% /></center>
+<p align="center"><img src="res/img/23_type_of_inheritances.png" width=55% /></p>
 
 # private inheritance
 
@@ -35,8 +35,8 @@ der.publ();      // syntax error: access-control publ is private
   *Conversion from 'Der' to 'Base' exists, but is inaccessible*
   ```C++
   Der der;
-  Base* baseptr = &der; // syntax error
-  Base& baseref = der;  // syntax error
+  Base* baseptr = &der; // sentaks hatasi
+  Base& baseref = der;  // sentaks hatasi
   ```
   Turemis sinif nesnesin private alanina erisim bulunan yerlerde *`is-a` iliskisi saglanmasi nedeniyle* private taban sinif nesnesine ortulu donusum bulunmaktadir.
   ```C++
@@ -217,7 +217,7 @@ void bar(Base&);
 ```C++
 Der der;
 func(der);  // gecerli
-foo(der);   // syntax error
+foo(der);   // sentaks hatasi
 ```
 
 # protected inheritance

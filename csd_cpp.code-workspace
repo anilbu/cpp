@@ -6,7 +6,7 @@
 		}
 	],
 	"settings": {
-		"markdown.preview.breaks": true,
+		"markdown.preview.breaks": false,
 		"C_Cpp.default.cppStandard": "gnu++20",
 		"openInExternalApp.openMapper": [
 			{

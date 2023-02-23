@@ -8,14 +8,14 @@
 
 * Eger sinifin dtor'u user declared ise, default ctor ve copy memberlar **default** edilir.  
   Ancak move member'lar **not-declared** olacaktir.
-  > **DIKKAT!**
+  > **DIKKAT!**  
   > Eger `dtor` bildiriliyorsa, muhtemel kaynak iadesi yapilmaktadir. Bu nedenle copy member'larin da uygun bicimde tanimlanmasi gerekmektedir. *Ileride, yeni standartlarda bu durumun degismesi bekleniyor.*
   
-<center>
+<p align="center">
 <img src="res/img/smf_rules.png" width=""/><br/>
 Tablo: SMF Kurallari<br/>
 <i>Everything You ever wanted to know about move semantics, Howard Hinnant, Accu 2014</i>
-</center>
+</p>
   
 Yukaridaki tablo[1] kisaca soyle aciklanabilir:
 * `dtor` ya user declared yada `defaulted`.
@@ -62,12 +62,12 @@ Yukaridaki tablo[1] kisaca soyle aciklanabilir:
 
 <!--  -->
 
-> **DIKKAT!**  
+> **DIKKAT!**    
 > `copy member`larin bildirip, `move member`lari **asla** delete etmeyin!
 > 
-> Cunku bu durumda tasima yapilmasi gereken yerde kopyalama yapilmasi istenmektedir. Ancak, move members bildirildigi icin function overload resolution'a girecek ve delete edildigi icin **syntax hatasi** olusacaktir!
+> Cunku bu durumda tasima yapilmasi gereken yerde kopyalama yapilmasi istenmektedir. Ancak, move members bildirildigi icin function overload resolution'a girecek ve delete edildigi icin **sentaks hatasi** olusacaktir!
 
-> **Not**
+> **Not**  
 > 
 > SMF Not declared olma durumlari:
 > ```

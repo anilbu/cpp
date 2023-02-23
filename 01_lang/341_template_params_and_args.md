@@ -61,7 +61,7 @@ Template parametrelerine karsilik verilebilecek argumanlara kisitlama uygulanabi
 --------------------------------
 > [auto type deduction](110_type_deduction.md#auto-type-deduction) ile hemen hemen ayni. 
 
-* Eger cikarim yapilamaz ise, syntax hatasi olusur.
+* Eger cikarim yapilamaz ise, sentaks hatasi olusur.
 * [C++17] class template argument deduction (CTAD)
 
 **template type deduction ile auto type deduction arasindaki farklar**
@@ -73,7 +73,7 @@ Template parametrelerine karsilik verilebilecek argumanlara kisitlama uygulanabi
   ```
   ```C++
   auto x = {1, 3, 5, 7, 9}; // auto = initializer_list<int>
-  func({1, 3, 5, 7, 9});    // syntax error
+  func({1, 3, 5, 7, 9});    // sentaks hatasi
   ```
 
 * template type deduction basarili olmak zorunda degildir.
@@ -220,7 +220,7 @@ Template parametrelerine karsilik verilebilecek argumanlara kisitlama uygulanabi
   Myclass::Node node;  
   ```
   
-  > **Not**
+  > **Not**  
   > [C++20] ile template parametresine bagli nested type'lardan bahsedildiginde, bazi durumlarda `typename` anahtar sozcugunun kullanilma zorunlulugu kaldirildi.
   > ```C++
   > template <typename T>
@@ -520,7 +520,7 @@ Myclass<> m2;           // T = int
 Myclass m3;             // T = int (CTAD)
 ```
 
-> **DIKKAT!**  
+> **DIKKAT!**    
 > Function template'leri icin default template argumanlari C++11 ile dile eklenmistir. Daha oncesinde sadece sinif sablonlarinda kullanilabiliyordu.
 
 * Template tur cikarimi fonksiyonun varsayilan argumana karsi yapilamaz. Varsayilan fonksiyon argumani ile varsayilan template argumani karistirilmamalidir.
@@ -528,9 +528,9 @@ Myclass m3;             // T = int (CTAD)
   template <typename T>
   void func(T x = 0);
   ```
-  Asagidaki `func()` cagrisinda `T` turu `void func(void)` olarak yapilacagi icin syntax hatasina neden olur.
+  Asagidaki `func()` cagrisinda `T` turu `void func(void)` olarak yapilacagi icin sentaks hatasina neden olur.
   ```C++
-  func();   // syntax error: T int degil!
+  func();   // sentaks hatasi: T int degil!
   ```
   
 * Default template argumani icerisinde baska bir template parametresi de kullanilabilir:

@@ -44,10 +44,10 @@ int x = 10;
 
 &x;                     // data type: int*
 
-int* &r = &x;           // syntax error: cunku &x ifadesi bir rvalue expr ve lvalue ref'e baglanamaz.
+int* &r = &x;           // sentaks hatasi: cunku &x ifadesi bir rvalue expr ve lvalue ref'e baglanamaz.
 int* &&rr = &x;         // gecerli: cunku &x rvalue expr. ve rvalue ref'e baglanabilir.
 
-const int* &r = &x;     // syntax error: constluk verilen ref degil, pointerin isaret ettigi int turu
+const int* &r = &x;     // sentaks hatasi: constluk verilen ref degil, pointerin isaret ettigi int turu
 int* const &r = &x;     // gecerli: cunku rvalue expr, const lvalue ref'e baglanabilir.
 
 using iptr = int*;    

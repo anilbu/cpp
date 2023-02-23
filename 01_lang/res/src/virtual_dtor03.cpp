@@ -19,7 +19,7 @@ int main(int argc, char const *argv[])
     Der* derptr = new Der;
     Base* baseptr = derptr;
     
-    //delete baseptr;   // syntax error: Bu nesneyi taban sinif uzerinden silmeye calisma
+    //delete baseptr;   // sentaks hatasi: Bu nesneyi taban sinif uzerinden silmeye calisma
     delete derptr;      // ~Der() cagrildi
                         // ~Base() cagrildi
 }

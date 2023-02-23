@@ -19,7 +19,7 @@ catch(type_of_error e) {
 
 `catch` blogu; hatayi isleyecek kodlari *(exception handler)* barindirmaktadir.
 
-> **DIKKAT!**  
+> **DIKKAT!**    
 > Yakalanmamis hata birakmamak hedeflenmelidir. Ancak, mudahale edilmemesi gereken bir exception da **yakalanmamalidir**.  
 > *Yakaladiginda ne yapilacagi bilinmeyen bir exception, en basta yakalanmamalidir!*
 
@@ -36,11 +36,11 @@ catch(type_of_error e) {
 * `catch` blogunun parametrelerinde **ortulu donusum yapilmamaktadir**. Gonderilen hatanin turu ile yakalanan hatanin turlerinin birebir ayni olmasi gerekmektedir.
   **Istisna**: `catch` blogu parametrelerinde `is-a` iliskisi ile [upcasting](280_inheritance.md#upcasting) uygulanabilmektedir. [Ornek: std::bad_alloc](res/src/exceptions02.cpp)  
 * `catch` blogu parametreleri `const T&` turunden olmasi, virtual dispatch mekanizmasini devreye sokar. 
-  > **DIKKAT!**
+  > **DIKKAT!**  
   > `catch` blogu parametrelerinde `T&` kullanilmamasi durumunda **copy ctor** cagrisina neden olur ve bu da copy ctor cagrisi sirasinda baska bir exception'in firlatilma riskini olusturmaktadir.
 * `catch(...)` ifadesi tum turlerden hatalari yakalamak icin kullanilir.
 * `catch` bloklari yazilma sirasiyla sinanir ve bulunan ilk uygun handler calistirilir.
-  > **Not**
+  > **Not**  
   > `catch` bloklari ozelden genele siralanmasi iyi bir pratiktir.
 * Hata nesneleri, kalitimdan faydalanarak belirli bir hiyerarsik yapiya sahip olmasi zorunlu olmasa da iyi bir pratiktir.
 
@@ -49,10 +49,10 @@ catch(type_of_error e) {
 [Ornek](res/src/exceptions01.cpp)  
 
 
-<center>
+<p align="center">
 <img src="res/img/24_hierarchy_of_std_exceptions.png" width="640"/><br/>
 <i>Sekil: Standard exception hiyerarsisi</i>
-</center>
+</p>
 
 `std::exception` sinifi interface'i:
 ```C++
@@ -113,7 +113,7 @@ Bir exception gonderilmis ve herhangi bir hata isleyici tarafindan yakalanamamis
   
 [Ornek: terminate](res/src/exceptions_terminate01.cpp)  
 
-> **DIKKAT!**
+> **DIKKAT!**  
 > Bir **global sinif nesnesi** yada bir **static veri elemani** olusturulurken ctor icinde firlatilan exceptionlarin **yakalamasi mumkun degildir**. 
 
 Uygulama calisirken, calisma zamaninda bir exception gonderildiginde, kalici bir zarar olusmamasidir.
@@ -132,7 +132,7 @@ Bir exception yakalandiginda iki farkli yaklasim izlenebilmektedir:
 
 Bir exception throw edilen nokta ile yakandigi nokta arasinda farkli stack framelerde olusan otomatik omurlu nesnelerin destructorlarinin cagrilmasini saglayan bir mekanizmadir. 
 
-> **DIKKAT!**
+> **DIKKAT!**  
 > Eger exception yakalanmaz ise, stack unwinding devreye girmez.
 
 > Once the exception object is constructed, the control flow works backwards (up the call stack) until it reaches the start of a try block, at which point the parameters of all associated catch blocks are compared, in order of appearance, with the type of the exception object to find a match. If no match is found, the control flow continues to unwind the stack until the next try block, and so on. If a match is found, the control flow jumps to the matching catch block.
@@ -215,7 +215,7 @@ catch(const std::exception& ex)
 
 * Rethrow `throw` statement bir catch blogu icerisinde olmak zorunda degildir.
   
-  > **DIKKAT!**
+  > **DIKKAT!**  
   > Bir exception caught edilmeden `throw` statement calistirilirsa `abort` cagrisi yapilarak program sonlandirilir.
 
 
@@ -264,7 +264,7 @@ catch(...) {
 
 Bir ctor, basarisiz olacagini biliyor ise, exception throw etmelidir. ctor'lar, exception gonderme ihtimali en yuksek olan fonksiyonlardan biridir. 
 
-> **Hatirlatma**  
+> **Hatirlatma**    
 > Bir nesnenin hayata geldiginin kabul edilebilmesi icin ctor ana blok kodu tamamen calisarak tamamlanmalidir.
 
 
@@ -275,7 +275,7 @@ ctor'un exception gondermemesinden dolayi *ornegin kisitlanmis bir ortamda excep
   *dtor'un cagrilmasi icin nesnenin hayata gelmis olmasi gerekmektedir.*
   [Ornek](res/src/exceptions03.cpp)
 
-> **DIKKAT!**
+> **DIKKAT!**  
 > ctor'dan exception throw ediliyor ise, throw edildigi noktaya kadar calisan kodlarda elde edilen kaynaklar iade edilmez ise **resource leak**'e neden olur.
 
 
@@ -330,10 +330,10 @@ void bar() noexcept;        // exception gondermeme garantisi var
 
 * `noexcept` bildirimin bir parcasi olmasina ragmen noexcept ile overloading yapilamaz.
 * `noexcept` olarak bildirilen bir fonksiyon exception emit ederse, `terminate` cagrilir.
-* `noexcept` ile belirtilen bir fonksiyon pointer'ina noexcept olarak bildirilmemis bir fonksiyon adresi verilmesi syntax hatasidir.
+* `noexcept` ile belirtilen bir fonksiyon pointer'ina noexcept olarak bildirilmemis bir fonksiyon adresi verilmesi sentaks hatasidir.
   ```C++
   int foo(int);
-  int(*)(int) noexcept = foo;   // syntax error
+  int(*)(int) noexcept = foo;   // sentaks hatasi
   ```
 * Bir sinifin SMF'leri derleyici tarafindan yazilmis ise, `noexcept` olmasinda bir problem yok ise noexcept kabul ediliyor.
 
@@ -383,7 +383,7 @@ void bar() noexcept;        // exception gondermeme garantisi var
   
 * `dtor`lar `noexcept` olarak bildirilmese de `noexcept` olmak zorundadir.
 * Bir taban sinifin sanal fonksiyonu `noexcept` garantisi veriyorsa, bu fonksiyonun overridelari da `noexcept` garantisi vermek **zorundadir**.
-  > **Not**
+  > **Not**  
   > Bir siniftan turetilen siniflar icin: *Promise no less, require no more.*
 
 ### `noexcept()` operatoru
@@ -516,7 +516,7 @@ catch(double){
 4. **No exception guarantee**
    Bir fonksiyon cagrildiginda bir exception gonderilirse, bu exception yakalanmasina karsin fonksiyon icinde edinilmis bir **kaynak geri verilmiyor** ise 
 
-> **DIKKAT!**
+> **DIKKAT!**  
 > Minimal olarak **basic exception guarantee** saglanmak zorundadir!
 
 > [cppreference.com - exception safety](https://en.cppreference.com/w/cpp/language/exceptions)

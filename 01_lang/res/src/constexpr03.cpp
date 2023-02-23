@@ -25,6 +25,6 @@ int main() {
     constexpr auto b1 = is_prime(x - y);   // b1 = false
     
     int x = 19001;
-    constexpr bool b2 = is_prime(x);       // syntax error: arguman constexpr olmadigi icin b2 ilklendirilemez
+    constexpr bool b2 = is_prime(x);       // sentaks hatasi: arguman constexpr olmadigi icin b2 ilklendirilemez
     const bool b3 = is_prime(x);           // legal
 }

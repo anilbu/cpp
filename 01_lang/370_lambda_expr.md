@@ -30,7 +30,7 @@ Bir lambda ifadesi; derleyicinin bir sinif (closure-type) kodu yazarak ifadenin 
 
   * Uye fonksiyonun bir `constexpr` oldugunu belirtir.  
     Default olarak constexpr olmasini **engelleyecek bir durum olmadigi surece constexpr** kabul edilir.
-    **constexpr** specifieri, fonksiyon kodunun constexpr olmadigi durumda **syntax hatasi uretmek icin** kullanilir.
+    **constexpr** specifieri, fonksiyon kodunun constexpr olmadigi durumda **sentaks hatasi uretmek icin** kullanilir.
     ```C++
     [](int x, int y) constexpr {}
     ```
@@ -107,7 +107,7 @@ Eger bir lambda ifadesi herhangi bir degiskeni capture etmiyorsa **stateless lam
   auto f2 = [x](int a) { return a * x; }; // stateful
   
   decltype(f1) _f1; // gecerli [C++20]
-  decltype(f2) _f2; // syntax error: f2 stateless degil
+  decltype(f2) _f2; // sentaks hatasi: f2 stateless degil
   ```
 
 * Stateless lambda ifadeleri, derleyicinin urettigi kodda fonksiyon pointer turune ortulu donusum yapacak donusum operator fonksiyonuna sahiptir.
@@ -129,7 +129,7 @@ Eger bir lambda ifadesi herhangi bir degiskeni capture etmiyorsa **stateless lam
     fp = f_stateless; // gecerli
     
     auto f_stateful = [a](int x) { return x * a; };
-    fp = f_stateful;  // syntax error
+    fp = f_stateful;  // sentaks hatasi
   }
   ```
 
@@ -180,16 +180,16 @@ f.operator(30);
     auto f2 = [&](){};      // tumu capture by ref
     auto f3 = [&, x](){};   // x haric hepsi referans ile, x copy ile capture et
     auto f4 = [=, &x](){};  // x haric hepsi copy ile, x capture by ref
-    auto f5 = [g](){};      // syntax error 
+    auto f5 = [g](){};      // sentaks hatasi 
   }
   ```
 * `operator()` fonksiyonu `const` olsa dahi ref degismedigi icin (ref edilen degisken, degiskenin degeri degil) mutable olmasa da capture by reference yapilan degisken degistirilebilir.
 
-  Asagidaki ifade bir syntax error uretir, cunku lambda karsiligi uretilen `operator()` fonksiyonu `const` uye fonksiyondur:
+  Asagidaki ifade bir sentaks hatasi uretir, cunku lambda karsiligi uretilen `operator()` fonksiyonu `const` uye fonksiyondur:
   ```C++
   int a = 10;
   auto f1 = [a](int x) {
-      a *= x;     // syntax error
+      a *= x;     // sentaks hatasi
   };
   ```
   ```C++
@@ -205,7 +205,7 @@ f.operator(30);
 ## Trailing return type
 Bazen lambda ifadelerinde birden fazla farkli turde return statement olabiliyor.
 ```C++
-auto f = [](int x) {    // syntax error: birden fazla turde cikarim yapilamiyor.
+auto f = [](int x) {    // sentaks hatasi: birden fazla turde cikarim yapilamiyor.
   if(1) {
     return x * 1.3;
   }
@@ -266,7 +266,7 @@ long func(long);
 
 vector<int> ivec;
 
-for_each(ivec.begin(), ivec.end(), &func);  // syntax error: Hangi func?
+for_each(ivec.begin(), ivec.end(), &func);  // sentaks hatasi: Hangi func overloadu?
 
 // 1. tur donusum operatoru kullanmak
 for_each(ivec.begin(), ivec.end(), (int(*)(int)) &func);

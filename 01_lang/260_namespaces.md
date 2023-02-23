@@ -14,7 +14,7 @@ namespace NS {
 * namespace bildirimi sonunda `;` kullanilmaz.
 * Isim alaninin bir ismi olmak zorunda degildir. [[bknz: Unnamed namespace](260_namespaces.md#unnamed-namespace)]
 
-> **Not**
+> **Not**  
 > Standart library tanimlarinin tamami `std` namespace'indedir.
 > *Turkce'de 'setede', Ingilizce'de 'sutud' olarak okunur.*
 
@@ -157,13 +157,13 @@ using std::cin, std::endl;    // [C++17]
   }
 
   void bar() {
-    cout << 1;  // syntax error
+    cout << 1;  // sentaks hatasi
   }
   ```
   </details>
   <!--  -->
 
-  > **DIKKAT!**
+  > **DIKKAT!**  
   > `using` bildirimlerinin kapsamini mumkun oldugunca kucuk tutulmasi tavsiye edilmektedir.
 
 * using bildirimi ile sunulan isim bildirimin yapildigi isim alanina **inject** edilir.
@@ -180,7 +180,7 @@ using std::cin, std::endl;    // [C++17]
   int main() {
       using nec::x;     // nec::x ismi main fonksiyonuna inject edildi
 
-      int x = 20;       // syntax error: scope icinde x ismi daha once bildirildi.
+      int x = 20;       // sentaks hatasi: scope icinde x ismi daha once bildirildi.
   }
   ```
   </details>
@@ -262,7 +262,7 @@ using std::cin, std::endl;    // [C++17]
   </details>
   <!--  -->
 
-  > **Hatirlatma**
+  > **Hatirlatma**  
   > Isim arama, isim bulundugunda biter! Isim arama sonlandiginda kapsayan scope'lardaki bildirimler **name-hiding**e ugramis olur.
 
 
@@ -286,7 +286,7 @@ using namespace std;
   }
 
   int main() {
-    x = 5;              // syntax error: using namespace nec henuz bildirilmedi
+    x = 5;              // sentaks hatasi: using namespace nec henuz bildirilmedi
     using namespace nec;
     x = 10;             // gecerli: nec::x
     foo();              // gecerli: nec::foo
@@ -301,7 +301,7 @@ using namespace std;
 
 * Birden fazla namespace bildirimi yapilmis olmasi; namespace iceriginde isim cakismasi olsa dahi inject etmemesinden dolayi hata olusturmaz.
   Ancak cakisan isim nitelenmeden kullanildiginda ambiguity olusabilir.
-  > **Not**
+  > **Not**  
   > Zaten namespace'in kullanim amaci, isim cakismalarini engellemekti. Bu nedenle global isim arama alaninda using namespace bildirimi yapilmasi tercihen onerilmez.
   <details>
   <summary><b>Ornek</b> (Click to expand)</summary>
@@ -412,7 +412,7 @@ int main()
     nec::Neco x;
     func(x);        // gecerli: x ismi nec namespace'ine ait bir isim
     func(nec::red); // gecerli: red ismi nec namespace'ine ait bir isim
-    func(12);       // syntax hatasi: func ismi bulunamadi
+    func(12);       // sentaks hatasi: func ismi bulunamadi
 
     std::vector<nec::Neco> x;
     func(x);        // gecerli
@@ -434,7 +434,7 @@ void func(nec::A);
 int main() {
     nec::A a;
 
-    func(a);    // syntax hatasi: ambiguity
+    func(a);    // syntax error: ambiguity
                 //   ADL ismi visible hale getirdi.
 
 }
@@ -451,7 +451,7 @@ int main() {
 
     void func(int);
     func(10);   // gecerli
-    func(a);    // syntax hatasi: name-hiding
+    func(a);    // syntax error: name-hiding
 }
 ```
 </details>
@@ -476,7 +476,7 @@ int x = 10;             // external
 const int cx = 0;       // internal (C'de external)
 static int sx = 0;      // internal
 static void func();     // internal
-static class Myclass{}; // syntax error
+static class Myclass{}; // sentaks hatasi
 ```
 ```C++
 namespace {
@@ -528,7 +528,7 @@ ali::veli::can::x = 10;
 ```
 
 **Nested namespace icin eklenen yeni kurallar**
-* [C++17] Oncesinde bir nested namespace kendisini kapsayan namespace icine yazilmasi gerekiyordu. Yeni syntax ile namespace henuz bildirilmemis olsa dahi asagidaki bicimde nested namespaceler olusturulabilme imkani olustu.
+* [C++17] Oncesinde bir nested namespace kendisini kapsayan namespace icine yazilmasi gerekiyordu. Yeni sentaks ile namespace henuz bildirilmemis olsa dahi asagidaki bicimde nested namespaceler olusturulabilme imkani olustu.
   ```C++
   namespace ali::veli::can {
       int c = 10;
@@ -664,7 +664,7 @@ sms::a = 20;
   }
   ```
 
-  > **Not**
+  > **Not**  
   > Template kodlarin kullanilabilmesi icin derleyici tarafindan kodlarin gorunmesi gerekmektedir. Bu nedenle template tanimlar .cpp dosyasinda belirtilemez.
 
   necati.h:

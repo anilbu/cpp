@@ -30,7 +30,7 @@ Eger bir sinif nested olarak olusturulmus ise:
 
 **Name lookup**
 
-> **DIKKAT!**
+> **DIKKAT!**  
 > Siniflarin **uye fonksiyonlarinin icinde** kullanilan isimlerin aranmasi ile **sinifin tanimi icinde** kullanilan isimlerin aranmasi birbirinden farklidir.  
 
 
@@ -173,7 +173,7 @@ Eger bir sinif nested olarak olusturulmus ise:
   };
   ```
   ```C++
-  Nested Nec::foo() {           // syntax error
+  Nested Nec::foo() {           // sentaks hatasi
   }
   ```
   ```C++
@@ -238,7 +238,7 @@ Dezavantajlar:
 [Ornek: Pimpl idiom (smart pointer)](res/src/203_type_member/piml_idiom03/)
 <!-- TODO res/src/203_type_member/piml_idiom03/ icin unique_ptr ile implement et -->
 
-> **Not**
+> **Not**  
 > `pimpl` nesnesinin dinamik allocation ile kullanilmasi zorunlu degildir. 
 
 ## Fast pimple idiom

@@ -32,7 +32,7 @@ int main(int argc, char const *argv[])
     mder.Der1::base_func();   // gecerli
     mder.Der2::base_func();   // gecerli
 
-    // Base& baseref1 = mder;                   // syntax error
+    // Base& baseref1 = mder;                   // sentaks hatasi
     Base& baseref2 = static_cast<Der1&>(mder);  // gecerli: Baseref = Der1::Base
     Base& baseref3 = static_cast<Der2&>(mder);  // gecerli: Baseref = Der2::Base
 }

@@ -12,7 +12,7 @@
   {
   public: 
       void foo() {
-          func();         // syntax error 
+          func();         // sentaks hatasi 
           this->func();   // gecerli
       }
   }

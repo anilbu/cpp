@@ -10,7 +10,7 @@
   
   class Myclass {
   private:
-    Nec nec;            // syntax hatasi
+    Nec nec;            // sentaks hatasi
   };
   ```
   </details>
@@ -84,7 +84,7 @@ void Myclass::foo() {
 }
 ```
 
-> **DIKKAT!**  
+> **DIKKAT!**    
 > Class scope'daki bir isim global scope'u maskeliyor olabilir!
 > [Soru](sorular/soru10.cpp)
 
@@ -137,10 +137,10 @@ void Myclass::foo() {
   ```
   [Ornek](res/src/class_this01.cpp)
 
-> **Not**
+> **Not**  
 > Member select (`.`) operaturu, dereferencing (`*`) operatorunden onceliklidir.
 
-> **DIKKAT!**
+> **DIKKAT!**  
 > C++'da bir sinifin public interface'i denildiginde:
 > * sinifin public uyeleri
 > * sinif ile ilgili baslik dosyasinda sunulan global fonksiyonlar (non-member functions)
@@ -169,7 +169,7 @@ public:
 ```
 * const uye fonksiyonlarin `this` pointerinin turu `const T*`'dir.
 * const uye fonksiyonlar, sinifin non-static data memberlarini degistiremezler, sinifin non-const uye fonksiyonlarina cagri yapamazlar.
-  > **Hatirlatma**
+  > **Hatirlatma**  
   > C++'da `const T*` turunden `T*` turune implicit donusumu bulunmamaktadir. [[bknz: implicit type conversions](060_type_conversions.md#implicit-type-conversion)]
 * const bir sinif nesnesi, sinifin const uye fonksiyonlarina cagri yapilabilir.
 * `const` fonksiyon imzasinin bir parcasidir. Alttaki bildirimler function overloadingdir.
@@ -185,7 +185,7 @@ public:
     
   }
   ```
-  > **Hatirlatma**
+  > **Hatirlatma**  
   > `const T*` ve `T*` overloading olusturur. [[bknz: function overloading](140_function_overloading.md#function-overloading-kurallari)] 
 
 **Ornek**
@@ -285,10 +285,10 @@ public:
   };
   ```
 
-> **DIKKAT!**
+> **DIKKAT!**  
 > Sinifin tum veri elemanlari (non-static data members) sinif nesnesinin observable state'i ile dogrudan iliskili olmayabilir.
 
-> **DIKKAT!**
+> **DIKKAT!**  
 > Lambda ifadelerinde kullanilan `mutable` keywordu farkli bir anlam ifade etmektedir.
 
 [mutable mutex lock ornegi](res/src/class_mutable01.cpp)
@@ -374,7 +374,7 @@ std::move(cm).bax();// gecerli
   </details>
   <!--  -->
   
-* Ref-qualified olmayan bir fonksiyon ile ref-qualified olan bir fonksiyon birlikte bir overload olusturamaz. Boyle bir durumda syntax hatasi olusur.
+* Ref-qualified olmayan bir fonksiyon ile ref-qualified olan bir fonksiyon birlikte bir overload olusturamaz. Boyle bir durumda sentaks hatasi olusur.
   <details>
   <summary><b>Ornek</b> (Click to expand)</summary>
   
@@ -382,7 +382,7 @@ std::move(cm).bax();// gecerli
   class Myclass {
   public:
     void func();
-    void func() &;  // syntax error
+    void func() &;  // sentaks hatasi
   };
   ```
   </details>

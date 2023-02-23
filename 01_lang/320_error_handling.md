@@ -21,7 +21,7 @@ Bir program calisirken hatalar olabilir. Bu hatalarin temelde iki sebebi vardir 
 
 ## Traditional Error Handling
 
-> **Not**
+> **Not**  
 > Traditional error handling yontemleri ve neden oldugu problemlerden C++ exception handling konusuna giris amaciyla kisaca bahsedilecektir.
 
 **Yontemler**

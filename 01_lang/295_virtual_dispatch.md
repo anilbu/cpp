@@ -45,10 +45,10 @@ public:
 
 Derleyicinin bir fonksiyonun override edildigini dogrulama amaciyla kullanilan bir [contextual keyword](020_temel_kavramlar.md#contextual-keyword)'tur.
 
-* Taban sinifin non-virtual bir fonksiyonunu *yada var olmayan bir fonksiyonunu* override edilmeye calisilmasi durumunda, syntax hatasi olusturur.
+* Taban sinifin non-virtual bir fonksiyonunu *yada var olmayan bir fonksiyonunu* override edilmeye calisilmasi durumunda, sentaks hatasi olusturur.
 * Fonksiyon imzasina dahil degildir.
 
-> **Not**
+> **Not**  
 > `override` kullanimi opsiyoneldir, ancak kullanilmasi sik yapilan hatalardan kacinmak icin **tavsiye edilir**.
 >  <details>
 >  <summary><b>Bu hatalardan bazilari:</b> (Click to expand)</summary>
@@ -67,7 +67,7 @@ Derleyicinin bir fonksiyonun override edildigini dogrulama amaciyla kullanilan b
 >  ```C++
 >  class Der : public Base {
 >  public:
->    void foo(int);  // syntax hatasi yok, override degil, overload da degil
+>    void foo(int);  // sentaks hatasi yok, override degil, overload da degil
 >  };
 >  ```
 >  </details>
@@ -82,7 +82,7 @@ Derleyicinin bir fonksiyonun override edildigini dogrulama amaciyla kullanilan b
 >  public:
 >    void bar(unsigned int); // imza farkli oldugu icin override degil
 >                            // overload da degil
->                            // syntax hatasi da yok
+>                            // sentaks hatasi da yok
 >  };
 >  ```
 >  </details>
@@ -102,7 +102,7 @@ Derleyicinin bir fonksiyonun override edildigini dogrulama amaciyla kullanilan b
 >  </details>
 >  <!--  -->
 >  
->  **Case 4**: `Base` sinifin virtual fonksiyonunun parametrik yapisi gereksinimler nedeniyle degismesi durumunda turemis siniflarda syntax hatasi olmamasiyla birlikte override'lar da gecersiz olacaktir.
+>  **Case 4**: `Base` sinifin virtual fonksiyonunun parametrik yapisi gereksinimler nedeniyle degismesi durumunda turemis siniflarda sentaks hatasi olmamasiyla birlikte override'lar da gecersiz olacaktir.
 >  <details>
 >  <summary><b>Ornek</b> (Click to expand)</summary>
 >  
@@ -118,7 +118,7 @@ Derleyicinin bir fonksiyonun override edildigini dogrulama amaciyla kullanilan b
 >  public:
 >    void bar(int); // guncellemeden once override idi
 >                   // ancak suanda der sinifina ait yeni bir fonksiyon haline geldi
->                   // syntax hatasi da yok
+>                   // sentaks hatasi da yok
 >  };
 >  ```
 >  ```C++
@@ -163,7 +163,7 @@ public:
   Base& baseref = der;
   baseref.func();   // calls Der::func
   ```
-> **Not**
+> **Not**  
 > *`this` pointeri uzerinden  yapilan sanal fonksiyon cagrilari*
 
 * Turemis sinif turunden bir nesne ile olusturulan bir taban sinif turunden nesne ile cagri yapilmasi durumunda **object slicing** olusmasindan dolayi virtual dispatch mekanizmasi **uygulanmaz**.
@@ -203,7 +203,7 @@ public:
     void func() override;
   };
   ``` 
-* **Abstract bir taban** sinifdan *nesne olusturulamayacagi icin* **object-slicing** olusmasi durumunda syntax hatasi olusur.  
+* **Abstract bir taban** sinifdan *nesne olusturulamayacagi icin* **object-slicing** olusmasi durumunda sentaks hatasi olusur.  
   <details>
   <summary><b>Ornek</b> (Click to expand)</summary>
   
@@ -218,7 +218,7 @@ public:
   void car_game(Car car);   // Dikkat: parametre * yada & turu degil!
   ```
   ```C++
-  car_game(*create_random_car()); // syntax hatasi
+  car_game(*create_random_car()); // sentaks hatasi
   ```
   </details>
   <!--  -->
@@ -327,7 +327,7 @@ A'nin override'i `Base*` yerine `Der*` donebilir, cunku *her `Der` bir `Base`dir
 C++ dilinde sadece non-static member fonksiyonlar virtual olabilmektedir.
 Taban tur pointer'i ile referans edilen dinamik turden bir nesne olusturmak istenildiginde *Virtual Constructor Idion(Clone Idiom)* kullanilabilir.
 
-> **DIKKAT!**
+> **DIKKAT!**  
 > global functions, static member functions, constructors virtual olamazlar. 
 
 [Ornek](res/src/virtual_ctor_idiom01.cpp)
@@ -379,7 +379,7 @@ taban siniflar icin su ikisinden biri yapilmalidir:
   }
   ```
   
-> **Not**
+> **Not**  
 > Herb Sutter tarafindan ortaya atilan dilin semantik kuralidir.
 
 <details>
@@ -461,7 +461,7 @@ public:
 Der* derptr = new Der;
 Base* baseptr = derptr;
 
-delete baseptr;   // syntax error: Bu nesneyi taban sinif uzerinden silmeye calisma
+delete baseptr;   // sentaks hatasi: Bu nesneyi taban sinif uzerinden silmeye calisma
 
 delete derptr;      // ~Der() cagrildi
                     // ~Base() cagrildi

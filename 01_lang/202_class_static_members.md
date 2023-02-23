@@ -49,7 +49,7 @@ Client kodlarin static data memberlari kullanabilmesi icin 2 sart yerine getiril
    > Static bir veri elemanina ilk deger veren ifade once class scope icinde aranir.
 
 * Sinifin statik data member'larina `.` ve `->` operatorkeri kullanilarak erisilebilmektedir.
-  *Bazi programla dillerinde sinifin static member'larina nesne uzerinden erisilmesi syntax hatasi olabilir, C++'da durum boyle **degildir**.*
+  *Bazi programla dillerinde sinifin static member'larina nesne uzerinden erisilmesi sentaks hatasi olabilir, C++'da durum boyle **degildir**.*
   <details>
   <summary><b>Ornek</b> (Click to expand)</summary>
 
@@ -134,7 +134,7 @@ Client kodlarin static data memberlari kullanabilmesi icin 2 sart yerine getiril
     constexpr static int daytabs[] = {31, 28 };
   };
   ```
-  > **Not**
+  > **Not**  
   > Sinifin static data member degisime tabi ise encapsulation uygulanmasi tavsiye edilir.
 
 
@@ -226,7 +226,7 @@ Myclass::func();
         auto x = m.mx;
         auto y = p.mx;
         
-        auto z = mx;        // syntax error
+        auto z = mx;        // sentaks hatasi
     }
   private:
     int mx;
@@ -257,7 +257,7 @@ Myclass::func();
   ```
   non-static uye fonks adresi ayri bir turdur:
   ```C++
-  fp = &Myclass::bar;   // syntax error;
+  fp = &Myclass::bar;   // sentaks hatasi;
   int (Myclass::*f)(int) = &Myclass::bar; 
   ```
 
