@@ -31,7 +31,7 @@ class Myclass {
    Myclass y2(x);   // copy ctor cagrilir
    Myclass y3{x};   // copy ctor cagrilir
    ```
-2. Call by value parametreli fonksiyon cagrisinda arguman olarak verildiginde
+2. [Call by value](999_kavramlar.md#call-by-valuereference) parametreli fonksiyon cagrisinda arguman olarak verildiginde
    ```C++
    void foo(Myclass m);
    ```
@@ -107,7 +107,7 @@ Boyle bir durumda value semantiginin korunmasi isteniyor ise, [deep copy](020_te
 > *Dipnot: Eski C++'da bir fonksiyon silinemedigi icin kopyalamaya kapatilmak istenen sinifin copy ctor'u private yapiliyordu.*
 
 
-> **DIKKAT!**
+> **DIKKAT!**  
 > Tipik olarak eger bir sinifa destructor yazilmasi gerekiyor ise, copy ctor'da **yazilmali**dir yada **delete** edilmelidir.
 
 ### Copy Assignment

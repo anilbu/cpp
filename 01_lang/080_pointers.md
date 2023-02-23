@@ -66,7 +66,34 @@ Degeri kullanilabilir bir pointeri ifade etmek icin kullanilir.
 
 ## `nullptr`
 <!-- TODO 8. Derste nullptr, NULL ve 0 arasindaki fark anlatiliyor, eksigi tamamla -->
-`nullptr`'nin turu `nullptr_t`dir. Bu bir **pointer turu degildir**, ancak pointer turune **donusebilen** bir turdur.
+`nullptr`'nin turu `nullptr_t`dir. Bu bir **pointer turu degildir**, ancak pointer turune **donusebilen** bir turdur. Bir adres turu olmayan bir degiskene `nullptr` atamasi donusum bulunmadigi icin sentaks hatasidir.
+
+`cstddef` icinde `nullptr_t`:
+```C++
+typedef decltype(nullptr) nullptr_t;
+```
+
+**null pointer conversion**  
+Eger bir adres turunden degiskene ilk deger ya da atama, tam sayi sabit degeri `0` ile yapilirsa derleyici bu sabiti **null pointer**'a donusturmek zorundadir.
+
+
+```C++
+// C/C++ dillerinde:
+int* ptr1 = NULL;   // NULL makrosu tanimlanmak zorunda 
+int* ptr2 = 0;
+```
+
+Modern C++'a kadar bir degiskene null pointer degeri verilmek icin `0` sabiti kullanilmaktaydi. Ancak function overloading ve generic programlamada kullanilan bazi araclarda bir takim problemlere neden olmaktaydi. Modern C++ ile `nullptr` anahtar sozcugu eklenmistir, herhangi bir baslik dosyasinin eklenmesine gerek yoktur.
+```C++
+// Modern C++:
+int* ptr = nullptr;
+
+int* p1 = nullptr;
+int* p2(nullptr);
+int* p3{nullptr};
+int* p4{};
+```
+
 
 ---
 
@@ -140,12 +167,19 @@ Bir fonksiyon 3 farkli sekilde gecerli adres donebilir.
 ```C++
 int x = 10;
 
-int const * p1 = &x;        // low-level const: p1 is pointer to const int
-int * const p2 = &x;        // top-level const: p2 is const pointer to int
-int const * const p3 = &x;  // p3 is a const pointer to const int
+const int* p1 = &x;        // low-level const: p1 is pointer to const int
+int* const p2 = &x;        // top-level const: p2 is const pointer to int
+int const* const p3 = &x;  // p3 is a const pointer to const int
 ```
+* C ve C++ dillerinde **low-level const** turler (`T*` ve `const T*`) birbirinden **farkli turler**dir.
 
-* Bir tur-es ismi bir pointer turune tur-es isim ise `const` anahtar sozcugu ile bildirimi **top-level const**dur.
+* Top-level const nesnelere ilk deger vermek mecburidir, low-level const nesnelere ilk deger vermek mecburi degildir.
+  ```C++
+  const int* p;   // gecerli
+  int* const cp;  // gecersiz
+  ```
+
+* Bir tur-es ismi bir pointer turune tur-es isim ise `const` anahtar sozcugu ile bildirimi **top-level const**u ifade eder.
   ```C++
   typedef int* iptr;    // yada using iptr = int*;
   

@@ -13,20 +13,21 @@ cout << "a = " << a << endl;  // 14
 `x+++y` ifadesi x, ++, + ve y olarak tokenize edilir.
 
 # Most vexing parse
-*-Scott Meyers*
 Belirli durumlarda, bir nesne parametresinin oluşturulması ile bir işlevin türünün belirtilmesi arasında ayrım yapilamiyor. Bu durumlarda, derleyicinin satırı bir **işlev tipi belirtimi** olarak yorumlamana most vexing parse denilmektedir.
 
-Orn, nesne tanimlama (objimplementing
+**Ornek**
+`A` ve `B` bir tur olmak uzere:
 ```C++
-B bx( A() );  // Bu bir fonksiyon declarationdir!
-B bx{ A() };  // object inst.
-B bx( A{} );  // object inst.
+B bx( A() );  // Function declaration
+B bx{ A() };  // Object instantiation
+B bx( A{} );  // Object instantiation
 ```
+*Terim olarak ilk defa Scott Meyers tarafindan ortaya atilmistir.*
 
 
 # AAA (almost always auto)
 `auto` kullaniminin hakkinda farkli gorusler bulunuyor. Bircok durumda kullanim kolayligi saglarken, bazi durumlarda auto kullanimi kod kalitesini cok dusmesine neden olabilmektedir. 
-1. Tur yanlis yazilmis olabilir. Cogu durumda derleyici syntax hatasi verirken, bazi durumlarda gecerli bir syntax olusturabilir.
+1. Tur yanlis yazilmis olabilir. Cogu durumda derleyici sentaks hatasi verirken, bazi durumlarda gecerli bir syntax olusturabilir.
    ```C++
    std::vector<std::string> svec;
    
@@ -45,6 +46,63 @@ B bx( A{} );  // object inst.
    `foo()`nun bildiriminde geri donus turunun degistigini varsayin.
 3. Bu tarz durumlar cesitlendirilerek orneklendirilebilir...
 
+
+# call by value/reference
+Programlama dilinden bagimsiz olarak fonksiyon cagri modellerini ifade eden terimlerdir. 
+
+Bir fonksiyon cagrisinde arguman olarak gonderilen nesnenin kopyasi cikartilip bu kopya uzerinde calisacak bicimde ise **call by value**, nesnenin direkt kendisi ile calisiliyor ise **call by reference** olarak ifade edilir.
+
+# 2's complement taktigi
+
+1. LSB'den baslanarak ilk 1 gorunene kadar bitlerin aynisi yazilir.
+2. Kalan bitlerin tersi yazilacak.
+
+**Ornek**
+`0101 0101 0101 1000` degerinin 2's complimenti:
+```
+0101 0101 0101 1000
+               ^
+1010 1010 1010 1000
+```
+
+## Scope Leakage
+*kapsam sizintisi*
+
+Bir ismi (identifier) kullanilacagi alan disinda gorunur durumda olmasidir.
+```C++
+std::string get_str();
+
+void func() {
+  std::string s = get_str();
+  if(s.size() > 10) {
+      //do smt
+  }
+  // s degiskeni scope leakage var
+}
+```
+`s` degiskeninde kapsam sizintisini engellemek icin:
+```C++
+std::string get_str();
+
+void func() {
+  {
+      std::string s = get_str();
+      if(s.size() > 10) {
+          //do smt
+      }
+  }
+}
+```
+Alternatif olarak **if-with-initializer**[C++17] kullanimi:
+```C++
+std::string get_str();
+
+void func() {
+  if(std::string s = get_str(); s.size() > 10) {
+      //do smt
+  }
+}
+```
 
 # as if rule
 Derleyici standartlarin tanimina gore kaynak kodunun karsiliginda bire bir kod uretmek zorunda degildir. Kaynak kodda anlatilan davranis eger programin calismasi acisinda `observable behavior` degismedigi surece derleyici kaynak kodunuzu istedigi gibi duzenleyebilir.

@@ -32,7 +32,7 @@ Farklar:
 2. Access control'a tabi olur.
 
 Benzerlikler:
-1. [statik omurlu](063_storage_classes.md)
+1. [statik omurlu](050_basics.md#static-storage)
 2. [Static initialization fiasco](999_kavramlar.md#static-initialization-fiasco)
 3. inline olarak tanimlanabilir [C++17]
 

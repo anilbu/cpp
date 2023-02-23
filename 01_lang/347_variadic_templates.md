@@ -302,7 +302,7 @@ constexpr T summer(const T& first, const Args& ... args)
 ```
 Yukaridaki ornekten farkli olarak `summer(10, 20, 30, 40)` ifadesi icin sonuc compile-time'da hesaplandi.
 
-#### [Virgul operatoru](051_basics2.md#comma-operator) ile parameter pack expansion
+#### [Virgul operatoru](050_basics.md#comma--operatoru) ile parameter pack expansion
 -----------------------------------------------------
 Virgul operatorunun **urettigi degerin sag operand degeri olmasindan faydalanilarak** pack expansion sonucunda ayni turden nesnelerden olusan bir `initializer_list` olusturulmasindan faydalanilir.
 

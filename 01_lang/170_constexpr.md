@@ -1,4 +1,6 @@
-# `constexpr` anahtar sozcugu
+# Constant Expressions
+
+## `constexpr` anahtar sozcugu
 
 Modern C++ ile dile eklenmistir. 
 Ifadenin degeri derleyici tarafindan compile-time'da biliyor ise constant expression'dir.
@@ -10,7 +12,7 @@ Ifadenin degeri derleyici tarafindan compile-time'da biliyor ise constant expres
 
 > **DIKKAT!**    
 > `const` ve `constexpr` farkli anahtar sozcuklerdir ve benzer noktalari olmasina ragmen farkli islevleri vardir.  
-> [[bknz: const anahtar sozcugu](051_basics2.md#const-anahtar-sozcugu)]
+> [[bknz: const anahtar sozcugu](050_basics.md#const-anahtar-sozcugu)]
 
 
 ```C++

@@ -77,8 +77,8 @@ Myclass::~Myclass() { }
 
 [Ornek: Ctor ve Dtor cagrilarinin yapilmasi sirasi](res/src/class_ctor01.cpp)
 
-> **DIKKAT!**  
-> Dynamic storage ile dynamic storage duration birbiri ile karistirilmamalidir. [[bknz: storage classes](063_storage_classes.md)]
+> **DIKKAT!**    
+> Dynamic storage ile dynamic storage duration birbiri ile karistirilmamalidir. [[bknz: storage duration](050_basics.md#storage-duration)]
 >
 > Dinamik omurlu nesne ayri bir kavram, programin calisma zamaninda dinamik olarak bellek alani elde etmek birbiri ile iliskili ancak farkli kavramlardir. [[bknz: new/deleteoperator ](900_dynamic_memory.md)]
 

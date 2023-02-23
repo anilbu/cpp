@@ -1,28 +1,46 @@
 # Value Categories
 
-Her bir ifadenin bir **data type**'i ve bir **value category**'si bulunmaktadir.
-> **DIKKAT!**
-> Modern C++ ogrenenlerin en sik yaptigi hatalardan biri data type ile value category'i karistirmasidir.
-> 
-> Bir **<ins>IFADENIN</ins>** value kategorisi olur, bir degiskenin value kategorisinden bahsedilemez. Bir degiskenin data type (declaration type)'i olur.
+Modern C++ ogrenenlerin en sik yaptigi hatalardan biri data type ile value category'i karistirmasidir. Bir **<ins>IFADENIN</ins>** value kategorisi olur, bir degiskenin value kategorisinden bahsedilemez. Bir degiskenin data type (declaration type)'i olur.
 
+Modern C++'a geciste primary value category sayisi 2'den 3'e cikarildi.
 
 **Primary value categories**
-* PR value
+* PR value (pure rvalue)
 * L value
-* X value
+* X value (expired value)
 
 **Secondary value categories**
 * R value = PR value $\cup$ X value
 * GL value = L value $\cup$ X value
 
+<p align="center">
+  <img src="res/img/cpp_valcat_venn.png" width="480"/><br/>
+  <i>Sekil: C++ Deger kategorileri</i>
+</p>
 <!--  -->
 
-* Bir ismin olusturdugu ifade her zaman lvalue expressiondir. Cunku derleyici arkaplanda bir gecici nesne olusturur.
+[bknz: valcat.cpp](res/src/valcat01.cpp)
+
+* Bir ismin olusturdugu ifade her zaman **lvalue expression**dir.
   ```C++
   int &&rr = 10;
   rr  // turu int&& olan bir lvalue expr
   ```
+  `rr` ifadesi bir **lvalue expr**dir. Cunku derleyici arkaplanda bir gecici nesne olusturmaktadir.
+
+* `*` ve `[]` olusturulan ifadeler her zaman **lvalue expr**'dir.
+
+* `()` oncelik parantezidir. Icerisinde bulunan ifadenin deger kategorisini **degistirmez**.
+  ```C++
+  (((((((x))))))) = 9; // gecerli
+  ```
+* Ifadenin turu ve deger kategorisi farkli seylerdir.
+  ```C++
+  void func(int && r)     // r'nin turu rvalue reference ve value categorisi yoktur
+  {                       // cunku bir expr degil bildirimdir.
+    r;  // lvalue expr
+  }
+```
 
 -----
 

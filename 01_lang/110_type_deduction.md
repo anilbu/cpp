@@ -1,11 +1,24 @@
 # Type Deduction
-Compile-time derleyici tarafindan koda bakilarak tur cikarimi yapilmasidir. Bu araclar reflection'dan farkli olarak runtime'da degil, compile-time'da gerceklesmektedir.
+*Tur cikarimi*  
 
-Tur cikarimi icin kullanilan araclar:
-* `auto`
-* `decltype`
-* `decltype(auto)`
-* `template`
+Bir tur bilgisini explicit olarak yazilmadan, derleyici tarafindan verilen ifadeden yola cikarak saptanmasi ile yapilan tur bilgisinin cikarimdir.
+
+Compile-time (static) bir mekanizmadir. Type deduction araclari, bir runtime mekanizmasi olan reflection'dan farkli olarak calisma zamaninda ek maliyet olusturmamaktadir.
+
+Modern C++ ile birlikte tur cikarimi `template`lere ek olarak dilin geneline nufuz edecek bicimde ilave araclar eklenmesi ile yayilmis bulunmaktadir.
+
+* `auto` [C++11]
+* `decltype` [C++11]
+* `decltype(auto)` [C++14]
+
+**Motivasyon**  
+Genel olarak karmasik turlerin yazilmasinda kolaylik saglamak
+```C++
+auto f = &strcmp;     // auto = int (*)(const char*, const char*)
+
+std::vector<std::pair<std::string, std::size_t>> x;
+auto it = x.begin();  // auto = std::vector<std::pair<std::string, std::size_t>>::iterator
+```
 
 ## `auto` type deduction
 Bildirilen bir degiskenin ilk degerini veren ifadenin turunden cikarim yaparak belirleyen compile-time'da calisan bir aractir.
@@ -13,7 +26,9 @@ Bildirilen bir degiskenin ilk degerini veren ifadenin turunden cikarim yaparak b
 ```C++
 auto x = expr;
 ```
-Tur cikarimi `auto` anahtar sozcugu karsiligi yapilmaktadir, bildirilen degiskenin turu icin degil.
+
+`auto` anahtar sozcugu tur bilgisini ifade etmek amaciyla kullanilan bir placeholderdir. Tur cikarimi bildirilen degiskenin turu icin degil, `auto` anahtar sozcugu karsiligi yapilmaktadir.  
+
 `T` turunden bir `expr` ifadesi icin:
 ```C++
 auto x = expr;       // auto = T, x = T
@@ -151,13 +166,18 @@ auto x = i * 1.2; // auto = double
   ```
 
 ## `decltype` type deduction
-`decltype` operatorunun operandi olan ifadenin tur bilgisi cikarilarak, bir tur belirtimini saglayan bir aractir. `decltype` ile uretilen tur, tur kullanilabilecek herhangi bir yerde kullanilabilirdir.
+
+`decltype` operatorunun operandi olan ifadenin tur bilgisi cikarilarak, bir tur belirtimini saglayan bir aractir.
 
 ```C++
 decltype(operand)
 ```
+```C++
+int x = 10;
+decltype(x) y = 45;    // y degiskeni x degiskeninin turunden bir degiskendir
+```
 
-* `decltype` ile degisken uretmek zorunlu degildir.
+* `decltype` ile degisken uretmek zorunlu degildir, tur bilgisi ifade edilmesi gereken herhangi bir yerde kullanilabilmektedir.
 * `()` operatorun sentaksinin bir bileseni olmasi nedeniyle kullanimi zorunludur.
 * `decltype` operatorunun operandi **unevaluated context**tir.
 
@@ -173,8 +193,6 @@ decltype karsiligi identifier (ismin) turu ile ayni olacak bicimde cikarim yapil
 
 [Ornekler](res/src/type_deduction_decltype02.cpp)
 
-
-
 ### expression icin cikarim kurallari
 ```C++
 decltype(expr)
@@ -188,9 +206,6 @@ Hangi turun elde edilecegi operand olan `expr` ifadesinin primary value category
 * `expr` ifadesi bir **xvalue** ifadesi ise elde edilecek tur `T&&`'dir;
 
 [Ornekler](res/src/type_deduction_decltype03.cpp)
-
-
-
 
 <!--  -->
 

@@ -1,13 +1,20 @@
 # Reference Semantics
-Reference semantigi sadece dil katmaninda olan bir ozelliktir. Makina kodu seviyesinde bir farklilik saglamamaktadir.
+Reference semantigi sadece dil katmaninda olan bir ozelliktir, makina kodu seviyesinde bir farklilik saglamamaktadir. 
+
+Bir cok durumda pointer semantigine alternatif olarak kullanilabilmektedir. Pointer'lar C'den gelen bir aractir ve C++'in bazi araclarinin kullanimini kolaylastirma amaci ile *-ornegin operator overloading, move semantigi, perfect forwarding vb.-* dile eklenmistir.
 
 Modern C++'da 3 farkli tip reference vardir:
-1. L Value References
-2. R Value References
+1. L value references
+2. R value references
    * Move semantics
+3. Universal reference *(formal olarak Forwarding Reference)*
    * Perfect forwarding
-3. Forwarding Reference (Universal Reference)
 
+```C++
+int& r = x;     // lvalue reference
+int&& rr = 10;  // rvalue reference
+auto&& ur = 10; // universal reference (&& declaratoru ile tur cikarimi)
+```
 
 ## Lvalue references
 Bir nesnenin yerine gecen bir identifierdir.
@@ -77,13 +84,13 @@ r   //  r ifadesi = int, r degiskeni = int&
 <!--  -->
 
 * Referenslar genel olarak su iki amacla kullanilir:
-  1. Bir nesneyi bir fonksiyona *call by reference* olarak arguman verilmesi
+  1. Bir nesneyi bir fonksiyona *[call by reference](999_kavramlar.md#call-by-valuereference)* olarak arguman verilmesi
   2. Bir fonksiyonun kendisini cagiran koda bir nesnenin kendisini iletmesi
 
   [Ornek](res/src/ref_sem06.cpp)
   
-  > **Not**
-  > C dilinde pointerlar kullanmadan call by reference kullanimi mumkun degildir. Bu durum C++ icin gecerli degildir.
+  > **Not**  
+  > C dilinde pointerlar kullanmadan [call by reference](999_kavramlar.md#call-by-valuereference) kullanimi mumkun degildir. Bu durum C++ icin gecerli degildir.
   
   > **Not**  
   > C dilinde fonksiyon cagri ifadesi karsiligi her zaman rvalue expr'dir. C++ dilinde ise geri donus degir bir ref turunden ise lvalue expr olabilir.

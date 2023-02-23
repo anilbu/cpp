@@ -1,283 +1,285 @@
-* Giris
-* Kitaplar
-* Yararli Baglantilar
-* Temel Kavramlar
-  * Data Abstraction
-  * Undefined Behaviour (UB)
-  * Unspecified Behavior
-  * Implementation-defined Behavior
-  * contextual keyword
-* Terminoloji
-  * type cast operator ile tur donusumu
-  * C'de gecerli ancak C++'da gecerli olmayan temel farkliliklar
-  * Tam sayi turleri
-  * Gercek sayi turleri
-* Sayi Sistemleri
-* Name lookup
-* Scope
-* Expression
-* Operatorler
-  * sequence point (sequencing) and order of evaluation
-* Functions
-  * deleted functions
-  * `const` anahtar sozcugu
-  * typedef bildirimleri
-  * `comma operator`
-  * Implicit Type Conversion
-    * 1. Usual Arithmetic Conversion
-    * 2. Assignment/Copy Conversion
-    * Derleyici hangi durumlarda implicit donusum yapmak zorundadir?
-  * Explicit Type Conversion
-    * `static_cast` operatoru
-    * `const_cast` operatoru
-    * `reinterpret_cast` operatoru
-    * `dynamic_cast` operatoru
-* Array
-  * Array decay
-* Pointers
-  * Nullptr
-  * `&` operatoru
-  * `*` operatoru
-  * Pointer aritmetigi
-  * functions returns an address
-  * Pointers ve `const`
-  * Lvalue references
-    * Lvalue refs ve `const`
-  * pointers vs references
-  * Rvalue references
-  * Reference collapsing
-  * `auto` type deduction
-    * `auto&` tur cikarim kurallari
-    * `auto&&` tur cikarim kurallari
-  * `decltype` type deduction
-    * identifier icin cikarim kurallari
-    * expression icin cikarim kurallari
-* Scoped Enum
-  * Function overloading kurallari
-  * Best Match Kurallari
-  * Ozel Durumlar
-  * Ornekler
-  * Birden fazla parametreli overloadlarin resolution durumlari
-    * Viable Function Examples
-* One Definition Rule (ODR)
-* Inline Extension
-* Inline Functions
-* Complete/Incomplete Types
-* Inline variables [C++17]
-  * `constexpr` functions
-  * Name Lookup 
-  * Access Control and Specifiers
-  * Class Members
-  * Non-static data members
-  * Non-static member function
-    * **`this` keyword**
-    * **`const` member functions**
-    * **`mutable` keyword**
-    * **Reference Qualifiers**
-  * Static Data Members
-  * Static Member Functions
-    * **Named ctor idiom**
-    * **Mono-state Pattern**
-    * **Singleton Pattern**
-  * **Pimple idiom**
-  * Fast pimple idiom
-  * Friend declarations
-    * 1. friend to global function
-      * **hidden friend**
-    * 2. friend to a class member
-    * 3. friend to a class
-* Constructors and Destructor
-  * Default constructor
-  * Constructor Initializer List
-  * Default Member Initializer
-  * Parametreli Constructor
-  * Conversion Constructor
-    * `explicit` keyword
-  * Delegating a Constructor [C++11]
-  * Copy Members
-    * **Value Semantics**
-    * Copy Constructor
-    * Copy Assignment
-  * Move Members
-    * **Move Semantics**
-      * **`std::move` fonksiyonu**
-    * Move Constructor
-    * Move Assignment
-    * Dikkat edilmesi gereken onemli noktalar
-    * Rule of Zero
-    * Rule of Five
-  * Life extension
-  * Genel Kurallar
-  * Mantiksal Kurallar
-  * Global Operator overloading vs Member operator overloading
-  * `<<` ve `>>` operatorlerinin overload edilmesi
-  * Karsilastirma operatorlerinin overload edilmesi
-    * `+` ve `-` isaret operatorleri
-    * `+`, `-`, `*`, `/`, `+=`, `-=`, `*=`, `/=` operatorleri
-    * `++` ve `--` operatorleri
-  * Array-like siniflar
-  * Index `[]` operator fonksiyonunun overload edilmesi
-  * Pointer-like siniflar
-  * Icerik `*` ve ok operatoru `->` fonksiyonlarinin overload edilmesi
-  * Fonksiyon cagri `()` operator fonksiyonunun overload edilmesi
-  * Genel Kurallar
-  * binary scope resolution `::` operatoru
-  * `using` declaration
-  * `using namespace` bildirimi
-  * Argument Dependat Lookup (ADL)
-  * Unnamed Namespace
-  * Nested Namespace
-  * Inline namespace
-  * Namespace Alias
-* Composition
-* Inheritance
-  * Terminoloji
-  * Genel kurallar
-  * Name-lookup kurallari
-  * Access Control
-  * Type casting
-    * Upcasting
-    * Downcasting
-  * Inheritance ve Ctors/Dtor
-  * Inheritance ve diger SMF'ler
-    * Copy ve Move Constructor
-    * Copy ve Move Assignment
-  * Sinif tanimi icinde yapilan `using` bildirimi
-    * Inherited Constructor [C++11]
-* Runtime Polymorphismm
-  * Terminoloji
-      * polymorphic class
-      * abstract/concrete class
-      * static binding
-      * dynamic binding
-      * Static typing ve Dynamic typing
-  * Overriding a member function
-    * `override` contextual keyword
-  * Virtual dispatch uygulanan ve uygulanmayan durumlar
-  * Non-Virtual Interface
-  * Covariance
-  * Virtual Constructor Idiom (Clone Idiom)
-  * Virtual Destructor
-* Virtual Function Table Pointer (vtable)
-  * Sanal bir fonksiyona cagri yapilmasi ve maliyeti
-  * `final overrider`
-  * Devirtualization Optimization
-* private inheritance
-  * Private inheritance usacases
-    * Containment
-    * Empty Base Optimization (EBO)
-    * Restricted Polymorphism
-* protected inheritance
-* Multiple Inheritance
-  * Name-lookup kurallari
-  * Diamond Formation  
-  * Virtual Inheritance
-  * Traditional Error Handling
-  * Genel Kurallar
-    * **uncaught exception**
-  * Stack unwinding
-  * Rethrowing an exception
-  * Exception dispatcher idiom
-  * Throwing an exception from a constructor
-  * Destructors ve exception handling
-  * [deprecated] Dynamic exception specification
-  * `noexcept` keyword
-    * `noexcept` specifier
-    * `noexcept()` operatoru
-  * function-try block
-  * exception safety
-  * Kaynak ve Referanslar
-  * `dynamic_cast` operatoru
-  * `typeid` operatoru
-* Generic Programming - Templates
-  * Tanimlar
-  * template parameters
-    * template parameter categories
-  * template arguments
-    * template argument deduction  
-    * explicit template argument
-    * default template arguments
-    * CTAD [C++17]
-    * abbreviated template syntax [C++20]
-  * Partial Template Specialization
-* Perfect Forwarding
-  * Neden Perfect Forwarding?
-  * Template Parameter Pack
-  * `sizeof...` operatoru
-  * Pack expansion
-    * Pack expansion ile parametreler nasil kullanilir
-      * Compile-time recursive pack expansion
-      * [Virgul operatoru](051_basics2.md#comma-operator) ile parameter pack expansion
-      * [if-constexpr](#TODO) kullanilarak
-    * Pack expansion ile ilgili bazi idiomlar
-  * Templateler ile ilgili Onemli Noktalar
-* Lambda Expressions - 1
-  * Lambda Capture
-    * Stateless/Stateful Lambda
-  * Closure type
-  * Trailing return type
-  * Generalized Lambda Expression / Overload Resolution
-  * Kullanimi ve idiomatik ifadeler
-    * (IIFE) Immediately Invoked Function Expression
-    * Positive Lambda Idiom
-* `std::pair`
-* `std::tuple`
-* String Sinifi
-  * Tipik parametrik yapilar
-  * std::string nested types
-  * std::string constructors
-    * Default ctor 
-    *  Copy ctor
-    * Move ctor
-    * cstring ctor
-    * data ctor
-    * range ctor
-    * initializer_list ctor
-    * fill ctor
-    * substring ctor
-  * std::string member functions
-    * `string::size` ve `string::length`
-    * `string::capacity`
-    * `string::empty`
-    * `operator[]` ve `at()`
-    * `front()` ve `back()`
-    * `c_str()` ve `data()`
-    * `resize()`
-    * `operator=`
-    * `assign()`
-    * `push_back()`, `operator+=` ve `apend()`
-    * `string::npos`
-* String (Devam)
-    * `reserve()` ve `shrink_to_fit()`
-    * `begin()` ve `end()`
-    * Ekleme islemleri
-    * Arama islemleri
-    * `substr`
-    * Karsilastirma islemleri
-      * operator overloading
-      * `compare()`
-    * `swap()`
-    * `replace()`
-    * global `operator+` 
-    * Donusum fonksiyonlari
-      * `stoX` fonksiyonlari
-      * `to_string` fonksiyonu
-    * Bazi algoritma ornekleri
-* auto trailing return type
-* Most vexing parse
-* AAA (almost always auto)
-* as if rule
-* type-punning
-* static binding
-* dynamic binding
-* name hiding
-* header only library
-* data hiding
-* static initialization fiasco
-* RAII
-* copy & swap idiom
-* NVRO
-* ABI
-* first-class functions
-* Allocator kavrami
-* Serialize/Deserialize
+* [Giris](010_giris.md#giris)
+* [Temel Kavramlar](020_temel_kavramlar.md#temel-kavramlar)
+* [C ve C++ Farkliliklar](040_c_cpp_farklar.md)
+* [C/C++ Temel](050_basics.md)
+
+<!-- * [Basic Types](050_basics.md#Basic Types)
+  * [Tam sayi turleri](050_basics.md#Tam sayi turleri)
+  * [Gercek sayi turleri](050_basics.md#Gercek sayi turleri)
+  * [`const` anahtar sozcugu](050_basics.md#`const` anahtar sozcugu)
+* [Sayi Sistemleri](050_basics.md#Sayi Sistemleri)
+* [Initialization](050_basics.md#Initialization)
+  * [Default Initialization](050_basics.md#Default Initialization)
+  * [Copy Initialization](050_basics.md#Copy Initialization)
+  * [Direct Initialization](050_basics.md#Direct Initialization)
+  * [Uniform Initialization](050_basics.md#Uniform Initialization)
+  * [Value Initialization](050_basics.md#Value Initialization)
+  * [Dizi turlerinin ilk deger almasi](050_basics.md#Dizi turlerinin ilk deger almasi)
+* [Expressions](050_basics.md#Expressions)
+  * [Constant Expression](050_basics.md#Constant Expression)
+* [Scope ](050_basics.md#Scope )
+  * [Unary `::` scope resolution operatoru](050_basics.md#Unary `::` scope resolution operatoru)
+* [Storage Duration](050_basics.md#Storage Duration)
+  * [Automatic storage](050_basics.md#Automatic storage)
+  * [Static storage](050_basics.md#Static storage)
+  * [Dynamic storage](050_basics.md#Dynamic storage)
+  * [ Thread-local storage](050_basics.md* Thread-local storage)
+* [Name lookup](050_basics.md#Name lookup)
+* [Fonksiyonlar](050_basics.md#Fonksiyonlar)
+  * [Variadic functions](050_basics.md#Variadic functions)
+  * [deleted functions](050_basics.md#deleted functions)
+* [Operatorler](050_basics.md#Operatorler)
+  * [`sizeof` operatoru](050_basics.md#`sizeof` operatoru)
+  * [Unary `+`/`-` isaret operatorleri](050_basics.md#Unary `+`/`-` isaret operatorleri)
+  * [Logic `&&` ve `||` operatorleri](050_basics.md#Logic `&&` ve `||` operatorleri)
+    * [short circuit behavior](050_basics.md#short circuit behavior)
+  * [Atama operatorleri](050_basics.md#Atama operatorleri)
+  * [Prefix `++`/`--` ve Postfix `++`/`--` operatorleri](050_basics.md#Prefix `++`/`--` ve Postfix `++`/`--` operatorleri)
+  * [Comma `,` operatoru](050_basics.md#Comma `,` operatoru)
+  * [sequence point and order of evaluation](050_basics.md#sequence point and order of evaluation)
+  * [`<<` ve `>>` bitwise shift operatorleri](050_basics.md#`<<` ve `>>` bitwise shift operatorleri)
+  * [Karsilastirma operatorleri](050_basics.md#Karsilastirma operatorleri)
+  * [`?:` ternary operator](050_basics.md#`?:` ternary operator)
+* [Tur-es isim bildirimleri](050_basics.md#Tur-es isim bildirimleri) 
+-->
+* [Type Conversion](060_type_conversions.md)
+  * [Implicit Type Conversion](060_type_conversions.md#implicit-type-conversion)
+  * [Explicit Type Conversion](060_type_conversions.md#explicit-type-conversion)
+    * [`static_cast` operatoru](060_type_conversions.md#static_cast-operatoru)
+    * [`const_cast` operatoru](060_type_conversions.md#const_cast-operatoru)
+    * [`reinterpret_cast` operatoru](060_type_conversions.md#reinterpret_cast-operatoru)
+    * [`dynamic_cast` operatoru](060_type_conversions.md#dynamic_cast-operatoru)
+* [Value Categories](065_value_categories.md)
+* [Arrays](070_arrays.md)
+  * [Array decay](070_arrays.md#array-decay)
+* [Pointers](080_pointers.md#Pointers)
+  * [`nullptr`](080_pointers.md#`nullptr`)
+  * [`&` operatoru](080_pointers.md#operatoru)
+  * [`*` operatoru](080_pointers.md#operatoru-1)
+  * [Pointer aritmetigi](080_pointers.md#pointer-aritmetigi)
+  * [functions returns an address](080_pointers.md#functions-returns-an-address)
+  * [Pointers ve `const`](080_pointers.md#pointers-ve-const)
+* [Reference Semantics](100_ref_semantics.md)
+  * [Lvalue references](100_ref_semantics.md#lvalue-references)
+    * [Lvalue refs ve `const`](100_ref_semantics.md#lvalue-refs-ve-const)
+  * [pointers vs references](100_ref_semantics.md#pointers-vs-references)
+  * [Rvalue references](100_ref_semantics.md#rvalue-references)
+  * [Reference collapsing](100_ref_semantics.md#reference-collapsing)
+* [Type Deduction](110_type_deduction.md)
+  * [`auto` type deduction](110_type_deduction.md#auto-type-deduction)
+  * [`decltype` type deduction](110_type_deduction.md#decltype-type-deduction)
+* [Function Default Arguments](120_default_args.md#function-default-arguments)
+* [Scoped Enum](130_scoped_enum.md)
+* [Function Overloading](140_function_overloading.md)
+* [Function Overload Resolution](145_function_overload_resolution.md)
+  * [Best Match Kurallari](145_function_overload_resolution.md#best-match-kurallari)
+  * [Ozel Durumlar](145_function_overload_resolution.md#ozel-durumlar)
+* [`extern "C"`](150_extern_c.md)
+* [One Definition Rule (ODR)](160_odr.md#one-definition-rule-odr)
+* [Inline Extension](160_odr.md#inline-extension)
+* [Inline Functions](160_odr.md#inline-functions)
+* [Complete/Incomplete Types](160_odr.md#completeincomplete-types)
+* [Inline variables [C++17]](160_odr.md#inline-variables-c17)
+* [Constant Expressions](170_constexpr.md)
+  * [`constexpr` anahtar sozcugu](170_constexpr.md#constexpr-anahtar-sozcugu)
+  * [`constexpr` functions](170_constexpr.md#constexpr-functions)
+
+--------------
+
+* [Classes - I](200_classes.md)
+  * [Name Lookup ](200_classes.md#name-lookup)
+  * [Access Control and Specifiers](200_classes.md#access-control-and-specifiers)
+  * [Class Members](200_classes.md#class-members)
+    * [Non-static Class Members](201_class_nonstatic_members.md)
+      * [Non-static data members](201_class_nonstatic_members.md#non-static-data-members)
+      * [Non-static member function](201_class_nonstatic_members.md#non-static-member-function)
+        * [**`this` keyword**](201_class_nonstatic_members.md#this-keyword)
+        * [**`const` member functions**](201_class_nonstatic_members.md#const-member-functions)
+        * [**`mutable` keyword**](201_class_nonstatic_members.md#mutable-keyword)
+        * [**Reference Qualifiers**](201_class_nonstatic_members.md#reference-qualifiers)
+    * [Static Class Members](202_class_static_members.md)
+      * [Static Data Members](202_class_static_members.md#static-data-members)
+      * [Static Member Functions](202_class_static_members.md#static-member-functions)
+        * [**Named ctor idiom**](202_class_static_members.md#named-ctor-idiom)
+        * [**Mono-state Pattern**](202_class_static_members.md#mono-state-pattern)
+        * [**Singleton Pattern**](202_class_static_members.md#singleton-pattern)
+    * [Nested Types](203_class_type_member.md)
+      * [**Pimple idiom**](203_class_type_member.md#pimple-idiom)
+      * [Fast pimple idiom](203_class_type_member.md#fast-pimple-idiom)
+  * [Friend declarations](204_friend_declarations.md#friend-declarations)
+    * [friend to global function](204_friend_declarations.md#1-friend-to-global-function)
+      * [hidden friend](204_friend_declarations.md#hidden-friend)
+    * [friend to a class member](204_friend_declarations.md#2-friend-to-a-class-member)
+    * [friend to a class](204_friend_declarations.md#3-friend-to-a-class)
+  * [Constructors and Destructor](210_ctors_dtor.md)
+    * [Default constructor](210_ctors_dtor.md#default-constructor)
+    * [Constructor Initializer List](210_ctors_dtor.md#constructor-initializer-list)
+    * [Default Member Initializer](210_ctors_dtor.md#default-member-initializer)
+    * [Parametreli Constructor](210_ctors_dtor.md#parametreli-constructor)
+    * [Conversion Constructor](210_ctors_dtor.md#conversion-constructor)
+      * [`explicit` keyword](210_ctors_dtor.md#explicit-keyword)
+    * [Delegating a Constructor [C++11]](210_ctors_dtor.md#delegating-a-constructor-c11)
+  * [Special Member Functions](220_smf.md)
+    * [Copy Members](221_smf_copy_members.md)
+      * [Value Semantics](221_smf_copy_members.md#value-semantics)
+      * [Copy Constructor](221_smf_copy_members.md#copy-constructor)
+      * [Copy Assignment](221_smf_copy_members.md#copy-assignment)
+    * [Move Members](222_smf_move_members.md)
+      * [Move Semantics](222_smf_move_members.md#move-semantics)
+        * [`std::move` fonksiyonu](222_smf_move_members.md#stdmove-fonksiyonu)
+      * [Move Constructor](222_smf_move_members.md#move-constructor)
+      * [Move Assignment](222_smf_move_members.md#move-assignment)
+      * [Dikkat edilmesi gereken onemli noktalar](222_smf_move_members.md#dikkat-edilmesi-gereken-onemli-noktalar)
+    * [SMF'lerin User-defined Kullanimi  ](223_smf_explicit.md)
+      * [Rule of Zero](223_smf_explicit.md#rule-of-zero)
+      * [Rule of Five](223_smf_explicit.md#rule-of-five)
+    * [SMF'ler icin Derleyicinin kod uretme kurallari](224_smf_implicit.md)
+
+--------------
+
+* [Temporary Objects](230_temp_objects.md)
+* [Life extension](230_temp_objects.md)
+* [Copy Elision](240_copy_elision.md)
+* [Operator Overloading](250_operator_overloading.md#operator-overloading)
+  * [Global vs Member Operator Overloading](250_operator_overloading.md#global-operator-overloading-vs-member-operator-overloading)
+  * [`<<` ve `>>` operatorlerinin overload edilmesi](251_oo_shift.md)
+  * [Karsilastirma operatorlerinin overload edilmesi](252_oo_comparison.md)
+  * [Aritmetik operatorlerin overload edilmesi](253_oo_arithmetic.md)
+    * [`+` ve `-` isaret operatorleri](253_oo_arithmetic.md#ve---isaret-operatorleri)
+    * [`+`, `-`, `*`, `/`, `+=`, `-=`, `*=`, `/=` operatorleri](253_oo_arithmetic.md#operatorleri)
+    * [`++` ve `--` operatorleri](253_oo_arithmetic.md#ve----operatorleri)
+  * [Array-like siniflar](254_oo_diger.md#array-like-siniflar)
+  * [Index `[]` operator fonksiyonunun overload edilmesi](254_oo_diger.md#index--operator-fonksiyonunun-overload-edilmesi)
+  * [Pointer-like siniflar](254_oo_diger.md#pointer-like-siniflar)
+  * [Icerik `*` ve ok operatoru `->` fonksiyonlarinin overload edilmesi](254_oo_diger.md#icerik--ve-ok-operatoru---fonksiyonlarinin-overload-edilmesi)
+  * [Fonksiyon cagri `()` operator fonksiyonunun overload edilmesi](254_oo_diger.md#fonksiyon-cagri--operator-fonksiyonunun-overload-edilmesi)
+  * [Tur donusum operator fonksiyonlarinin overload edilmesi](255_oo_typecast.md#tur-donusum-operator-fonksiyonlarinin-overload-edilmesi)
+* [Namespaces](260_namespaces.md)
+  * [binary scope resolution `::` operatoru](260_namespaces.md#binary-scope-resolution--operatoru)
+  * [`using` declaration](260_namespaces.md#using-declaration)
+  * [`using namespace` bildirimi](260_namespaces.md#using-namespace-bildirimi)
+  * [Argument Dependat Lookup (ADL)](260_namespaces.md#argument-dependat-lookup-adl)
+  * [Unnamed Namespace](260_namespaces.md#unnamed-namespace)
+  * [Nested Namespace](260_namespaces.md#nested-namespace)
+  * [Inline namespace](260_namespaces.md#inline-namespace)
+  * [Namespace Alias](260_namespaces.md#namespace-alias)
+
+--------------
+
+* [Composition](270_composition.md#Composition)
+* [Inheritance](280_inheritance.md#Inheritance)
+  * [Type casting](280_inheritance.md#type-casting)
+  * [Inheritance ve Ctors/Dtor](280_inheritance.md#inheritance-ve-ctorsdtor)
+  * [Inheritance ve diger SMF'ler](280_inheritance.md#inheritance-ve-diger-smfler)
+    * [Copy ve Move Constructor](280_inheritance.md#copy-ve-move-constructor)
+    * [Copy ve Move Assignment](280_inheritance.md#copy-ve-move-assignment)
+  * [Sinif tanimi icinde yapilan `using` bildirimi](280_inheritance.md#sinif-tanimi-icinde-yapilan-using-bildirimi)
+    * [Inherited Constructor [C++11]](280_inheritance.md#inherited-constructor-c11)
+  * [private inheritance](298_private_protected_inheritance.md#private-inheritance)
+    * [Private inheritance usacases](298_private_protected_inheritance.md#private-inheritance-usacases)
+      * [Containment](298_private_protected_inheritance.md#containment)
+      * [Empty Base Optimization (EBO)](298_private_protected_inheritance.md#empty-base-optimization-ebo)
+      * [Restricted Polymorphism](298_private_protected_inheritance.md#restricted-polymorphism)
+  * [protected inheritance](298_private_protected_inheritance.md#protected-inheritance)
+  * [Multiple Inheritance](299_multiple_inheritance.md#multiple-inheritance)
+    * [Name-lookup kurallari](299_multiple_inheritance.md#name-lookup-kurallari)
+    * [Diamond Formation  ](299_multiple_inheritance.md#diamond-formation)
+    * [Virtual Inheritance](299_multiple_inheritance.md#virtual-inheritance)
+* [Runtime Polymorphismm](290_runtime_polymorphism.md#runtime-polymorphismm)
+  * [Virtual Dispatch](295_virtual_dispatch.md#virtual-dispatch)
+    * [Overriding a member function](295_virtual_dispatch.md#overriding-a-member-function)
+      * [`override` contextual keyword](295_virtual_dispatch.md#override-contextual-keyword)
+    * [Virtual dispatch uygulanan ve uygulanmayan durumlar](295_virtual_dispatch.md#virtual-dispatch-uygulanan-ve-uygulanmayan-durumlar)
+    * [Non-Virtual Interface](295_virtual_dispatch.md#non-virtual-interface)
+    * [Covariance](295_virtual_dispatch.md#covariance)
+    * [Virtual Constructor Idiom (Clone Idiom)](295_virtual_dispatch.md#virtual-constructor-idiom-clone-idiom)
+    * [Virtual Destructor](295_virtual_dispatch.md#virtual-destructor)
+  * [Virtual Function Table Pointer (vtable)](296_vtable.md#virtual-function-table-pointer-vtable)
+    * [Sanal bir fonksiyona cagri yapilmasi ve maliyeti](296_vtable.md#sanal-bir-fonksiyona-cagri-yapilmasi-ve-maliyeti)
+    * [`final class`](297_final.md#final-class)
+    * [`final overrider`](297_final.md#final-overrider)
+    * [Devirtualization Optimization](297_final.md#devirtualization-optimization)
+
+--------------
+
+* [Error Handling](320_error_handling.md#error-handling)
+  * [Traditional Error Handling](320_error_handling.md#traditional-error-handling)
+* [Exception Handling in C++](321_exception_handling.md)
+  * [Stack unwinding](321_exception_handling.md#stack-unwinding)
+  * [Rethrowing an exception](321_exception_handling.md#rethrowing-an-exception)
+    * [Exception dispatcher idiom](321_exception_handling.md#exception-dispatcher-idiom)
+  * [Throwing an exception from a constructor](321_exception_handling.md#throwing-an-exception-from-a-constructor)
+  * [Destructors ve exception handling](321_exception_handling.md#destructors-ve-exception-handling)
+  * [[deprecated] Dynamic exception specification](321_exception_handling.md#deprecated-dynamic-exception-specification)
+  * [`noexcept` keyword](321_exception_handling.md#noexcept-keyword)
+    * [`noexcept` specifier](321_exception_handling.md#noexcept-specifier)
+    * [`noexcept()` operatoru](321_exception_handling.md#noexcept-operatoru)
+  * [function-try block](321_exception_handling.md#function-try-block)
+  * [exception safety](321_exception_handling.md#exception-safety)
+* [Runtime Type Information (RTTI)](330_rtti.md)
+  * [`dynamic_cast` operatoru](330_rtti.md#dynamic_cast-operatoru)
+  * [`typeid` operatoru](330_rtti.md#typeid-operatoru)
+
+
+--------------
+
+* [Generic Programming - Templates](340_generic_programming.md)
+  * [template parameters](341_template_params_and_args.md#)
+  * [template arguments](341_template_params_and_args.md#template-arguments)
+    * [template argument deduction](341_template_params_and_args.md#template-argument-deduction)
+    * [explicit template argument](341_template_params_and_args.md#explicit-template-argument)
+    * [default template arguments](341_template_params_and_args.md#default-template-arguments)
+    * [CTAD [C++17]](341_template_params_and_args.md#ctad-c17)
+  * [Function Templates](342_function_templates.md#function-templates)
+    * [abbreviated template syntax [C++20]](342_function_templates.md#abbreviated-template-syntax-c20)
+  * [Class Templates](343_class_templates.md#class-templates)
+  * [Alias template](344_alias_templates.md#alias-template)
+  * [Explicit Template Specialization](345_template_specializations.md#explicit-template-specialization)
+  * [Partial Template Specialization](345_template_specializations.md#partial-template-specialization)
+  * [Perfect Forwarding](346_perfect_forwarding.md#perfect-forwarding)
+  * [Variadic templates](347_variadic_templates.md#variadic-templates)
+    * [Template Parameter Pack](347_variadic_templates.md#template-parameter-pack)
+    * [`sizeof...` operatoru](347_variadic_templates.md#sizeof-operatoru)
+    * [Pack expansion](347_variadic_templates.md#pack-expansion)
+      * [Pack expansion ile ilgili bazi idiomlar](347_variadic_templates.md#pack-expansion-ile-ilgili-bazi-idiomlar)
+  * [Templateler ile ilgili Onemli Noktalar](350_template_dikkat.md#templateler-ile-ilgili-onemli-noktalar)
+* [Lambda Expressions](370_lambda_expr.md)
+  * [Lambda Capture](370_lambda_expr.md#lambda-capture)
+    * [Stateless/Stateful Lambda](370_lambda_expr.md#statelessstateful-lambda)
+  * [Closure type](370_lambda_expr.md#closure-type)
+  * [Trailing return type](370_lambda_expr.md#trailing-return-type)
+  * [Generalized Lambda Expression / Overload Resolution](370_lambda_expr.md#generalized-lambda-expression--overload-resolution)
+  * [Kullanimi ve idiomatik ifadeler](370_lambda_expr.md#kullanimi-ve-idiomatik-ifadeler)
+    * [(IIFE) Immediately Invoked Function Expression](370_lambda_expr.md#iife-immediately-invoked-function-expression)
+    * [Positive Lambda Idiom](370_lambda_expr.md#positive-lambda-idiom)
+
+--------------
+
+* [`new` ve `delete`](900_dynamic_memory.md#`new` ve `delete`)
+
+--------------
+
+<!-- 
+* [auto trailing return type](900.md#auto trailing return type)
+* [Maximal Munch Rule](999_kavramlar.md#Maximal Munch Rule)
+* [Most vexing parse](999_kavramlar.md#Most vexing parse)
+* [AAA (almost always auto)](999_kavramlar.md#AAA (almost always auto))
+* [call by value/reference](999_kavramlar.md#call by value/reference)
+* [2's complement taktigi](999_kavramlar.md#2's complement taktigi)
+  * [Scope Leakage](999_kavramlar.md#Scope Leakage)
+* [as if rule](999_kavramlar.md#as if rule)
+* [type-punning](999_kavramlar.md#type-punning)
+* [static binding](999_kavramlar.md#static binding)
+* [dynamic binding](999_kavramlar.md#dynamic binding)
+* [name hiding](999_kavramlar.md#name hiding)
+* [header only library](999_kavramlar.md#header only library)
+* [data hiding](999_kavramlar.md#data hiding)
+* [static initialization fiasco](999_kavramlar.md#static initialization fiasco)
+* [RAII](999_kavramlar.md#RAII)
+* [copy & swap idiom](999_kavramlar.md#copy & swap idiom)
+* [NVRO](999_kavramlar.md#NVRO)
+* [ABI](999_kavramlar.md#ABI)
+* [first-class functions](999_kavramlar.md#first-class functions)
+* [Allocator kavrami](999_kavramlar.md#Allocator kavrami)
+* [Serialize/Deserialize](999_kavramlar.md#Serialize/Deserialize) 
+-->
