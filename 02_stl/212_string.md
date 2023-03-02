@@ -112,7 +112,7 @@ string(const string & s, size_t pos, size_t n);      // (10)
 * (9-10) `pos` index parametresi out of range ise **exception** gonderilir.
 * (10) Normalde uzunluk bilgisi out of range oldugunda UB olmasi beklenir. Ancak, burada davranis well-defined'dir ve **geriye kalanlarin tumu** anlamina gelmektedir.
 
-> **DIKKAT!**  
+> :warning: 
 > `string` sinifinin `char` parametreli bir ctor'u bulunmamaktadir.
 
 #### Iterators
@@ -125,7 +125,7 @@ string::iterator string::end() noexcept;
 string::const_iterator string::end() const noexcept;
 ```
 
-> **DIKKAT!**  
+> :warning: 
 > `string` sinifinin bazi uye fonksiyonlari **index** parametresi kullanirken, bazi uye fonksiyonlari **iterator** kullanmaktadir.
 
 
@@ -197,7 +197,7 @@ if(s.capacity() > cap) {
 </details>
 <!--  -->
 
-> **DIKKAT!**    
+> :warning:   
 > Reallocation yapilmasi, daha onceden kullanilan pointerlari invalidate eder!
 
 ##### `string::max_size`
@@ -637,7 +637,7 @@ const char* p4 = str.c_str();
 ```C++
 string string::substr(size_t __pos = string::npos, size_t __n = string::npos) const;
 ```
-> **DIKKAT!**  
+> :warning: 
 > `substr` kopyalama yaparak **yeni bir string nesnesi** olusturur. Bu nedenle substring operasyonlari maliyeti yuksek bir operasyondur.
   
 <details>
@@ -695,7 +695,7 @@ vb...
 ```
 Karsilastirma islemlerini direkt olarak karsilastirma operatorleri ile yapmak mumkun.
 
-> **DIKKAT!**  
+> :warning: 
 > [C++20] standartlarina kadar string sinifinin karsilastirma operatorleri global operator tanimlariydi. C++20 standardi ile `operator<=>` (three-way comparison/spaceship operator) eklenmesi ile bu operator kullanilarak implementasyon yapilmistir.
 
 ###### `string::compare`
@@ -795,9 +795,7 @@ string s1, s2;
 cout << s1 + s2 << "\n";
 cout << "ali" + s1 + "can" << "\n";
 ```
-> **DIKKAT!**  
-> 
-> Iki tane cstring'i `operator+` ile toplayamazsiniz.
+> :warning: Iki cstring'i `operator+` ile toplayamazsiniz.
 
 ### std::string ile ilgili onemli notlar
 

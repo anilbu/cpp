@@ -81,7 +81,7 @@ const int x = 10;
   decltype(x) y;              // y = const int
   ```
 
-> **DIKKAT!**  
+> :warning: 
 > Derleyici `constexpr` veya `const` degiskenler icin bellekte yer ayirmak zorunda degildir. Ancak degiskenin **adresine erisim** varsa yer ayirmak zorunda kalir.
 
 ### Fonksiyon parametrelerinde `const` semantigi
@@ -185,7 +185,7 @@ int* ptr{};      // ptr = nullptr
 * Aritmetik turunden degiskenler `0` degeri ile 
 * Adress turunden degiskenler `nullptr` degeri ile 
 
-> **Not**  
+> :triangular_flag_on_post: 
 > Global degiskenler default initialize edildiginde once zero-initialize edilir.  
 > Aritmetik turler value initialize edildiginde once zero-initialize edilir.
 
@@ -214,7 +214,7 @@ x * x + y * y + z * z
 
 Her ifadenin bir **data type**'i ve bir **value category**'si bulunmaktadir.
 
-> **DIKKAT!**  
+> :warning: 
 > Bildirilen isimlerin bir value categorysi yoktur, expressionlarin vardir.
 
 ## Constant Expression
@@ -261,7 +261,7 @@ C'de scope kategorileri:
 * Function prototype scope
 * Function scope
 
-> **Not**  
+> :warning: 
 > C'de ve C++ dillerinde scope kurallari ve kategorileri birbirinden farklidir.
 
 **Kurallar**  
@@ -295,7 +295,7 @@ int main() {
 
 Storage class, bir nesnenin o nesne icin ayrilmis yada ayrilacak olan bellek alaninda hangi sure ile duracagini belirtir.
 
-> **DIKKAT!**  
+> :warning: 
 > *Scope* kavrami isimlerin *(identifiers)* niteligidir, *storage class* ise nesnelerin niteligidir.
 
 ## Automatic storage
@@ -310,7 +310,7 @@ Tipik olarak `.data segment`inde barindirilir.
 2. static local variables
 3. String literal karsiligi derleyicinin olusturdugu char diziler
 
-> **Not**  
+> :triangular_flag_on_post: 
 > Global nesneler hayata main fonksiyonu cagrilmadan once gelir.  
 > Statik lokal degiskenler, bulundugu fonksiyon ilk kez cagrildiginda hayata gelmektedir.
 
@@ -407,7 +407,7 @@ void func(int) = delete;
 ```C++
 func(12); // hata!
 ```
-> **DIKKAT!**  
+> :warning: 
 > Fonksiyonun hic bildirilmemis olmasindan farki, delete edilmis bir fonksiyon function overload resolution'da yine aday ve viable fonksiyonlardan biri olmasidir. Argumanlarin implicit donusumunu engellemek icin kullanilabilir.
 ```c++
 void func(double);            // (1)
@@ -437,7 +437,7 @@ Operatore konumlari:
 Sekil: Operator oncelik tablosu
 </p> 
 
-> **Not**  
+> :triangular_flag_on_post: 
 > Operatorler konusunda bu dokumanda en cok yapilan hatalara yonelik aciklamalar bulunmaktadir.
 
 ## `sizeof` operatoru
@@ -446,7 +446,7 @@ Operandi olarak verilen ifadenin storage ihtiyacini ureten bir operatordur.
 * `sizeof` anahtar sozcugu bir operatordur, bir fonksiyon degildir.
 * `sizeof` operatoru ile olusturulan ifadeler **constant expression**dir. Yani compile-time sabitidir.
 * Urettigi deger `size_t` turundendir. `size_t` turu derleyici implementasyonuna gore degisebilir.
-  > **DIKKAT!**  
+  > :warning: 
   > Tur donusumu kurallari geregi, isaretli ve isaretsiz bir tur arasinda islem yapilacagi zaman tur donusumu isaretsiz olan yone yapilir!  
   > ```c++
   > int x = 0, ival = -5;
@@ -542,7 +542,7 @@ y = x++;    // x++'nin urettigi deger x'in degeri
 y = ++x;    // ++x'nin urettigi deger x'in degerinin bir fazlasi
 ```
 
-> **DIKKAT!**  
+> :warning: 
 > Operatorun urettigi deger ile yan etkisi karistirilmamalidir.
 
 ## Comma `,` operatoru
@@ -641,7 +641,7 @@ Sequence point, bulundugu konumdan önceki değerlendirmelerden kaynaklanan tüm
   ++x + x
   ```
 
-> **DIKKAT!**  
+> :warning: 
 > C ve C++'da sequence point kurallari farklidir. 
 
 **Tipik sequence pointler**
@@ -735,8 +735,8 @@ Karsilastirma operatorlerinde sik yapilan yapilan hatalar:
 
 # Tur-es isim bildirimleri
 
-> **Not**  
-> Pratik bilgi: Bir tur es ismi tanimi icin:
+> :information_source: 
+> Bir tur es ismi tanimi icin:
 > 1. Hangi ture es isim verilecekse o turden bir degisken tanimla
 > 2. Basina `typedef` koy.
 > 3. Degiskenin ismini tur es ismi olarak degisitir.

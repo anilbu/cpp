@@ -28,7 +28,7 @@ Function overloading'den soz edilebilmesi icin iki yada daha fazla fonksiyonun a
 > 2. namespace scope
 > 3. class scope
 > 
-> **DIKKAT!**    
+> :warning:   
 > Fonksiyonlari parametre turu ve geri donus turu `dizi` ve/ya `fonksiyon turu` olamaz! Ancak fonksiyona yada diziye pointer olabilir. Aksi halde **decay uygulanarak ilgili tur pointer'a donusturulur**.
 > 
 
@@ -234,7 +234,7 @@ Asagidaki orneklerde function overloading var midir?
 
 --------------
 
-> **DIKKAT!**  
+> :warning: 
 > **Genellikle yanlis ogrenilen yada cok yapilan hatalar**  
 > 1. Ayni isimli yanlis fonksiyonun cagrilmasi
 > 2. Ortada (kodda) bir function overloading var mi yok mu?

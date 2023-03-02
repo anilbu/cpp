@@ -134,7 +134,7 @@ Client kodlarin static data memberlari kullanabilmesi icin 2 sart yerine getiril
     constexpr static int daytabs[] = {31, 28 };
   };
   ```
-  > **Not**  
+  > :triangular_flag_on_post: 
   > Sinifin static data member degisime tabi ise encapsulation uygulanmasi tavsiye edilir.
 
 

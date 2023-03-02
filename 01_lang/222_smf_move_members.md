@@ -12,10 +12,10 @@ Kaynagi kopyalanacak olan nesnenin, baska bir kod tarafindan kullanilmadigini (h
 **Neden daha once boyle birsey yapilamiyordu?**
 Derleyicinin kaynak koda bakarak, `=`'in saginda bulunan ifadenin bir sinif nesnesi oldugunu ve bu nesnenin hayatinin bitmekte olup olmadigini anlayabilmesi gerekmektedir. Derleyicinin bir nesnenin hayatinin bitmekte oldugunu anlayabilmesi icin dile *temel syntax seviyesinde* [rvalue reference](100_ref_semantics.md#rvalue-references) kavrami eklenmistir.
 
-> **Hatirlatma**  
+> :pushpin: 
 > `const T&` ve `T&&` arasinda olusan overload arasinda eger arguman **lvalue expr** ise `const T&` overloadu, **rvalue expr** ise `T&&` overloadu secilir. [[bknz: function overload resolution](145_function_overload_resolution.md#ozel-durumlar)]
 
-> **Hatirlatma**  
+> :pushpin: 
 > rvalue expr $\equiv$ (prvalue expr $\cup$ xvalue expr)
 
 Bu kural ctor ve atama operatorleri icin de gecerlidir:
@@ -68,7 +68,7 @@ constexpr T&& move(T&& t) noexcept {
 ```C++
 Myclass y = std::move(x);   // x ifadesi bir lvalue expr iken, std::move(x) ifadesi bir rvalue expr
 ```
-> **DIKKAT!**    
+> :warning:   
 > *Move doesn't move! -Scott Meyers*
 > 
 > `std::move` fonksiyonun ismi *move* olmasina ragmen tasima yapmaz, sadece *casting* yaparak degerin value kategorisini degistirir. Tasima islemini **move member function**lar yapar!
@@ -127,7 +127,7 @@ Myclass& operator=(Myclass&& other)
 -------------
 
 
-> **DIKKAT!**    
+> :warning:   
 > Move memberlar, kaynagini caldigi nesneyi **gecerli bir durumda** (in a valid state) birakmalidir. Kaynagi calinmis bir nesnenin, atama yolu ile **tekrardan kullanilabilme** ihtimali vardir!
 > ```C++
 >   String(String&& other) : mlen{other.mlen}, mp{other.mp}
@@ -214,7 +214,7 @@ Myclass& operator=(Myclass&& other)
   
   Cunku `std::move` fonksiyonu `const` bir nesne aldiginda geri donus degeri `const qualified rvalue expr` olmasi nedeniyle, function overload resolution'a gore `copy ctor` cagrilir.
   
-  > **HATIRLATMA**  
+  > :pushpin: 
   > `rvalue expr`lar, `const lvalue ref`'lere baglanabilir! [[bknz: rvalue references](100_ref_semantics.md#rvalue-references)]
   
   

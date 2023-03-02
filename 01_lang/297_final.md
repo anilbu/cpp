@@ -10,7 +10,7 @@ Yukarida `Der` sinifi `final` olarak bildirilmesi nedeniyle taban sinif olarak k
 class DerDer : public Der{}; // sentaks hatasi
 ```
 
-> **DIKKAT!**  
+> :warning: 
 > *Kalitim, genel (her yerde) kullanima uygun bir arac degildir.*
 > Teknik olarak final olmayan tum siniflardan kalitim kullanilarak sinif  turetilebilmektedir. Ancak her sinif kalitim ile kullanilmaya uygun bicimde tasarlanmadigini goz onune almayi unutmayin. 
 

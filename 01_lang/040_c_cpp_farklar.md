@@ -6,7 +6,7 @@
 * C dilinde bulunan `auto` anahtar sözcüğü ile C++'da bulunan `auto` farklı anlamlarda kullanılmaktadir.  
   C'deki `auto` anahtar sozcugu degiskenin [otomatik omurlu](050_basics.md#automatic-storage) bir degisken oldugunu ifade etmek icin kullanilir. C++'da [type deduction](110_type_deduction.md#auto-type-deduction) amaciyla kullanilir.
 
-> **DIKKAT!**  
+> :warning: 
 > C ve C++ dillerinde en tehlikeli durumlardan biri **yanlislikla yazilan bir kodun ayni zamanda sentaks kurallari cercevesinde gecerli oldugu** durumlardir.
 
 * C dilinde statik tur kontrolu daha esnektir. Bazi farkli turler arasindaki atama ve kopyalama islemleri gecerli olmasa da sentaks olarak gecerlidir. C++ dilinde cok daha siki bir kontrol bulunmaktadir.
@@ -128,9 +128,9 @@
   const char* p1 = "akif";  // C/C++ gecerli
   char* p2 = "akif";        // C'de gecerli, C++'da gecersiz
   ```
-  > **DIKKAT!**  
-  > Her iki dilde de string literalini degistirme islemi **UB**'dur.  
-  > Her iki dilde de `const char*` kullanilmasi tanimsiz davranis durumundan kacinmak icin iyi bir uygulamadir.
+  > :warning: 
+  > Her iki dilde de string literalini degistirme islemi **UB**'dir. 
+  > Bu nedenle C dilinde de string literalleri icin `char*` yerine `const char*` kullanilmasi tanimsiz davranis durumundan kacinmak icin iyi bir uygulamadir.
 
 * C dilinde dizi boyutu ile ilk değer veren string literalinin karater sayısı *null terminator haric* eşit ise tanım *(definition)* geçerlidir. C++'da sentaks hatasidir.
   ```C++
@@ -284,7 +284,7 @@
   enum Color my_color = Black;
   int x = my_color;     // C/C++ gecerli
   ```
-  > **DIKKAT!**  
+  > :warning: 
   > C++'da bu donusum [scoped enum](130_scoped_enum.md) icin gecerli degildir.
 
 ## Deger kategorine iliskin farklar
@@ -307,7 +307,7 @@
 
   *_[value category](065_value_categories.md)_ kurallarında iki dil arasında kural farklılıkları bulunmaktadir.*
   
-> **Not**  
+> :triangular_flag_on_post: 
 > (C icin) Bir ifadenin rvalue yada lvalue oldugunu anlamadiginizda adres operatoru `(&)`'nun operandi yapin.
 
 ## Baslik dosyalarina iliskin farklililar

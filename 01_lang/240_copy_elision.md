@@ -5,7 +5,7 @@ Bazi durumlarda sentaks geregi kodda kopyalama yada tasima yapilmasi gerekiyor o
 
 [C++17] Belirli durumlarda `copy elision` mandatory (zorunlu) hale getirildi. Daha oncesinde compiler optimizasyon teknigiydi.
 
-> **NOT**  
+> :triangular_flag_on_post: 
 > Copy elision'in sadece optimizasyon teknigi olmasi ile mandatory olmasi arasindaki fark:
 > 
 > * Eger **sadece optimizasyon** ise derleyici bunu yapmak zorunda degil.  
@@ -14,7 +14,7 @@ Bazi durumlarda sentaks geregi kodda kopyalama yada tasima yapilmasi gerekiyor o
 > * Eger **mandatory** ise derleyici bu optimizasyonu yapmak zorundadir.  
 >   Dilin kurallari geregi copy ctor cagrisi yapilmayacagi icin private/deleted oldugu durumlar sentaks hatasi uretilmeyecektir.
 
-> **NOT**  
+> :triangular_flag_on_post: 
 > Derleyici optimizasyon flag'lari ve C++ versiyonuna gore degisebilmektedir. 
 
 **Hangi durumlarda copy elision mandatory olarak yapilacaktir?**

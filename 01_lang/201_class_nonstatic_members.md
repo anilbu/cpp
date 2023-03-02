@@ -56,10 +56,10 @@ su sira ile aranir:
 Eger isim nitelenmis ise nitelendigi sinif turunun class scope'unda aranir.
 
 
-> **HATIRLATMA**  
+> :pushpin: 
 > Isim arama bir kez yapilir. Aranan isim bulundugunda isim arama devam etmez. 
 
-> **NOT**  
+> :triangular_flag_on_post: 
 > Member func parametreleri de block scope icerisindedir.
 
 **Ornek**
@@ -84,7 +84,7 @@ void Myclass::foo() {
 }
 ```
 
-> **DIKKAT!**    
+> :warning:   
 > Class scope'daki bir isim global scope'u maskeliyor olabilir!
 > [Soru](sorular/soru10.cpp)
 
@@ -137,10 +137,10 @@ void Myclass::foo() {
   ```
   [Ornek](res/src/class_this01.cpp)
 
-> **Not**  
+> :triangular_flag_on_post: 
 > Member select (`.`) operaturu, dereferencing (`*`) operatorunden onceliklidir.
 
-> **DIKKAT!**  
+> :warning: 
 > C++'da bir sinifin public interface'i denildiginde:
 > * sinifin public uyeleri
 > * sinif ile ilgili baslik dosyasinda sunulan global fonksiyonlar (non-member functions)
@@ -169,7 +169,7 @@ public:
 ```
 * const uye fonksiyonlarin `this` pointerinin turu `const T*`'dir.
 * const uye fonksiyonlar, sinifin non-static data memberlarini degistiremezler, sinifin non-const uye fonksiyonlarina cagri yapamazlar.
-  > **Hatirlatma**  
+  > :pushpin: 
   > C++'da `const T*` turunden `T*` turune implicit donusumu bulunmamaktadir. [[bknz: implicit type conversions](060_type_conversions.md#implicit-type-conversion)]
 * const bir sinif nesnesi, sinifin const uye fonksiyonlarina cagri yapilabilir.
 * `const` fonksiyon imzasinin bir parcasidir. Alttaki bildirimler function overloadingdir.
@@ -185,7 +185,7 @@ public:
     
   }
   ```
-  > **Hatirlatma**  
+  > :pushpin: 
   > `const T*` ve `T*` overloading olusturur. [[bknz: function overloading](140_function_overloading.md#function-overloading-kurallari)] 
 
 **Ornek**
@@ -285,10 +285,10 @@ public:
   };
   ```
 
-> **DIKKAT!**  
+> :warning: 
 > Sinifin tum veri elemanlari (non-static data members) sinif nesnesinin observable state'i ile dogrudan iliskili olmayabilir.
 
-> **DIKKAT!**  
+> :warning: 
 > Lambda ifadelerinde kullanilan `mutable` keywordu farkli bir anlam ifade etmektedir.
 
 [mutable mutex lock ornegi](res/src/class_mutable01.cpp)

@@ -77,7 +77,7 @@ Myclass::~Myclass() { }
 
 [Ornek: Ctor ve Dtor cagrilarinin yapilmasi sirasi](res/src/class_ctor01.cpp)
 
-> **DIKKAT!**    
+> :warning:   
 > Dynamic storage ile dynamic storage duration birbiri ile karistirilmamalidir. [[bknz: storage duration](050_basics.md#storage-duration)]
 >
 > Dinamik omurlu nesne ayri bir kavram, programin calisma zamaninda dinamik olarak bellek alani elde etmek birbiri ile iliskili ancak farkli kavramlardir. [[bknz: new/deleteoperator ](900_dynamic_memory.md)]
@@ -93,7 +93,7 @@ Parametre degiskeni olmayan yada tum parametre degiskenleri varsayilan argumani 
    ```
    Primitive tipler icin garbage deger ile init edilirken, sinif nesneleri icin default ctor ile init edilir.
 
-   > **DIKKAT!**  
+   > :warning: 
    > Alttaki ifade bir function declaration, degisken definition degil. [[bknz: most vexing parse](999_kavramlar.md#most-vexing-parse)]
    > ```C++
    > Nec x();
@@ -119,7 +119,7 @@ Parametre degiskeni olmayan yada tum parametre degiskenleri varsayilan argumani 
    * Elemanlarin ctorlari dizinin basindan sonuna dogru sirayla cagrilir. dtor ise ters sira ile cagrilir.
 
 
-> **DIKKAT!**    
+> :warning:   
 > Bir sinifin default ctor'u olmak zorunda degildir.
 >
 > Parametreli bir ctor bildirildiginde default ctor **not declared** olur. Eger default ctor gerektiren bir durumda ctor'un var olmamasi durumunda sentaks hatasi olusur. 
@@ -146,7 +146,7 @@ private:
 * Initializer list, ctor ana blogundan once calistirilir.
   *Eger programin akisi ctor ana blogu icindeki kodlari yurutmekteyse, sinifin tum veri elemanlari hayata gelmis demektir.*
 * Ctor init list'de `{ }` ile de initialization yapilabilir.[C++11]
-  > **Hatirlatma**  
+  > :pushpin: 
   > `{ }` ile narrowing conversion yapilmasi sentaks hatasi olusturur.
 * Initialize edilmeyen data memberlar, default initialize edilir.
   *Bu durumda primitive data member'lar, garbage value ile initialize edilir.*
@@ -176,7 +176,7 @@ private:
   * Efficiency problemi olabilir
   * Ciddiye alinacak bir fark da olmayabilir
   
-  > **Not**  
+  > :triangular_flag_on_post: 
   > **ctor initializer list** kullanimi oncelikli olarak diger yontemlere tercih edilmelidir.
   
 * Sinifin data memberlarin hayata gelme sirasi **bildirimdeki siralari**dir.
@@ -189,7 +189,7 @@ private:
   };
   ```
   Bildirim sirasindan dolayi once `m_a` daha sonra `m_b` initialize edilir. Bu nedenle `m_a` degeri `m_b * 20` yerine garbage deger ile init edilir. Bu durumda **UB** olusur.
-  > **DIKKAT!**  
+  > :warning: 
   > ctor initializer list'de de bildirim sirasi ile yazilmasi yukarida ki durumun daha kolay farkedilmesini saglar.
 
 * Ctor initializer list, ctor'un taniminda kullanilir.
@@ -229,10 +229,10 @@ private:
   double dval = 3.14; // default member initializer
 };
 ```
-> **DIKKAT!**    
+> :warning:   
 > Default member initializer, `=` ile kullanilabilir ancak normal parantez `( )` ile kullanilamamaktadir. 
 
-> **Not**  
+> :triangular_flag_on_post: 
 > Eger;
 > 
 > * Compile-time'da member'larin alacagi degerler biliniyor ise
@@ -263,7 +263,7 @@ Myclass x5{6, 7};       // direct list initialization / brace init
 Myclass x6 = { 9, 12};  // copy initialization
 ```
 
-> **HATIRLATMA**  
+> :pushpin: 
 > Brace init `{ }` ile narrowing conversion olusur ise sentaks hatasi olusur.
 
 
@@ -285,7 +285,7 @@ m = 12; // m = Myclass{12};
 ```
 [Ornek](res/src/ctor_conversion01.cpp)
 
-> **DIKKAT!**  
+> :warning: 
 > Conversion ctor'un yanlislikla kullanilmasi durumunda derleyici implicit olarak donusumu gerceklestirebilmesi nedeniyle hata uretmeyecegi icin tespiti zor kodlama hatalarina neden olabilmektedir.
 
 **Neden ortulu donusumler tehlikeli?**
@@ -335,7 +335,7 @@ m = static_cast<Myclass>(5);    // gecerli
   [Ornek](res/src/ctor_conversion03.cpp)
 * Default ctor veya birden fazla parametreli ctor'larada da `explicit` keywordu kullanilabilir, ancak pratikte cok fayda saglamayabilir.
 
-> **Not**  
+> :triangular_flag_on_post: 
 > Oneri olarak; tek arguman ile cagrilabilen bir ctor olustururken default olarak explicit olusturun, eger gerekli goruyorsaniz implicit olarak birakin.
 
 

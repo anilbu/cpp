@@ -21,7 +21,7 @@ Bir program calisirken hatalar olabilir. Bu hatalarin temelde iki sebebi vardir 
 
 ## Traditional Error Handling
 
-> **Not**  
+> :triangular_flag_on_post: 
 > Traditional error handling yontemleri ve neden oldugu problemlerden C++ exception handling konusuna giris amaciyla kisaca bahsedilecektir.
 
 **Yontemler**

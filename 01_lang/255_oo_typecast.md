@@ -20,7 +20,7 @@ int ival = m;
 * `T*` ve `T&` turleri de hedef tur olarak ayrica overload edilebilir.
 * [C++11] Tur donusumu operator fonksiyonlari ile otomatik donusum yapilmamasi icin `explicit` keywordu kullanilabilir.
 
-> **Hatirlatma**    
+> :pushpin:   
 > 
 > * Eger bir donusum implicit olarak;
 > 

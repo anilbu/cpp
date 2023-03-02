@@ -10,7 +10,7 @@ Ifadenin degeri derleyici tarafindan compile-time'da biliyor ise constant expres
 * switch icinde bulunan case ifadeleri
 * bitfield member
 
-> **DIKKAT!**    
+> :warning:   
 > `const` ve `constexpr` farkli anahtar sozcuklerdir ve benzer noktalari olmasina ragmen farkli islevleri vardir.  
 > [[bknz: const anahtar sozcugu](050_basics.md#const-anahtar-sozcugu)]
 
@@ -35,7 +35,7 @@ constexpr int x = 10;
 [Ornek](res/src/constexpr01.cpp)
 
 
-> **DIKKAT!**  
+> :warning: 
 > Derleyici `constexpr` veya `const` degiskenler icin bellekte yer ayirmak zorunda degildir. Ancak degiskenin **adresine erisim** varsa yer ayirmak zorunda kalir.
 
 ## `constexpr` functions
@@ -58,6 +58,6 @@ Bir fonksiyonun constexpr function olabilmesi icin su sartlari sagliyor olmasi g
 
 <!--  -->
 
-> **Not**  
+> :triangular_flag_on_post: 
 > `constexpr` fonksiyonlar, **constexpr olmayan** argumanlar alabilirler. Ancak, `constexpr` fonksiyonlarin **compile-time'da hesaplanabilmesi icin** argumanlarinin tamami `constexpr` olmalidir. Aksi halde, normal fonksiyon gibi cagrilar gerceklesir.
 > [Ornek](res/src/constexpr03.cpp)

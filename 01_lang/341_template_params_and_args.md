@@ -106,7 +106,7 @@ Template parametrelerine karsilik verilebilecek argumanlara kisitlama uygulanabi
   <!--  -->
   
   
-> **NOT**  
+> :triangular_flag_on_post: 
 > Derleyicinin template karsiligi nasil bir cikarim yaptiginin compile-time'da gosterimi:
 > ```C++
 > template <typename T>
@@ -220,7 +220,7 @@ Template parametrelerine karsilik verilebilecek argumanlara kisitlama uygulanabi
   Myclass::Node node;  
   ```
   
-  > **Not**  
+  > :triangular_flag_on_post: 
   > [C++20] ile template parametresine bagli nested type'lardan bahsedildiginde, bazi durumlarda `typename` anahtar sozcugunun kullanilma zorunlulugu kaldirildi.
   > ```C++
   > template <typename T>
@@ -520,7 +520,7 @@ Myclass<> m2;           // T = int
 Myclass m3;             // T = int (CTAD)
 ```
 
-> **DIKKAT!**    
+> :warning:   
 > Function template'leri icin default template argumanlari C++11 ile dile eklenmistir. Daha oncesinde sadece sinif sablonlarinda kullanilabiliyordu.
 
 * Template tur cikarimi fonksiyonun varsayilan argumana karsi yapilamaz. Varsayilan fonksiyon argumani ile varsayilan template argumani karistirilmamalidir.

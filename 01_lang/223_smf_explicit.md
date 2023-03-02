@@ -4,7 +4,7 @@ Copy ctor ve copy assignment bolumunde bahsedilen problemlerden dolayi iki adet 
 ### Rule of Zero
 Zorunda olmadikca SMF hicbirini yazma, derleyici kodu uretsin.
 
-> **Not**  
+> :triangular_flag_on_post: 
 > Sinifin SMF'lerinin default hali isinizi bozmuyorsa, derleyicinin yazdigini birakmak daha iyi.
 
 
@@ -19,5 +19,5 @@ Alternatif olarak sinif:
 2. Kopyalamaya kapatabilir ve tasimaya aciktir
 3. Kopyalamaya veya tasimaya karsi aciktir.
 
-> **NOT**  
+> :triangular_flag_on_post: 
 > `copy assignment` ve `move assignment` fonksiyonlarini yazarken -eger ozel bir idiomatic bir yapi kullanmiyorsaniz- mutlaka **self assignment kontrolu**nu yapin!

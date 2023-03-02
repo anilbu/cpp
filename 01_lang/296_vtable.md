@@ -65,7 +65,7 @@ public:
 * *vtable* icinde bulunan nihai fonksiyon adreslerinin degerleri statik olarak *(compile-time'da)* olusturulmaktadir.
 * Ayni taban siniftan turetilmis siniflar icin tum vtable'lar icinde ayni sanal fonksiyon icin ayni indexde barindirilmaktadir.
 
-> **NOT**  
+> :triangular_flag_on_post: 
 > C++ standartlarinda derleyiciler icin implementasyon detaylari belirtilmez. Bunun yerine C++ soyut makinasi *(abstract machine)* kavrami uzerinden ilgili islem icin olmasi gereken durum *(state)* degisikleri tarif edilir.
 
 
@@ -90,7 +90,7 @@ p->vptr[2]();
   * Programin runtime'i basladigi zaman her polymorphic sinif icin ilgili vtable'larin olusturulmasinin yer ve zaman maliyeti.
   * Runtime polymorphism'den faydalanmak icin senaryolarin buyuk cogunlugunda **dinamik omurlu nesneler** olusturulmaktadir. Bu nesnelere bellek alani ayrilmasinin ve iade edilmesinin de ayrica maliyeti bulunmaktadir ve bu maliyet otomatik omurlu nesne olusturma maliyetine kiyasla **yuksek bir maliyettir**.
 
-> **DIKKAT!**    
+> :warning:   
 > ```C++
 > Myclass x; 
 > 

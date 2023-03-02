@@ -114,10 +114,10 @@ class Myclass {};
   
   [Ornek: Counter sinifi](res/src/343_class_templates/counter01/)
   
-  > **Hatirlatma**  
+  > :pushpin: 
   > Fonksiyonlarin geri donus turleri class scope icinde degildir.
   
-  > **DIKKAT!**  
+  > :warning: 
   > template'ler **ODR acisindan** varsayilan olarak **inline**dir. 
   > `inline` anahtar sozcugu ile derleyiciye *inline extension yapabilirsin* bildirimi icin ayrica kullanilabilmektedir.
 
@@ -133,7 +133,7 @@ class Myclass {};
                                 // cunku digerleri kullanilmadi!
   ```
 
-  > **DIKKAT!**  
+  > :warning: 
   > Member function definition'da sentaks hatasi olabilecek bir durumda eger ilgili tur ile fonksiyon kullanilmamis ise kod uretilmeyecegi icin dogal olarak sentaks hatasi da uretilmeyecektir.
 
 * class template'ler *eger disari expose edilecek ise* **sadece baslik dosyasi**nda bulunabilir. 
@@ -158,7 +158,7 @@ class Myclass {};
   template<typename T>
   bool operator==(const Myclass<T>& a, const Myclass<T>& b);
   ```
-  > **DIKKAT!**  
+  > :warning: 
   > Yukaridaki ornekte parametreler `const Myclass<T>&` yerine `const T&` olsaydi bu tum turler icin gecerli oldurdu!
   </details>
   <!--  -->
@@ -187,7 +187,7 @@ class Myclass {};
     void func(T&& x);   // x = rvalue ref
   };
   ```
-  > **DIKKAT!**  
+  > :warning: 
   > Cikarim `T` icin class template instantiationda yapildi, fonksiyon parametresi `T&&` icin degil!
   
 * Fabrika fonksiyonlari

@@ -188,7 +188,7 @@ void vector::shrink_to_fit();
 ```
 * vector sinifi ekleme yapildikca buyur ancak kendiliginden kuculmez.
 
-> **DIKKAT!**  
+> :warning: 
 > Erasing elements from a vector does never change the capacity and thus never frees any memory.
 
 [Ornek](res/src/vector02.cpp)
@@ -254,7 +254,7 @@ Belirtilen elemanlari container'dan siler ve en son silinmis ogeden sonraki ilk 
 
 [Ornek](res/src/vector10.cpp)
 
-> **DIKKAT!**  
+> :warning: 
 > Silinen ogenin hayati sonlandigi icin dtor'u calistirilir.
 
 <!-- Iterator following the last removed element.

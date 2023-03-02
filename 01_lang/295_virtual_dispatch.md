@@ -48,7 +48,7 @@ Derleyicinin bir fonksiyonun override edildigini dogrulama amaciyla kullanilan b
 * Taban sinifin non-virtual bir fonksiyonunu *yada var olmayan bir fonksiyonunu* override edilmeye calisilmasi durumunda, sentaks hatasi olusturur.
 * Fonksiyon imzasina dahil degildir.
 
-> **Not**  
+> :triangular_flag_on_post: 
 > `override` kullanimi opsiyoneldir, ancak kullanilmasi sik yapilan hatalardan kacinmak icin **tavsiye edilir**.
 >  <details>
 >  <summary><b>Bu hatalardan bazilari:</b> (Click to expand)</summary>
@@ -163,7 +163,7 @@ public:
   Base& baseref = der;
   baseref.func();   // calls Der::func
   ```
-> **Not**  
+> :triangular_flag_on_post: 
 > *`this` pointeri uzerinden  yapilan sanal fonksiyon cagrilari*
 
 * Turemis sinif turunden bir nesne ile olusturulan bir taban sinif turunden nesne ile cagri yapilmasi durumunda **object slicing** olusmasindan dolayi virtual dispatch mekanizmasi **uygulanmaz**.
@@ -327,7 +327,7 @@ A'nin override'i `Base*` yerine `Der*` donebilir, cunku *her `Der` bir `Base`dir
 C++ dilinde sadece non-static member fonksiyonlar virtual olabilmektedir.
 Taban tur pointer'i ile referans edilen dinamik turden bir nesne olusturmak istenildiginde *Virtual Constructor Idion(Clone Idiom)* kullanilabilir.
 
-> **DIKKAT!**  
+> :warning: 
 > global functions, static member functions, constructors virtual olamazlar. 
 
 [Ornek](res/src/virtual_ctor_idiom01.cpp)
@@ -379,7 +379,7 @@ taban siniflar icin su ikisinden biri yapilmalidir:
   }
   ```
   
-> **Not**  
+> :triangular_flag_on_post: 
 > Herb Sutter tarafindan ortaya atilan dilin semantik kuralidir.
 
 <details>

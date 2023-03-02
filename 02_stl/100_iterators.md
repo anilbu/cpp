@@ -478,7 +478,7 @@ reverse_iterator<Iter> make_reverse_iterator(Iter i)
 * Kullanilabilmesi icin iterator kategorisinin en az **bidirectional iterator** olmasi gerekmektedir.
 * `reverse_iterator::base()` fonksiyonu adaptorun sarmaladigi iteratoru dondurmektedir.
 
-> **DIKKAT!**  
+> :warning: 
 > `reverse_iterator` dereference edilirken, bulundugu konumun **bir eksigi** konumu isaret eder, ancak `base()` fonksiyonu bulundugu konumu gosteren bir iteratoru doner.
 
 [Ornek](res/src/reverse_iter01.cpp)

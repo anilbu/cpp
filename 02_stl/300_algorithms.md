@@ -13,7 +13,7 @@ Ana amaci bir veri yapisi uzerinde islem yapma olan parametreleri iterator olan 
 7. Hedef range, en az kaynak range kadar oge tutabiliyor olmalidir.
 8. Arama algoritmalari bulunan ogenin konumunu iterator ile dondurur. Bulunamaz ise, fonksiyona gonderilen range'in `end`'ini dondurur. 
 
-> **DIKKAT!**  
+> :warning: 
 > Asagidaki islemlerin hicbiri *exception throw etmez*, **UB**'dir:
 > * Range parametreli bir algoritmaya **gecersiz bir range** verilmesi
 > * Bos bir container'da `begin`'in dereference edilmesi
@@ -48,10 +48,10 @@ Ana amaci bir veri yapisi uzerinde islem yapma olan parametreleri iterator olan 
 > <!-- TODO: *RAII nesneleri turunden bir containerda remove yapilirsa resource release garantisi var mi?* -->
 
 
-> **Not**  
+> :triangular_flag_on_post: 
 > [C++20]'den itibaren algoritmalara `constexpr` olarak tanimlandi.
 
-> **Not**  
+> :triangular_flag_on_post: 
 > Sonu `copy` ile biten algoritmalar range kendisi yerine kopyasi uzerinde calisir.
 
 
@@ -181,7 +181,7 @@ UFunc for_each(Iter beg, Iter end, UFunc f)
 </details>
 <!--  -->
 
-> **DIKKAT!**  
+> :warning: 
 > Geri donus degeri parametre olarak aldigi **callable**'dir.
 
 [Ornek](res/src/for_each01.cpp)
@@ -280,7 +280,7 @@ void swap(T& a, T& b);
 ```
 Parametre olarak verilen nesnelerin takasinin yapilabilmesini saglar.
 
-> **DIKKAT!**  
+> :warning: 
 > Iteratorler birbiri ile swap edildiginde container'da bulunan elemanlar yer degistirmez.
 
 [Ornek](res/src/swap01.cpp)
@@ -297,7 +297,7 @@ Iteratorlerin bulundugu konumdaki nesnelerin takasinin yapilabilmesini saglar.
 
 [Ornek](res/src/iter_swap01.cpp)
 
-> **DIKKAT!**  
+> :warning: 
 > `iter_swap` ile `swap` karisitirilmamalidir!
 
 

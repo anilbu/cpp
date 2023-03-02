@@ -103,7 +103,7 @@ int x = 10, y = 20;
 x <=> y;
 ```
 
-> **Hatirlatma**  
+> :pushpin: 
 > `strcmp(a, b)` fonksiyonunun geri donus degeri eger;
 > * `a > b` ise donus degeri **sifirdan kucuk**
 > * `a < b` ise donus degeri **sifirdan buyuk**

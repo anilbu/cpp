@@ -43,7 +43,7 @@ Degeri kullanilabilir bir pointeri ifade etmek icin kullanilir.
   int a[5] = {0};
   int* p = &a[5];   // valid pointer
   ```
-  > **DIKKAT!**  
+  > :warning: 
   > Bir pointer'in valid olmasi, adresdeki nesneye erisimin *  (dereferencing)* mumkun oldugu anlamina gelmemektedir.
   > ```C++
   > a[5];  // UB
@@ -61,7 +61,7 @@ Degeri kullanilabilir bir pointeri ifade etmek icin kullanilir.
   ```
 * Hayati sonlanmis bir nesnenin adresine sahip pointer. **Dangling pointer** olarak da isimlendirilir.
 
-> **DIKKAT!**  
+> :warning: 
 > Invalid pointer kullanimi **UB**dir!
 
 ## `nullptr`
@@ -156,7 +156,7 @@ Bir fonksiyon 3 farkli sekilde gecerli adres donebilir.
 2. Dinamik omurlu nesne adresi
 3. Cagirandan aldigi adresi gondermesi
 
-> **DIKKAT!**  
+> :warning: 
 > Fonksiyon icinde bildirilmis bir otomatik omurlu nesnenin adresi pointer ile geri dondurulmemelidir!
 > [Ornek](res/src/pointers01.cpp)
 

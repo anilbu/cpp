@@ -8,7 +8,7 @@
 
 * Eger sinifin dtor'u user declared ise, default ctor ve copy memberlar **default** edilir.  
   Ancak move member'lar **not-declared** olacaktir.
-  > **DIKKAT!**  
+  > :warning: 
   > Eger `dtor` bildiriliyorsa, muhtemel kaynak iadesi yapilmaktadir. Bu nedenle copy member'larin da uygun bicimde tanimlanmasi gerekmektedir. *Ileride, yeni standartlarda bu durumun degismesi bekleniyor.*
   
 <p align="center">
@@ -62,12 +62,12 @@ Yukaridaki tablo[1] kisaca soyle aciklanabilir:
 
 <!--  -->
 
-> **DIKKAT!**    
+> :warning:   
 > `copy member`larin bildirip, `move member`lari **asla** delete etmeyin!
 > 
 > Cunku bu durumda tasima yapilmasi gereken yerde kopyalama yapilmasi istenmektedir. Ancak, move members bildirildigi icin function overload resolution'a girecek ve delete edildigi icin **sentaks hatasi** olusacaktir!
 
-> **Not**  
+> :triangular_flag_on_post: 
 > 
 > SMF Not declared olma durumlari:
 > ```

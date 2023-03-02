@@ -41,7 +41,7 @@ basic_ostream<char>::binary;    // ostream
 basic_ofstream<char>::binary;   // ofstream fstream header'inda
 ```
 
-> **Not**  
+> :triangular_flag_on_post: 
 > Bazi sistemlerde *(Windows)* `char` turu yerine `wchar_t` turu kullanilmaktadir.
 > Eger `wchar_t` kullanilmak isteniyor ise `ios` yerine `wios` kullanilabilmektedir.
 > ```C++
@@ -268,7 +268,7 @@ cout << setprecision(3);
 ```
 [Ornek](res/src/io_manip07.cpp)  
 
-> **DIKKAT!**  
+> :warning: 
 >  [`std::endl`](https://en.cppreference.com/w/cpp/io/manip/endl) bir manipulator fonksiyonudur ve stream'i flush eder.
 > ```C++
 > std::ostream& endl(std::ostream& os)
@@ -292,7 +292,7 @@ C++20 standadi ile `std::format` dile eklendi. *[[Video: Victor ... std::format 
 [[Standard format specification](https://en.cppreference.com/w/cpp/utility/format/formatter#Standard_format_specification)]
 [[Ornekler](res/src/format01.cpp)]
 
-> **DIKKAT!**  
+> :warning: 
 > GCC 13 ve sonrasinda destek verilmektedir.
 
 -->
@@ -342,7 +342,7 @@ Her stream nesnesinin durumunu belirten `ios::iostate` turunden bir **condition 
   </details>
   <!--  -->
   
-  > **Not**  
+  > :triangular_flag_on_post: 
   > Windows'da `cin`'de eof durumu `CTRL+Z`, Linux/bash'de `CTRL+D` ile olusturulabilir. 
   
 * Eger stream recovery yapilamayacak bir durumda ise `bad` state'de bulunur.
@@ -442,7 +442,7 @@ cin.setstate(ios::failbit);     // condition_state |= failbit
 [Ornek: primes](res/src/io_fstream07.cpp)  
 [Ornek: Tekrar](res/src/io_fstream08.cpp)  
 
-> **DIKKAT!**  
+> :warning: 
 > Asagidaki kodda donguden cikilabilmesi icin `ifs` failed state'e girmesi gerekmektedir.  
 > Tekrar dosya acilabilmesi icin stream'in **good-state**'e geri getirilmesi gerekmektedir.  
 > [Ornek](res/src/io_fstream04.cpp)
@@ -460,7 +460,7 @@ cin.setstate(ios::failbit);     // condition_state |= failbit
 > ifs.open();
 > ```
 
-> **DIKKAT!**  
+> :warning: 
 > Windows'da text mode'da acilmis bir dosyaya okuma/yazma yapilirken  `'\n'` karakteri `'\r\n'`'e *{13, 10}* donusturulmektedir.
 > 
 > Text modunda acilmis bir dosyada 26 degerine sahip bir byte okunursa `EOF` anlami tasimaktadir.

@@ -93,7 +93,7 @@ private:
 Eger sinifin default ctor'i derleyici tarafindan yazilirsa, veri elemanlari da default init edilmektedir. Bu, veri elemanlarinin sinif turunden oldugunda [default ctor](210_ctors_dtor.md#default-constructor)'u cagrilmaktadir.
 **Istisna**: Eger [default member initializer](210_ctors_dtor.md#default-member-initializer) ile initialize edilmis ise, derleyicinin yazdigi default ctor'da belirtilen ctor cagrilacaktir.
 
-> **DIKKAT!**    
+> :warning:   
 > Eger sinifin data memberlarindan birinin default ctor'u bulunmuyor ise, derleyici sinifin default ctor'u `delete` etmektedir!
 
 
@@ -101,10 +101,10 @@ Bir sinif olustururken:
 1. Sinifin default ctor'u olsun mu?
    *Bir sinifin default ctor'u bulunmayabilir, ancak dezavantajlarinin farkinda olunmasi gerekiyor.*
 2. Sinif kopyalanabilmeli mi?
-   > **DIKKAT!**  
+   > :warning: 
    > Bir sinif icin **copy ctor** yaziyorsaniz, sinifin tum veri elemanlarinin copy construct edilmesinden programci sorumludur. Eger veri elemanlarindan biri icin copy ctor'unu calistiracak cagri eklenmez ise **default ctor** cagrilir. 
    
-   > **DIKKAT!**  
+   > :warning: 
    > Bir sinifin data memberlarindan birinin copy ctor'u `delete` edilmis ise, derleyicinin urettigi default copy ctor'da sentaks hatasi olusacaktir. Derleyici, dilin kurallarina aykiri bir durumla karsilastiginda `default` etmesi gereken bildirimi `delete` eder!
    
    `std::unique_ptr` kopyalanamayan ancak tasinabilen bir siniftir.

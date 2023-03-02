@@ -2,7 +2,7 @@
 
 Tek bir template olusturularak $n$ adet template parametresine sahip olabilen templatelerin olusturulabilmesini saglayan bir aractir. 
 
-> **Not**  
+> :triangular_flag_on_post: 
 > `...` *elipsis atomu*
 
 ## Template Parameter Pack
@@ -51,7 +51,7 @@ template<typename P1, typename P2, typename P3>
   </details>
   <!--  -->
 
-> **Not**  
+> :triangular_flag_on_post: 
 > Geleneksel olarak bir variadic template parameter ismi icin `Args`, `Ts` veya `Types` isimleri kullanilmaktadir.
 
 
@@ -384,7 +384,7 @@ void print(TArgs ...args)
   x.func(1223L);    // calss C::func
   ```
   
-  > **Hatirlatma**  
+  > :pushpin: 
   > Modern C++'dan once `using` bildirimi liste olarak yapilamamaktaydi.
 
 * Perfect forwarding ve parameter pack expansion kullanimi:

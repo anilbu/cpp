@@ -8,7 +8,7 @@ Runtime polymorphism cok kisitli olarak olarak kullanilmakta, genel olarak compi
 
 Exception handling cok sinirli olarak kullanilmaktadir. Cogu durumda exception firlatilmasi yerine **UB** olusmaktadir.
 
-> **DIKKAT!**  
+> :warning: 
 > Generic programlamadan kaynakli olarak sentaks hatalarinda oldukca uzun hata mesajlari uretilebilmektedir.
 
 Containerlar, iteratorler ve algoritmalar birbiri ile dogrudan mantiksal iliski icindedir. Tasarim olarak mevcut ogeler ile uyumlu bir bicimde yeni ogeler ile genisletilebilmesine olanak saglamaktadir.
@@ -45,5 +45,5 @@ Containerlar, iteratorler ve algoritmalar birbiri ile dogrudan mantiksal iliski 
   Angelika Lenger  
 
 
-> **DIKKAT!**  
+> :warning: 
 > Bu dokuman STL ve standart kutuphane yapilarini ve kavramlarini cogunlukla ornekler uzerinden aciklama odakli olarak olusturulmustur, referans niteligi gostermemektedir.

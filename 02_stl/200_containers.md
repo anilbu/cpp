@@ -38,7 +38,7 @@ Containerlar, ogeleri bir arada tutan veri yapilarini implemente edilen sinif sa
   * `std::flat_multiset` [C++23]              
   * `std::flat_multimap` [C++23]              
 
-> **Not**  
+> :triangular_flag_on_post: 
 > Bazi veri yapilari standart kutuphanede bulunmamaktadir. *(Orn, graph, binary map, vb...)*  
 > Bu veri yapilari baska kutuphaneler ile *(orn. libboost gibi)* elde edilebilir. 
 > 

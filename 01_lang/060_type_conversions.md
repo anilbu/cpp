@@ -28,7 +28,7 @@ long double > double > float
 long long > long > int
 ```
 
-> **DIKKAT!**  
+> :warning: 
 > `int` alti turler (short, char, bool) **integer promotion**a ugrayarak `int`e cevrildikten sonra islem yapilir.  
 > 
 > **Ornek**  
@@ -189,7 +189,7 @@ C dilinde type convversion ile tur donusumunun niyeti dilin araclari ile acikca 
   float pi = 3.14159;
   uint32_t piAsRawData = *(uint32_t*)&pi;
   ```
-  > **DIKKAT!**  
+  > :warning: 
   > Adres donusumlerinden bazilari legal, bazilari **UB** olabilir!  
   > Tur donusumunden mumkun oldugunca kacinilmalidir. Bazi durumlarda explicit tur donusumu   uygulanmis olsa dahi **UB**a neden olabilir.
   > ```C++
@@ -210,7 +210,7 @@ Modern C++'da farkli niyetlerle yapilan donusumler icin farkli operatorler bulun
 
 Parantezler `()` type cast operatorlerin sentaksina **dahildir**.
   
-> **Not**  
+> :triangular_flag_on_post: 
 > Eski tur donusum operatorunu mumkun oldugunca kullanilmasi tavsiye edilmiyor. Yerine C++'in modern tur donusum operatorlerinin kullanilmasi tavsiye edilmektedir.
 > 
 > Yeni tip tur donusumlerinin kullaniminun bir avantaji da tur donusumlerinin kod icinde kolaylikla tespit edilebilir olmasidir.
@@ -261,7 +261,7 @@ char* mystrchr(const char* p, int c)
 
 mystrchr("abc", 0);
 ```
-> **Not**  
+> :triangular_flag_on_post: 
 > p parametresinin `const char*` olmasinin nedeni adresi verilen nesnenin degistirilmeyecek olmasidir. 
 > Geri donus degerinin `char*` turu olmasinin nedeni `p` parametresine verilen argumanin `const` olup olmadiginin bilinmemesidir. 
 

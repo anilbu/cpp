@@ -89,13 +89,13 @@ r   //  r ifadesi = int, r degiskeni = int&
 
   [Ornek](res/src/ref_sem06.cpp)
   
-  > **Not**  
+  > :triangular_flag_on_post: 
   > C dilinde pointerlar kullanmadan [call by reference](999_kavramlar.md#call-by-valuereference) kullanimi mumkun degildir. Bu durum C++ icin gecerli degildir.
   
-  > **Not**  
-  > C dilinde fonksiyon cagri ifadesi karsiligi her zaman rvalue expr'dir. C++ dilinde ise geri donus degir bir ref turunden ise lvalue expr olabilir.
+  > :triangular_flag_on_post: 
+  > C dilinde fonksiyon cagri ifadesi karsiligi her zaman *rvalue expr*'dir. C++ dilinde ise geri donus degir bir ref turunden ise *lvalue expr* olabilir.
   
-  > **DIKKAT!**  
+  > :warning: 
   > Omuru sonlanmis bir nesneyi referans olarak geri dondurmek **UB**dir!
   > [bknz: storage classes](090_storage_classes.md)
   

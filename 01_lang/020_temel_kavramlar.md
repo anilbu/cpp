@@ -36,8 +36,7 @@ a = f1() + f2() + f3();
 Farkli derleyiciler farkli sira ile cagirabilir. Hatta, ayni derleyici tarafindan unspecified behavior durumlarinda her zaman ayni kodu uretecegi dahi belli olmayabilir.
 Yukaridaki fonksiyonlarin cagrilma sirasi program akisi icin onemli ise sorun teskil edebilir.
 
-> **Not**  
-> Operator onceligi ile islemin hesaplanma sirasi birbirinden farkli seylerdir.
+> :warning: Operator onceligi ile islemin hesaplanma sirasi birbirinden farkli seylerdir.
 
 **Ornek**
 Ozdes iki string'in ayni bellek alaninda tutulup tutulmayacagi derleyiciye bagli bir unspecified durumdur. Tutulabilir de tutulmayabilir de...
@@ -51,8 +50,7 @@ if(p1 == p2) {
 }
 ```
 
-> **DIKKAT!**  
-> Ayni derleyici tarafindan ayni unspecified durumlar icin her zaman ayni kodu uretecegi garanti edilmemektedir.
+> :warning: Ayni derleyici tarafindan ayni unspecified durumlar icin her zaman ayni kodu uretecegi garanti edilmemektedir.
 
 ## Implementation-defined Behavior
 
@@ -64,8 +62,7 @@ Derleyicinin implementasyonuna bagli olarak, birden fazla secenek arasinda nasil
 **Ornek**  
 `x << 4` ifadesinden `x` degeri signed negatif bir deger oldugunda, sola kaydirma isleminde eklenen bit degeri `0` mi `1` mi olacagi implementation-defined bir durumdur.
 
-> **DIKKAT!**  
-> Implementation-defined durumlar portability (derleyici degistirme) konusunda problem cikarabilir.
+> :warning: Implementation-defined durumlar portability (derleyici degistirme) konusunda problem cikarabilir.
 
 ## Linkage
 Kisaca; birden fazla kaynak dosyasinda kullanilan ayni isimler ayni varliga ait ise, buna **external linkage** denir.  

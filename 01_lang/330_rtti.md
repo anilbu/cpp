@@ -157,7 +157,7 @@ const std::type_info& ti = typeid(expr)
   </details>
   <!--  -->
   
-  > **Not**  
+  > :triangular_flag_on_post: 
   > Bazi derleyiciler tur isimleri [mangling](020_temel_kavramlar.md#mangling)'e ugramis hali ile donebilmektedir. Tur ismini demangle etmek icin `boost::core::demangle` fonksiyonundan faydalanabilir.
   > ```C++
   > #include <boost/core/demangle.hpp>

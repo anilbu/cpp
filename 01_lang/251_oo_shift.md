@@ -2,7 +2,7 @@
 
 Tipik olarak I/O stream'lere giris cikis yapilmasini saglarlar.
 
-> **Not**  
+> :triangular_flag_on_post: 
 > Populer olarak; `<<` operatorunu overload eden fonksiyonlara **inserter**, `>>` operatorunu overlad eden fonksiyonlara **extractor** olarak isimlendirilmektedir.
 
 [cint.h:](res/src/00_kurslib/include/cint.h)
@@ -24,8 +24,8 @@ public:
 ```
 [Ornek](res/src/oo01.cpp)
 
-> **Dikkat!**  
+> :warning: 
 > Yukaridaki ornekte `<<` ve `>>` operatorleri member function olarak degil, **global inline friend function** olarak bildirilmistir.
 
-> **Not**    
+> :triangular_flag_on_post:   
 > `ostream` sinifi sadece declaration'da kullanilacak ise `<iosfwd>` eklenirken; definition icin `<iostream>` baslik dosyasi eklenmelidir.

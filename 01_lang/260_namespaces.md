@@ -14,7 +14,7 @@ namespace NS {
 * namespace bildirimi sonunda `;` kullanilmaz.
 * Isim alaninin bir ismi olmak zorunda degildir. [[bknz: Unnamed namespace](260_namespaces.md#unnamed-namespace)]
 
-> **Not**  
+> :triangular_flag_on_post: 
 > Standart library tanimlarinin tamami `std` namespace'indedir.
 > *Turkce'de 'setede', Ingilizce'de 'sutud' olarak okunur.*
 
@@ -163,7 +163,7 @@ using std::cin, std::endl;    // [C++17]
   </details>
   <!--  -->
 
-  > **DIKKAT!**  
+  > :warning: 
   > `using` bildirimlerinin kapsamini mumkun oldugunca kucuk tutulmasi tavsiye edilmektedir.
 
 * using bildirimi ile sunulan isim bildirimin yapildigi isim alanina **inject** edilir.
@@ -262,7 +262,7 @@ using std::cin, std::endl;    // [C++17]
   </details>
   <!--  -->
 
-  > **Hatirlatma**  
+  > :pushpin: 
   > Isim arama, isim bulundugunda biter! Isim arama sonlandiginda kapsayan scope'lardaki bildirimler **name-hiding**e ugramis olur.
 
 
@@ -301,7 +301,7 @@ using namespace std;
 
 * Birden fazla namespace bildirimi yapilmis olmasi; namespace iceriginde isim cakismasi olsa dahi inject etmemesinden dolayi hata olusturmaz.
   Ancak cakisan isim nitelenmeden kullanildiginda ambiguity olusabilir.
-  > **Not**  
+  > :triangular_flag_on_post: 
   > Zaten namespace'in kullanim amaci, isim cakismalarini engellemekti. Bu nedenle global isim arama alaninda using namespace bildirimi yapilmasi tercihen onerilmez.
   <details>
   <summary><b>Ornek</b> (Click to expand)</summary>
@@ -664,7 +664,7 @@ sms::a = 20;
   }
   ```
 
-  > **Not**  
+  > :triangular_flag_on_post: 
   > Template kodlarin kullanilabilmesi icin derleyici tarafindan kodlarin gorunmesi gerekmektedir. Bu nedenle template tanimlar .cpp dosyasinda belirtilemez.
 
   necati.h:

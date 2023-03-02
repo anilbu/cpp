@@ -109,7 +109,7 @@ auto x = i * 1.2; // auto = double
   ```
 
 
-> **DIKKAT!**  
+> :warning: 
 > C++11'de `auto` eklenmesinden sonra iki kere kural degisikligi yapilmistir.
 > `= {}` ile ile initialize edilen bir auto bildiriminde cikarim `std::initializer_list`dir.
 > `{}` ile initialize edilen bir auto bildiriminde unified initialization kullaniliyor, daha onceden bu da `std::initializer_list` idi.
@@ -119,7 +119,7 @@ auto x = i * 1.2; // auto = double
 > auto x{ 0 };              // auto = int
 > ```
 
-> **DIKKAT!**  
+> :warning: 
 > `auto` anahtar sozcugu farkli baglamlarda farkli anlamlar ifade edebilmektedir.
 
 [bknz: AAA (almost always auto)](999_kavramlar.md#aaa-almost-always-auto)
@@ -209,7 +209,7 @@ Hangi turun elde edilecegi operand olan `expr` ifadesinin primary value category
 
 <!--  -->
 
-> **DIKKAT!**  
+> :warning: 
 > `x` bir isim, `(x)` ise bir expressiondir.
 > ```C++
 > decltype(x)      // int, isim kurallarina gore
