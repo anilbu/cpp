@@ -21,7 +21,7 @@ C++ dili, data abstraction icin cok zengin bir arac setine sahiptir.
 
 C++ dili, herhangi bir firmaya bagli olmayan bir standart komitesi tarafindan gelistirilmeye devam etmektedir.
 
-# Kitaplar
+# Tavsiye Kitaplar
 
 * **C++ Primer, 5th edition**
   S.B.Lippman, J.Lajoie, B.Moo

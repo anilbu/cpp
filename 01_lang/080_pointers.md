@@ -16,7 +16,7 @@ Her ifadenin bir turu olmasi nedeniyle adress bilgisinin de bir ture sahip olmak
   sizeof(int*) == sizeof(char*) == sizeof(double*)
   ```
 
-* `*` sadece onune geldigi ismi pointer turu olarak ifade eder.
+* `*` dekleratoru sadece onune geldigi ismi pointer turu olarak ifade eder.
   ```C++
   int* p1, p2, p3; // p1 = int*, p2 = int, p3 = int
   int x, *p, a[5], *pa[5], **ptr;
@@ -68,14 +68,13 @@ Degeri kullanilabilir bir pointeri ifade etmek icin kullanilir.
 <!-- TODO 8. Derste nullptr, NULL ve 0 arasindaki fark anlatiliyor, eksigi tamamla -->
 `nullptr`'nin turu `nullptr_t`dir. Bu bir **pointer turu degildir**, ancak pointer turune **donusebilen** bir turdur. Bir adres turu olmayan bir degiskene `nullptr` atamasi donusum bulunmadigi icin sentaks hatasidir.
 
-`cstddef` icinde `nullptr_t`:
+`cstddef` icinde `nullptr_t` bildirimi (GCC12):
 ```C++
 typedef decltype(nullptr) nullptr_t;
 ```
 
 **null pointer conversion**  
 Eger bir adres turunden degiskene ilk deger ya da atama, tam sayi sabit degeri `0` ile yapilirsa derleyici bu sabiti **null pointer**'a donusturmek zorundadir.
-
 
 ```C++
 // C/C++ dillerinde:

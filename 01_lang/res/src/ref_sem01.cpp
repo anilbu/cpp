@@ -1,7 +1,5 @@
 #include <iostream>
-#include <boost/core/demangle.hpp>
-
-using boost::core::demangle;
+#include "nutility.h"
 
 
 int main(int argc, char const *argv[])
@@ -12,13 +10,13 @@ int main(int argc, char const *argv[])
         int x = 10;
         int& r = x;
 
-        std::cout << "typeid(r).name() = " << demangle(typeid(r).name()) << '\n';
+        std::cout << "typeid(r).name() = " << _demangle(typeid(r).name()) << '\n';
         std::cout << "(&x == &r) = " << (&x == &r) << '\n';
 
         int* p = &x;
 
-        std::cout << "typeid(p).name() = " << demangle(typeid(p).name()) << '\n';
-        std::cout << "typeid(*p).name() = " << demangle(typeid(*p).name()) << '\n';
+        std::cout << "typeid(p).name() = " << _demangle(typeid(p).name()) << '\n';
+        std::cout << "typeid(*p).name() = " << _demangle(typeid(*p).name()) << '\n';
     }
     
     {

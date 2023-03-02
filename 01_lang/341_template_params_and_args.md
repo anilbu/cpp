@@ -510,7 +510,7 @@ Bir template parametresine karsilik olarak template argumaninin varsayilan olara
 template <typename T = int>
 struct Myclass {
   Myclass() {
-    std::cout << "typeid(T).name() = " << demangle(typeid(T).name()) << '\n';
+    std::cout << "typeid(T).name() = " << typeid(T).name() << '\n';
   }
 };
 ```

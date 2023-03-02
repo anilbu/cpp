@@ -5,6 +5,68 @@
 #include <cstdlib>
 #include <fstream>
 
+void gen_text_ifnexists(const std::string& filename, std::function<void(std::ostream&)> func, bool force)
+{
+    if (force || std::filesystem::exists(filename))
+        return;
+
+    auto ofs = create_text_file(filename);
+    func(ofs);
+}
+
+void gen_bin_ifnexists(const std::string& filename, std::function<void(std::ostream&)> func, bool force)
+{
+    if (force || std::filesystem::exists(filename))
+        return;
+
+    auto ofs = create_binary_file(filename);
+    func(ofs);
+}
+
+
+std::ofstream create_text_file(const std::string& filename)
+{
+	std::ofstream fs{ filename };
+	if(!fs) {
+		throw std::runtime_error{ filename + " dosyasi olusturulamadi" };
+	}
+	
+	return fs;
+}
+
+std::ofstream create_binary_file(const std::string& filename)
+{
+	std::ofstream fs{ filename, std::ios::binary };
+	if(!fs) {
+		throw std::runtime_error{ filename + " dosyasi olusturulamadi" };
+	}
+	
+	return fs;
+}
+
+std::ifstream open_text_file(const std::string& filename)
+{
+	std::ifstream fs{ filename };
+	if(!fs) {
+		throw std::runtime_error{ filename + " dosyasi olusturulamadi" };
+	}
+	
+	return fs;
+}
+
+std::ifstream open_binary_file(const std::string& filename)
+{
+	std::ifstream fs{ filename, std::ios::binary };
+	if(!fs) {
+		throw std::runtime_error{ filename + " dosyasi olusturulamadi" };
+	}
+	
+	return fs;
+}
+
+
+//--------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------
 
 void randomize()
 {

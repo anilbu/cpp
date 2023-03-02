@@ -7,6 +7,33 @@
 #include <set>
 #include <forward_list>
 #include <utility>
+#include <fstream>
+#include <filesystem>
+#include <functional>
+
+#ifdef __GNUG__
+#include <boost/core/demangle.hpp>
+#endif
+
+inline std::string _demangle(const char* tname)
+{
+#ifdef __GNUG__
+	return boost::core::demangle(tname);
+#else
+	return string{tname};
+#endif
+}
+
+void gen_text_ifnexists(const std::string& filename, std::function<void(std::ostream&)> func, bool force = false);
+void gen_bin_ifnexists(const std::string& filename, std::function<void(std::ostream&)> func, bool force = false);
+
+std::ofstream create_text_file(const std::string& filename);
+std::ofstream create_binary_file(const std::string& filename);
+std::ifstream open_text_file(const std::string& filename);
+std::ifstream open_binary_file(const std::string& filename);
+
+//--------------------------------------------------
+//--------------------------------------------------
 
 class Irand {
 public:
@@ -149,6 +176,37 @@ void my_terminate();
 // {
 // 	return os << '[' << p.first << ',' << p.second << ']';
 // }
+
+//--------------------------------------------------
+//--------------------------------------------------
+
+class de { 
+public:
+	constexpr de(long long _val, char _delim = '.') : val { _val }, delim{_delim} {}
+	
+	friend std::ostream& operator<<(std::ostream& os, de x)
+	{
+		auto s = std::to_string(x.val);
+		if(s[0] == '-') {
+			os << '-';
+			s.erase(0,1);
+		}
+		auto len = s.length();
+		for (size_t i = 0; i < len; ++i)
+		{
+			os << s[i];
+			auto n = len - 1 - i;
+			if(n && (len - 1 - i) % 3 == 0)
+				os << x.delim;
+		}
+		
+		return os;
+	}
+	
+private:
+	long long val;
+	char delim;
+};
 
 //--------------------------------------------------
 //--------------------------------------------------

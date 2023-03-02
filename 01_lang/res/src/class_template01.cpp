@@ -1,7 +1,5 @@
 #include <iostream>
-#include <boost/core/demangle.hpp>
-
-using boost::core::demangle;
+#include "nutility.h"
 
 template <typename T>
 class Myclass {
@@ -9,8 +7,8 @@ public:
     template <typename U>
     void func(Myclass<U> p)
     {
-        std::cout << "typeid(Myclass<T>) = " << demangle(typeid(Myclass<T>).name()) << '\n';
-        std::cout << "typeid(p) = " << demangle(typeid(p).name()) << '\n';
+        std::cout << "typeid(Myclass<T>) = " << _demangle(typeid(Myclass<T>).name()) << '\n';
+        std::cout << "typeid(p) = " << _demangle(typeid(p).name()) << '\n';
     }
 };
 

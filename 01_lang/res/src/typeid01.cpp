@@ -1,11 +1,10 @@
 #include <iostream>
 #include <typeinfo>
-#include <boost/core/demangle.hpp>
+#include "nutility.h"
 
 int main(int argc, char const *argv[])
 {
     using namespace std;
-    using boost::core::demangle;
     
     int x = 10;
     cout << boolalpha;
@@ -14,5 +13,5 @@ int main(int argc, char const *argv[])
     cout << (typeid(double) == typeid(x)) << '\n';
     
     
-    cout << demangle(typeid(int).name()) << '\n';
+    cout << _demangle(typeid(int).name()) << '\n';
 }

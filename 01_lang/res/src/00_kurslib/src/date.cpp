@@ -35,7 +35,8 @@ std::ostream& operator<<(std::ostream& os, const Date& date)
 std::istream& operator>>(std::istream& is, Date& date)
 {
 	int d, m, y;
-	is >> d >> m >> y;
+	char c;
+	is >> d >> c >> m >> c >> y;
 	date = Date{ d, m, y };
 	return is;
 }
