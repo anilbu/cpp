@@ -145,6 +145,8 @@
   * [Global vs Member Operator Overloading](250_operator_overloading.md#global-operator-overloading-vs-member-operator-overloading)
   * [`<<` ve `>>` operatorlerinin overload edilmesi](251_oo_shift.md)
   * [Karsilastirma operatorlerinin overload edilmesi](252_oo_comparison.md)
+    * [`operator==` degisiklikleri [C++20]](252_oo_comparison.md#operator-degisiklikleri-c20)
+    * [Three-way comparison operator[C++20]](252_oo_comparison.md#three-way-comparison-operatorc20)
   * [Aritmetik operatorlerin overload edilmesi](253_oo_arithmetic.md)
     * [`+` ve `-` isaret operatorleri](253_oo_arithmetic.md#ve---isaret-operatorleri)
     * [`+`, `-`, `*`, `/`, `+=`, `-=`, `*=`, `/=` operatorleri](253_oo_arithmetic.md#operatorleri)
