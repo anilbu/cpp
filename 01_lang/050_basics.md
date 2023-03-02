@@ -84,6 +84,40 @@ const int x = 10;
 > **DIKKAT!**  
 > Derleyici `constexpr` veya `const` degiskenler icin bellekte yer ayirmak zorunda degildir. Ancak degiskenin **adresine erisim** varsa yer ayirmak zorunda kalir.
 
+### Fonksiyon parametrelerinde `const` semantigi
+```C++
+void func(std::string &);
+void func(const std::string &);
+
+void func(std::string *);
+void func(const std::string *);
+```
+Eger fonskiyonun parametresi pointer yada ref degilse, `const` kullanilmasi yeni bir imza olusturmuyor!
+```C++
+void func(int);
+void func(const int);   // overload degil, redeclaration
+```
+Ayrica parametrenin `const` olup olmamasi, fonskiyonu cagiran icin herhangi bir fark olusturmuyor. Cunku call-by-value olarak cagrilacagi icin deger kopyalanir.
+Fonksiyon definition'da const bir parametre fonksiyon blogunda degeri degistirilmiyor anlamina gelmektedir.
+
+Fonksiyon bildiriminde asla `const` u kullanmayin. Eger gerek goruluyor ise tanimda kullanilabilir.
+```C++
+// lib.h
+void func(int x);
+void func(int* ptr);
+
+// lib.cpp
+void func(const int x)
+{
+}
+
+void func(int* const ptr)
+{
+}
+```
+
+
+
 # Sayi Sistemleri
 
 | Number System | Base  | Prefix | Expression | Value |

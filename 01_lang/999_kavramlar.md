@@ -215,8 +215,66 @@ STL ve diger kutuphanelerde bulunan containerlar genellikle varsayilan olarak `s
   Basic_ostream<char, char_traits<char>> bos;
   Ostream os;
   ```
-  
+
 # Serialize/Deserialize
 Bir sinif nesnesinin state'ini text olarak ifade edilmesine **serialization**, bu text'den nesneyi geri olusturmaya **deserialization** denilir.
 * LE/BE 
 * Pointer degiskenler
+
+
+
+# Small Buffer Optimization (SBO)
+
+Runtime'da meydana gelen dinamik bellek tahsisi sayisini azaltmak amaciyla uygulanan bir optimizasyon teknigidir. 
+
+Bilindigi uzere stack uzerinde bellek tahsisi, heap uzerinde bellek tahsisine gore daha hizlidir. SBO'nun ana uyguladigi ana fikir; eger normelde heap uzerinde tutulmasi gereken bir nesne boyut olarak kucuk bir buffer alanina sigabilecek kadar kucuk ise, heap uzerinde bellek tahsisi yapilmasi yerine nesne icin stack uzerinde olusturulmus bir buffer alaninda depolanmasidir. Optimizasyon sonucu tipik olarak dinamik bellek allocation miktari azaltilmakla calisma zamani ek maliyetini dusurulmesi, dolayisi ile performansi artisini saglayabilmektedir.
+
+```C++
+class string
+{
+  union Buffer
+  {
+    char*    _begin;
+    char[16] _local;
+  };
+   
+  Buffer _buffer;
+  size_t _size;
+  size_t _capacity;
+  // ...
+};
+```
+
+# Copy on write
+<!-- TODO: Aciklama ekle -->
+
+
+# Compile-time code selection
+Compile-time'da bazi parametrelere gore kod secimi icin suteknikler kullanilabilir:
+* tag dispatch
+* if constexpr
+* SFINAE
+* concept [C++20]
+
+
+# Remove-erase idiom
+Bir container'dan belirli deger sahip ogelerin silinmesi.
+
+Basit olarak logic end'in hesaplanip, container'in erase fonksiyonuna gonderilmesidir.
+
+[C++20]'den once:
+```C++
+vector<int> ivec { 1, 2, 2, 3, 5, 7, 9, 2 };
+ivec.erase(remove(ivec.begin(), ivec.end(), 2), vec.end());
+
+string str{ "babam ankara'dan ardahan'a yanimiza pazartesi geldi" };
+str.erase(remove(str.begin(), str.end(), 'a'), str.end());
+```
+[C++20] ile:
+```C++
+vector<int> ivec { 1, 2, 2, 3, 5, 7, 9, 2 };
+auto n_deleted = std::erase(vec, 2);
+
+string str{ "babam ankara'dan ardahan'a yanimiza pazartesi geldi" };
+std::erase(str, 'a');
+```

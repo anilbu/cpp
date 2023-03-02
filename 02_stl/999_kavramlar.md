@@ -1,0 +1,1 @@
+../01_lang/999_kavramlar.md
