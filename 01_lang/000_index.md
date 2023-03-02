@@ -83,6 +83,7 @@
 * [Constant Expressions](170_constexpr.md)
   * [`constexpr` anahtar sozcugu](170_constexpr.md#constexpr-anahtar-sozcugu)
   * [`constexpr` functions](170_constexpr.md#constexpr-functions)
+* [Structured Binding [C++17]](180_structured_binding.md)
 
 --------------
 
