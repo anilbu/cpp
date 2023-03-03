@@ -9,15 +9,13 @@
 		"markdown.preview.breaks": false,
 		"markdown-preview-github-styles.colorTheme": "dark",
 		"markdown.styles": [".vscode/github-style.css"],
-		"C_Cpp.default.cppStandard": "gnu++20",
+		"C_Cpp.default.cppStandard": "c++20",
+		"C_Cpp.inlayHints.autoDeclarationTypes.enabled": true,
+		"C_Cpp.inlayHints.autoDeclarationTypes.showOnLeft": true,
 		"openInExternalApp.openMapper": [
 			{
 				"extensionName": "mkv",
 				"apps": "vlc"
-			},
-			{
-				"extensionName": "svg",
-				"id": "hediet.vscode-drawio"
 			}
 		],
 		"files.associations": {

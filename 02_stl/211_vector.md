@@ -24,9 +24,7 @@ class vector<bool, Allocator>;
     1. Dinamik dizi baslangicini isaret eden
     2. Dinamik dizinin bitisini isaret eden
     3. Container'da bulunan son elemani isaret eden
-* **capacity**: Allocate edilen bellek blogunda tutulabilecek oge sayisi  
-* **size**: Dinamik bellek alaninda tutulmakta olan oge sayisi  
-
+  
 <p align="center">
     <!-- <img src="res/img/34_vector_impl_000.png" width="60%"/><br/> -->
     <img src="res/img/vector_memory_layout.drawio.svg" width="50%"/><br/>
@@ -41,8 +39,38 @@ class vector<bool, Allocator>;
 * `vector` sinifinda **small buffer optimization** yoktur.
 * `std::allocator<T>` varsayilan olarak `new` ve `delete` operatorlerini kullanir.
 
+#### `std::vector<bool>` partial specialization
+`vector<bool>` bir partial specialization'dir ve degerleri bir `bool` dizisi yerine bir `bitset` ile depolama yapmaktadir. Bu durum auto type deduction'da bazen problemlere neden olabilmektedir.  
 
+auto type deduction ile bir `vector<bool>::operator[]` kullanilir ise `bool` yerine `std::vector<bool>::reference` turunden bir nesne referansi dondurmektedir:
+```C++
+vector<bool> bvec(10);
 
+auto b1 = bvec[0];  // b1 = std::vector<bool>::reference
+bool b2 = bvec[0];  // b2 = bool (implicit conversion)
+vector<bool>::reference b3 = bvec[0]; // b3 = std::vector<bool>::reference
+```
+
+<details>
+<summary><b>Psuedocode</b> (Click to expand)</summary>
+
+```C++
+class vector_bool ... {
+public: 
+    class Reference {
+        // ...
+    };
+    
+    Reference& operator[](size_t idx);
+};
+```
+</details>
+<!--  -->
+
+[Ornek: vector<bool> auto type deduction](res/src/vector15.cpp)
+
+> `vector<bool>`'un iki problemi var, biri `bool` tutmuyor digeri `container` degil.  
+> *-Scott Mayers*
 
 ### Iterator Invalidations
 All iterators into a vector are invalidated if its capacity is changed or elements are moved.
