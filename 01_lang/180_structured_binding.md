@@ -1,7 +1,7 @@
 # Structured Binding [C++17]
 *Yapisal baglama*
 
-Eger birden fazla bilesene sahip bir tur var ise, bu bilesenleri farkli degiskenler ile iliskilendirilebilmesini saglayan bir aractir.
+Bir [aggregate type](050_basics.md#aggregate-initialization)'in bilesenlerini farkli degiskenler ile iliskilendirilebilmesini saglayan bir aractir.
 
 * Tum ogelerin bind edilmesi gerekiyor, ilk n tane olmaz.
 * Dekleratorler ile birlikte kullanilabilir.

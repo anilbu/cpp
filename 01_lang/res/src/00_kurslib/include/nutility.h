@@ -32,8 +32,8 @@ std::ofstream create_binary_file(const std::string& filename);
 std::ifstream open_text_file(const std::string& filename);
 std::ifstream open_binary_file(const std::string& filename);
 
-//--------------------------------------------------
-//--------------------------------------------------
+//--------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------
 
 class Irand {
 public:
@@ -44,9 +44,8 @@ private:
 	std::uniform_int_distribution<int> m_dist;
 };
 
-
-//--------------------------------------------------------------------------------------------
-//--------------------------------------------------------------------------------------------
+//--------------------------------------------------
+//--------------------------------------------------
 
 class Drand {
 public:
@@ -56,7 +55,6 @@ public:
 private:
 	std::uniform_real_distribution<double> m_dist;
 };
-
 
 void		randomize();
 [[nodiscard]] std::string rname();
@@ -87,8 +85,10 @@ constexpr bool isprime(int val)
 }
 
 std::ostream& dline(std::ostream& os);
+
 //--------------------------------------------------
 //--------------------------------------------------
+
 constexpr int ndigit(int val)
 {
 	if (val == 0)
@@ -112,8 +112,31 @@ std::ostream& operator<<(std::ostream& os, const std::pair<T, U>& p)
 {
 	return os << "[" << p.first << ", " << p.second << "]";
 }
+
 //--------------------------------------------------
 //--------------------------------------------------
+
+template<class Ch, class Tr, class Tuple, std::size_t... Is>
+void __print_tuple_impl(std::basic_ostream<Ch,Tr>& os,
+                      const Tuple& t,
+                      std::index_sequence<Is...>)
+{
+    using swallow = int[];
+    (void)swallow{0, (void(os << (Is == 0? "" : ", ") << std::get<Is>(t)), 0)...};
+}
+
+template<class Ch, class Tr, class... Args>
+decltype(auto) operator<<(std::basic_ostream<Ch, Tr>& os,
+                          const std::tuple<Args...>& t)
+{
+    os << "(";
+    __print_tuple_impl(os, t, std::index_sequence_for<Args...>{});
+    return os << ")";
+}
+
+//--------------------------------------------------
+//--------------------------------------------------
+
 template<typename C, typename F>
 void rfill(C& c, size_t n, F frand)
 {
@@ -139,6 +162,7 @@ void print(const C& c, const char* p = " ", std::ostream& os = std::cout)
 		os << elem << p;
 	os << dline;
 }
+
 //--------------------------------------------------
 //--------------------------------------------------
 
@@ -167,15 +191,6 @@ void fcs(C& c, size_t n, F func)
 //--------------------------------------------------
 
 void my_terminate();
-
-//--------------------------------------------------
-//--------------------------------------------------
-
-// template <typename T, typename U>
-// std::ostream& operator<<(std::ostream& os, const std::pair<T,U>& p)
-// {
-// 	return os << '[' << p.first << ',' << p.second << ']';
-// }
 
 //--------------------------------------------------
 //--------------------------------------------------

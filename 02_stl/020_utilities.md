@@ -3,6 +3,10 @@
 
 ## `std::allocator`
 
+
+
+--------------------------------------------------------------------------------
+
 ## `std::initializer_list`
 
 ```C++
@@ -64,7 +68,8 @@ C++11'den sonra initializer_list icin `auto` type deduction ile kurallar degisti
   Nec x3{ 12 };       // Nec(std::initializer_list<int>)
   Nec x4{ 12, 56 };   // Nec(std::initializer_list<int>)
   ```
-  
+
+--------------------------------------------------------------------------------
   
 ## `std::pair`
 
@@ -138,13 +143,176 @@ std::pair<T, U> make_pair(const T& t, const U& u) {
 auto x = make_pair(12, Date{1,1,1923});
 ```
 
+--------------------------------------------------------------------------------
 
 
 ## `std::tuple`
+A fixed-size collection of heterogeneous values. It is a generalization of `std::pair`.
 
+```C++
+template<typename... Types >
+class tuple;
+```
+* `<tuple>` baslik dosyasinda bulunur.
+* Template argumanlarinin **constexpr** olmasi zorunludur.
+* Template argumanlari **reference** turleri olabilmektedir.
+* Dinamik bir dongusel yapi ile tuple elemanlarina erismek mumkun degildir.  
+  *Static olarak template teknikleri uygularanarak erisilebilir.*  
+
+
+
+### Member functions
+`(constructor)` `operator=()` `swap()`
+
+* Default initialize edilen `tuple` turunden nesnenin elemanlari *value initialize* edilir.
+
+[Ornek: ctors](res/src/tuple01.cpp)  
+
+### Non-member functions
+`make_tuple()` `tie()` `forward_as_tuple()` `tuple_cat()` `std::get()` `operator==()` `operator<=>()` 
+
+* `std::get` index bilgisi ile yada tur bilgisi ile tuple elemanina erisim olanagi saglar.  
+  > :warning: Ayni turden birden fazla olmasi durumunda tur ile erisim sentaks hatasidir.
+
+* Karsilastirma operator fonksiyonlari tuple nesnelerini index sirasi ile *equivalance bozulana kadar* karsilastirir.  
+  <details>
+  <summary><b>Poor man's comparison</b> (Click to expand)</summary>
+
+  ```C++
+  bool opearator<(const Date& a, const Date& b)
+  {
+    return a.y < b.y || a.m < b.m || a.d < b.d;
+  }
+  ```
+  yerine
+  ```C++
+  bool opearator<(const Date& d1, const Date& d2)
+  {
+    return std::tuple(d1.y, d1.m, d1.d) < std::tuple(d2.y, d2.m, d2.d);
+  }
+  ```
+  </details>
+  <!--  -->
+
+  <details>
+  <summary><b>Swapping with  tie</b> (Click to expand)</summary>
+  
+  ```C++
+  int temp = x;
+  x = y;
+  y = z;
+  z = temp;
+  ```
+  yerine
+  ```C++
+  tie(x, y, z) = tie(y, z, x);
+  ```
+  </details>
+  <!--  -->
+  
+
+[Ornek: get interface](res/src/tuple02.cpp)  
+[Ornek: comparison](res/src/tuple03.cpp)    
+[Ornek: tie ve structured binding](res/src/tuple04.cpp)  
+[Ornek: swap with tie](res/src/tuple06.cpp)  
+
+### Helper classes
+`tuple_size` `tuple_element` `uses_allocator` `basic_common_reference` `common_type` `ignore` 
+
+[Ornek](res/src/tuple05.cpp)  
+
+--------------------------------------------------------------------------------
 
 ## `std::bitset`
+```C++
+template<std::size_t N> 
+class bitset;
+```
+The class template bitset represents a fixed-size sequence of N bits.
 
+* `<bitset>` baslik dosyasinda bulunur.
+
+[Ornek: Operations](res/src/bitset02.cpp)
+
+### Member functions
+`(constructor)` `operator==` `operator!=`  
+
+* Default ctor
+* `ULL` Conversion ctor
+* CopyConstructible
+* CopyAssignable
+
+[Ornek: ctors](res/src/bitset01.cpp)
+
+### Element access
+`operator[]` `test()` `all()` `any()` `none()` `count()`  
+
+> :triangular_flag_on_post: 
+> `set/reset` fonksiyonlarinin tum bitler uzerinde islem yapan parametresiz overloadu bulunur.
+
+> :triangular_flag_on_post: 
+> chaining uygulanabilmektedir.
+
+> :warning: 
+> `operator[]` fonksiyonunun geri donus turu `bitset<N>::reference`'dir. 
+> <details>
+> <summary><b>Aciklama</b> (Click to expand)</summary>
+> 
+> En dusuk adreslenebilir deger **byte**dir. Dolayisiyla `operator[]` fonksiyonu bir `bit`i set etmek icin: 
+> ```C++
+> bitset<32> bs{0};
+> 
+> bs[3] = true; // bs.operator[](3).operator=(true);
+> 
+> if(bs[2]);
+> if(bs.operator[](2).operator bool());
+> 
+> bs[4] = bs[2];    // bs.operator[](4).operator=(bs.operator[](2));
+> ```
+> ```C++
+> bitset<32> bs{0};
+> 
+> auto b1 = bs[4];       // auto = bitset<32>::reference
+> bitset<32>::reference b = bs.operator[](4);
+> 
+> auto b2 = bs.operator[](4).operator bool();   // auto = bool
+> ```
+> 
+> </details>
+> <!--  -->
+> 
+
+### Capacity
+`size()`
+
+### Modifiers
+`set()` `reset()` `flip()`  
+
+`operator&=` `operator|=` `operator^=` `operator~`   
+`operator<<=` `operator>>=` `operator<<` `operator>>`   
+
+
+> :warning: `ostream` ve `bitset` siniflarinin `operator<<` ve `operator>>` fonksiyonlari ayni oncelige sahiptir ve soldan saga islenmektedir.  
+> ```C++
+> cout << bs >> 5;      // sentaks hatasi: << ve >> ayni oncelikte ve once soldan isleniyor.
+> (cout << bs) >> 5;    // cout'un >> operatoru yok
+> ```
+  
+  
+### Conversions
+`to_string()` `to_ulong()` `to_ullong()`   
+
+
+### Non-member functions
+`operator&` `operator|` `operator^`  
+
+`operator<<` `operator>>`  
+
+
+### Helper classes
+`std::hash<std::bitset>`
+
+--------------------------------------------------------------------------------
 
 ## Vocabulary Types
 ### `std::optional`
