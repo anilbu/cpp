@@ -197,6 +197,32 @@ int a2[4] = {};
 int a3[4]{};
 ```
 
+## Aggregate Initialization
+Initializes an aggregate from an initializer list.
+```C++
+struct Nec {
+  int a, b, c;
+};
+  
+Nec nec = { 1, 5, 7};   // aggregate initialization
+```
+```C++
+struct Nec {
+    int ar[5];
+};
+
+Nec nec = { 1, 5, 7};   // aggregate initialization
+```
+**Aggregate type**  
+Bir dizi turu yada bazi ozelliklere sahip sinif turleridir.  
+
+Bir sinif turunun aggregate tur olabilmesi icin:
+* user-declared yada inherited constructor'a sahip olmamali
+* private yada protected non-static data member'a sahip olmamali
+* virtual base class'dan kalitima sahip olmamali
+* private yada protected base class'dan kalitima sahip olmamali
+* virtual member function'i olmamali
+
 # Expressions
 
 Bir ifade sabitlerin, degiskenlerin, operatorlerin bir araya getirilerek olusturuldugu birimlerdir. Bir ifade alt ifadelerden *(subexpression)* olusabilir. 

@@ -173,33 +173,12 @@ Returns pointer to the underlying array serving as element storage. The pointer 
 [Ornek](res/src/vector12.cpp)
 
 #### Iterators
-##### `begin()` / `end()` / `cbegin()` / `cend()`
-```C++
-iterator vector::begin() noexcept;
-const_iterator vector::begin() const noexcept;
-const_iterator vector::cbegin() const noexcept;
-
-iterator vector::end() noexcept;
-const_iterator vector::end() const noexcept;
-const_iterator vector::cend() const noexcept;
-```
-##### `rbegin()` / `rend()` / `crbegin()` / `crend()`
-```C++
-reverse_iterator vector::rbegin() noexcept;
-const_reverse_iterator vector::rbegin() const noexcept;
-const_reverse_iterator vector::crbegin() const noexcept;
-
-reverse_iterator vector::rend() noexcept;
-const_reverse_iterator vector::rend() const noexcept;
-const_reverse_iterator vector::crend() const noexcept;
-```
+`begin()` `end()` `cbegin()` `cend()` `rbegin()` `rend()` `crbegin()` `crend()`
 
 
 #### Capacity
-##### `vector::empty()`
-##### `vector::size()`
-##### `vector::max_size()`
-##### `vector::capacity()`
+`empty()` `size()` `max_size()` `capacity()`  
+
 [Ornek](res/src/vector01.cpp)
 
 ##### `vector::reserve()`

@@ -115,15 +115,8 @@ string(const string & s, size_t pos, size_t n);      // (10)
 > :warning: 
 > `string` sinifinin `char` parametreli bir ctor'u bulunmamaktadir.
 
-#### Iterators
-##### `string::begin()` ve `string::end()`
-```C++
-string::iterator string::begin() noexcept;
-string::const_iterator string::begin() const noexcept;
-
-string::iterator string::end() noexcept;
-string::const_iterator string::end() const noexcept;
-```
+#### Iterators 
+`begin()` `end()`  `cbegin()` `cend()`  `rbegin()` `rend()`  `crbegin()` `crend()` 
 
 > :warning: 
 > `string` sinifinin bazi uye fonksiyonlari **index** parametresi kullanirken, bazi uye fonksiyonlari **iterator** kullanmaktadir.
@@ -177,6 +170,9 @@ size_t string::capacity() const noexcept;
 Returns the total number of characters that the %string can hold
 before needing to allocate more memory.
 
+> :warning: 
+> Reallocation yapilmasi, daha onceden kullanilan pointerlari invalidate eder!
+
 <details>
 <summary><b>Ornek</b> (Click to expand)</summary>
 
@@ -197,8 +193,6 @@ if(s.capacity() > cap) {
 </details>
 <!--  -->
 
-> :warning:   
-> Reallocation yapilmasi, daha onceden kullanilan pointerlari invalidate eder!
 
 ##### `string::max_size`
 ```C++

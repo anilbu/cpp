@@ -118,10 +118,10 @@ Bir range'de bulunan ogelerden belirli bir kosulu saglayan ilk ogenin konumunu r
 
 ### `std::count` / `std::count_if`
 ```C++
-template< class InputIt, class T>
+template<typename InputIt, typename T>
 int count(InputIt first, InputIt last, const T& val);
 
-template< class InputIt, class UnaryPredicate>
+template<typename InputIt, typename UnaryPredicate>
 int count_if(InputIt first, InputIt last, UnaryPredicate p);
 ```
 
@@ -129,7 +129,7 @@ int count_if(InputIt first, InputIt last, UnaryPredicate p);
 <summary><b>Possible implementation</b> (Click to expand)</summary>
 
 ```C++
-template<class InputIt, class T>
+template<typename InputIt, typename T>
 int count(InputIt first, InputIt last, const T& value)
 {
     typename iterator_traits<InputIt>::difference_type ret = 0;
@@ -139,7 +139,7 @@ int count(InputIt first, InputIt last, const T& value)
     return ret;
 }
 
-template<class InputIt, class UnaryPredicate>
+template<typename InputIt, typename UnaryPredicate>
 int count_if(InputIt first, InputIt last, UnaryPredicate p)
 {
     typename iterator_traits<InputIt>::difference_type ret = 0;
@@ -239,7 +239,7 @@ OutIter copy_if(InIter beg, InIter end, OutIter dest_beg, Pred pred)
 
 ### `std::reverse`
 ```C++
-template< class BidirIt >
+template<typename BidirIt>
 void reverse( BidirIt first, BidirIt last );
 ```
 
@@ -247,7 +247,7 @@ void reverse( BidirIt first, BidirIt last );
 <summary><b>Possible implementation</b> (Click to expand)</summary>
 
 ```C++
-template<class BidirIt>
+template<typename BidirIt>
 void reverse(BidirIt first, BidirIt last)
 {
     using iter_cat = typename std::iterator_traits<BidirIt>::iterator_category;
@@ -275,7 +275,7 @@ void reverse(BidirIt first, BidirIt last)
 
 ### `std::swap`
 ```C++
-template<typename T >
+template<typename T>
 void swap(T& a, T& b);
 ```
 Parametre olarak verilen nesnelerin takasinin yapilabilmesini saglar.
@@ -344,10 +344,10 @@ OutIter transform(InIter1 beg1, InIter1 end1, InIter2 beg2, OutIter dst_beg, BFu
 
 ### `std::remove` / `std::remove_if`
 ```C++
-template< class ForwardIt, class T >
+template<typename ForwardIt, typename T>
 ForwardIt remove( ForwardIt first, ForwardIt last, const T& value );
 
-template< class ForwardIt, class UnaryPredicate >
+template<typename ForwardIt, typename UnaryPredicate>
 ForwardIt remove_if( ForwardIt first, ForwardIt last, UnaryPredicate p );
 ```
 Removes all elements satisfying specific criteria from the range `[first, last)` and returns a past-the-end iterator for the new end of the range.
@@ -356,7 +356,7 @@ Removes all elements satisfying specific criteria from the range `[first, last)`
 <summary><b>Possible implementation</b> (Click to expand)</summary>
 
 ```C++
-template<class ForwardIt, class T>
+template<typename ForwardIt, typename T>
 ForwardIt remove(ForwardIt first, ForwardIt last, const T& value)
 {
     first = std::find(first, last, value);
@@ -367,7 +367,7 @@ ForwardIt remove(ForwardIt first, ForwardIt last, const T& value)
     return first;
 }
 
-template<class ForwardIt, class UnaryPredicate>
+template<typename ForwardIt, typename UnaryPredicate>
 ForwardIt remove_if(ForwardIt first, ForwardIt last, UnaryPredicate p)
 {
     first = std::find_if(first, last, p);
@@ -385,10 +385,10 @@ ForwardIt remove_if(ForwardIt first, ForwardIt last, UnaryPredicate p)
 
 ### `std::unique`
 ```C++
-template< class ForwardIt >
+template<typename ForwardIt>
 ForwardIt unique( ForwardIt first, ForwardIt last );
 
-template< class ForwardIt, class BinaryPredicate >
+template<typename ForwardIt, typename BinaryPredicate>
 ForwardIt unique( ForwardIt first, ForwardIt last, BinaryPredicate p );
 ```
 Ardisik olarak birbirine esit olan ogelerin sayisini 1'e indirir ve *logical end* konumunu gosteren bir iterator geri doner.
@@ -399,7 +399,7 @@ Ardisik olarak birbirine esit olan ogelerin sayisini 1'e indirir ve *logical end
 <summary><b>Possible implementation</b> (Click to expand)</summary>
 
 ```C++
-template<class ForwardIt>
+template<typename ForwardIt>
 ForwardIt unique(ForwardIt first, ForwardIt last)
 {
     if (first == last)
@@ -413,7 +413,7 @@ ForwardIt unique(ForwardIt first, ForwardIt last)
     return ++result;
 }
 
-template<class ForwardIt, class BinaryPredicate>
+template<typename ForwardIt, typename BinaryPredicate>
 ForwardIt unique(ForwardIt first, ForwardIt last, BinaryPredicate p)
 {
     if (first == last)
@@ -434,10 +434,10 @@ ForwardIt unique(ForwardIt first, ForwardIt last, BinaryPredicate p)
 
 ### `std::replace` / `std::replace_if`
 ```C++
-template< class ForwardIt, class T >
+template<typename ForwardIt, typename T>
 void replace( ForwardIt first, ForwardIt last, const T& old_value, const T& new_value );
 
-template< class ForwardIt, class UnaryPredicate, class T >
+template<typename ForwardIt, typename UnaryPredicate, typename T>
 void replace_if( ForwardIt first, ForwardIt last,
                  UnaryPredicate p, const T& new_value );
 ```
@@ -447,7 +447,7 @@ Replaces all elements satisfying specific criteria with `new_value` in the range
 <summary><b>Possible implementation</b> (Click to expand)</summary>
 
 ```C++
-template<class ForwardIt, class T>
+template<typename ForwardIt, typename T>
 void replace(ForwardIt first, ForwardIt last,
              const T& old_value, const T& new_value)
 {
@@ -456,7 +456,7 @@ void replace(ForwardIt first, ForwardIt last,
             *first = new_value;
 }
 
-template<class ForwardIt, class UnaryPredicate, class T>
+template<typename ForwardIt, typename UnaryPredicate, typename T>
 void replace_if(ForwardIt first, ForwardIt last,
                 UnaryPredicate p, const T& new_value)
 {
@@ -473,7 +473,7 @@ void replace_if(ForwardIt first, ForwardIt last,
 ## Partitioning operations
 ### `std::partition`
 ```C++
-template< class ForwardIt, class UnaryPredicate>
+template<typename ForwardIt, typename UnaryPredicate>
 ForwardIt partition(ForwardIt first, ForwardIt last, UnaryPredicate p);
 ```
 Bir range icerisinde bulunan ogelerden kosulu saglayan ve saglamayan iki grup olusturulmasini saglar.  
@@ -485,7 +485,7 @@ Bir range icerisinde bulunan ogelerden kosulu saglayan ve saglamayan iki grup ol
 <summary><b>Possible implementation</b> (Click to expand)</summary>
 
 ```C++
-template<class ForwardIt, class UnaryPredicate>
+template<typename ForwardIt, typename UnaryPredicate>
 ForwardIt partition(ForwardIt first, ForwardIt last, UnaryPredicate p)
 {
     first = std::find_if_not(first, last, p);
@@ -511,7 +511,7 @@ ForwardIt partition(ForwardIt first, ForwardIt last, UnaryPredicate p)
 
 ### `std::partition_point`
 ```C++
-template< class ForwardIt, class UnaryPredicate >
+template<typename ForwardIt, typename UnaryPredicate>
 ForwardIt partition_point( ForwardIt first, ForwardIt last, UnaryPredicate p );
 ```
 Partition edilmis bir range'deki partition konumunu gosteren bir iterator donmektedir.
@@ -522,14 +522,14 @@ Partition edilmis bir range'deki partition konumunu gosteren bir iterator donmek
 
 ### `std::is_partitioned`
 ```C++
-template< class InputIt, class UnaryPredicate >
+template<typename InputIt, typename UnaryPredicate>
 bool is_partitioned( InputIt first, InputIt last, UnaryPredicate p );
 ```
 
 ### `std::partition_copy`
 ```C++
-template< class InputIt, class OutputIt1,
-          class OutputIt2, class UnaryPredicate >
+template<typename InputIt, typename OutputIt1,
+          typename OutputIt2, typename UnaryPredicate>
 std::pair<OutputIt1, OutputIt2>
     partition_copy( InputIt first, InputIt last,
                     OutputIt1 d_first_true, OutputIt2 d_first_false,
@@ -548,10 +548,10 @@ STL'de siralamaya yonelik algoritmalarin hepsinin siralama kriteri parametreli o
 
 ### `std::is_sorted`
 ```C++
-template< class ForwardIt >
+template<typename ForwardIt>
 bool is_sorted( ForwardIt first, ForwardIt last );
 
-template< class ForwardIt, class Compare >
+template<typename ForwardIt, typename Compare>
 bool is_sorted( ForwardIt first, ForwardIt last, Compare comp );
 ```
 Checks if the elements in range [first, last) are sorted.
@@ -562,13 +562,13 @@ Checks if the elements in range [first, last) are sorted.
 <summary><b>Possible implementation</b> (Click to expand)</summary>
 
 ```C++
-template<class ForwardIt>
+template<typename ForwardIt>
 bool is_sorted(ForwardIt first, ForwardIt last)
 {
     return std::is_sorted_until(first, last) == last;
 }
 
-template<class ForwardIt, class Compare>
+template<typename ForwardIt, typename Compare>
 bool is_sorted(ForwardIt first, ForwardIt last, Compare comp)
 {
     return std::is_sorted_until(first, last, comp) == last;
@@ -581,10 +581,10 @@ bool is_sorted(ForwardIt first, ForwardIt last, Compare comp)
 
 ### `std::is_sorted_until`
 ```C++
-template< class ForwardIt >
+template<typename ForwardIt>
 ForwardIt is_sorted_until( ForwardIt first, ForwardIt last );
 
-template< class ForwardIt, class Compare >
+template<typename ForwardIt, typename Compare>
 ForwardIt is_sorted_until( ForwardIt first, ForwardIt last, Compare comp );
 ```
 Verilen range icinde sirali olmayan ilk elemanin konumunu gosteren bir iterator doner.
@@ -597,13 +597,13 @@ vector<int> ivec = {2, 5, 6, 4, 8, 11, 16, 18, 27};
 <summary><b>Possible implementation</b> (Click to expand)</summary>
 
 ```C++
-template<class ForwardIt>
+template<typename ForwardIt>
 ForwardIt is_sorted_until(ForwardIt first, ForwardIt last)
 {
     return std::is_sorted_until(first, last, std::less<>());
 }
 
-template <class ForwardIt, class Compare>
+template <typename ForwardIt, typename Compare>
 ForwardIt is_sorted_until(ForwardIt first, ForwardIt last, Compare comp)
 {
     if (first != last)
@@ -627,7 +627,7 @@ ForwardIt is_sorted_until(ForwardIt first, ForwardIt last, Compare comp)
 
 ### `std::sort`
 ```C++
-template<typename RandomIt >
+template<typename RandomIt>
 constexpr void sort(RandomIt first, RandomIt last);
 
 template<typename RandomIt, typename Compare>
@@ -646,10 +646,10 @@ void sort(RandomIt first, RandomIt last, Compare comp );
 
 ### `std::partial_sort`
 ```C++
-template< class RandomIt >
+template<typename RandomIt>
 void partial_sort( RandomIt first, RandomIt middle, RandomIt last );
 
-template< class RandomIt, class Compare >
+template<typename RandomIt, typename Compare>
 void partial_sort( RandomIt first, RandomIt middle, RandomIt last,
                    Compare comp );
 ```
@@ -661,10 +661,10 @@ Tum seti siralama yerine, siralamanin ilk `n` sonucu.
 
 ### `std::stable_sort`
 ```C++
-template< class RandomIt >
+template<typename RandomIt>
 void stable_sort( RandomIt first, RandomIt last );
 
-template< class RandomIt, class Compare >
+template<typename RandomIt, typename Compare>
 void stable_sort( RandomIt first, RandomIt last, Compare comp );
 ```
 Sorts the elements in the range [first, last) in non-descending order. The order of equivalent elements is guaranteed to be preserved.
@@ -675,10 +675,10 @@ Ayni degere sahip degerler siralamadan onceki konumlarini gorece olarak koruyors
 
 ### `std::nth_element`
 ```C++
-template< class RandomIt >
+template<typename RandomIt>
 void nth_element( RandomIt first, RandomIt nth, RandomIt last );
 
-template< class RandomIt, class Compare >
+template<typename RandomIt, typename Compare>
 void nth_element( RandomIt first, RandomIt nth, RandomIt last, Compare comp );
 ```
 Verilen range'in siralanmis hali uzerinde `n`'inci elemana gore partition yapmaktadir.
@@ -686,16 +686,428 @@ Verilen range'in siralanmis hali uzerinde `n`'inci elemana gore partition yapmak
 [Ornek](res/src/nth_element01.cpp)
 
 ## Binary search operations (on sorted ranges)
+Onsarti sirali bir container olan algoritmalardir.  
+
+Sorted bir range icin:  
+* **lower bound**: Bir degerin sirayi bozmadan insert edilebilecegi **ilk konum**dur.  
+* **upper bound**: Bir degerin sirayi bozmadan insert edilebilecegi **son konum**dur.  
+* **equal range**: lower bound ile upper bound arasindaki rangedir. Bu range'in `distance`'i eleman sayisini belirtir.  
+
+<p align="center">
+    <img src="res/img/bounds.drawio.svg" width=""/><br/>
+    <i>Sekil: 7 degeri icin lower_bound, upper_bound ve equal_range</i>
+</p>
+
+### `std::lower_bound` / `std::upper_bound`
+```C++
+template<typename ForwardIt, typename T>
+ForwardIt lower_bound( ForwardIt first, ForwardIt last, const T& value );
+
+template<typename ForwardIt, typename T, typename Compare>
+ForwardIt lower_bound( ForwardIt first, ForwardIt last, const T& value, Compare comp );
+```
+```C++
+template<typename ForwardIt, typename T>
+ForwardIt upper_bound( ForwardIt first, ForwardIt last, const T& value );
+
+template<typename ForwardIt, typename T, typename Compare>
+ForwardIt upper_bound( ForwardIt first, ForwardIt last, const T& value, Compare comp );
+```
+
+[Ornek](res/src/bounds01.cpp)
+
+> :triangular_flag_on_post: 
+> Sirali bir `vector`'de sirayi bozmadan insert islemi yapmak icin upper yada lower bound kullanilabilir:
+>  ```C++
+>  vector<int> sorted_ivec;
+>  
+>  int key = 10;
+>  auto iter = lower_bound(sorted_ivec, key);
+>  sorted_ivec.insert(iter, key);
+>  ```
+
+<!-- 
+```
+lower_bound:
+    konumda bulunan ogenin degeri >= anahtar degeri  
+-->
+<!-- 
+upper_bound:
+    konumda bulunan ogenin degeri > anahtar degeri  
+-->
+
+<details>
+<summary><b>Possible implementation</b> (Click to expand)</summary>
+
+```C++
+template<typename ForwardIt, typename T, typename Compare>
+ForwardIt lower_bound(ForwardIt first, ForwardIt last, const T& value, Compare comp)
+{
+    ForwardIt it;
+    typename std::iterator_traits<ForwardIt>::difference_type count, step;
+    count = std::distance(first, last);
+ 
+    while (count > 0)
+    {
+        it = first;
+        step = count / 2;
+        std::advance(it, step);
+ 
+        if (comp(*it, value))
+        {
+            first = ++it;
+            count -= step + 1;
+        }
+        else
+            count = step;
+    }
+ 
+    return first;
+}
+```
+```C++
+template<typename ForwardIt, typename T, typename Compare>
+ForwardIt upper_bound(ForwardIt first, ForwardIt last, const T& value, Compare comp)
+{
+    ForwardIt it;
+    typename std::iterator_traits<ForwardIt>::difference_type count, step;
+    count = std::distance(first, last);
+ 
+    while (count > 0)
+    {
+        it = first; 
+        step = count / 2;
+        std::advance(it, step);
+ 
+        if (!comp(value, *it))
+        {
+            first = ++it;
+            count -= step + 1;
+        } 
+        else
+            count = step;
+    }
+ 
+    return first;
+}
+```
+</details>
+<!--  -->
+
+### `std::equal_range`
+```C++
+template<typename ForwardIt, typename T>
+std::pair<ForwardIt, ForwardIt>
+    equal_range( ForwardIt first, ForwardIt last, const T& value );
+
+template<typename ForwardIt, typename T, typename Compare>
+std::pair<ForwardIt, ForwardIt>
+    equal_range( ForwardIt first, ForwardIt last,
+                 const T& value, Compare comp );
+```
+Returns a range containing all elements equivalent to value in the range [first, last).
+
+[Ornek](res/src/equal_range01.cpp)
+
+<!-- 
+equal_range:
+    Konumda bulunan ogelerin hepsinin degeri aynidir.
+```
+-->
+
+<details>
+<summary><b>Possible implementation</b> (Click to expand)</summary>
+
+```C++
+template<typename ForwardIt, typename T, typename Compare>
+std::pair<ForwardIt,ForwardIt>
+    equal_range(ForwardIt first, ForwardIt last, const T& value, Compare comp)
+{
+    return std::make_pair(std::lower_bound(first, last, value, comp),
+                          std::upper_bound(first, last, value, comp));
+}
+```
+</details>
+<!--  -->
 
 ## Set operations (on sorted ranges)
+
+Bu algoritmalar icin
+* Hepsinin parametrik yapisi aynidir.
+* Kullanilan container'larin **ayni siralama kriteri** ile siralanmis olmasi sarti bulunmaktadir.  
+
+### `std::includes`
+```C++
+template<typename InputIt1, typename InputIt2>
+bool includes(InputIt1 first1, InputIt1 last1,
+              InputIt2 first2, InputIt2 last2);
+
+template<typename InputIt1, typename InputIt2, typename Compare>
+bool includes(InputIt1 first1, InputIt1 last1,
+              InputIt2 first2, InputIt2 last2, Compare comp);
+```
+Returns true if the sorted range [first2, last2) is a subsequence of the sorted range [first1, last1).
+
+[Ornek](res/src/set_operations01.cpp)
+
+<details>
+<summary><b>Possible implementation</b> (Click to expand)</summary>
+
+```C++
+template<typename InputIt1, typename InputIt2, typename Compare>
+bool includes(InputIt1 first1, InputIt1 last1,
+              InputIt2 first2, InputIt2 last2, Compare comp)
+{
+    for (; first2 != last2; ++first1)
+    {
+        if (first1 == last1 || comp(*first2, *first1))
+            return false;
+        if (!comp(*first1, *first2))
+            ++first2;
+    }
+    return true;
+}
+```
+</details>
+<!--  -->
+
+
+### `std::set_intersection`
+```C++
+template<typename InputIt1, typename InputIt2, typename OutputIt>
+OutputIt set_intersection(InputIt1 first1, InputIt1 last1,
+                          InputIt2 first2, InputIt2 last2, OutputIt d_first );
+
+template<typename InputIt1, typename InputIt2, typename OutputIt, typename Compare>
+OutputIt set_intersection(InputIt1 first1, InputIt1 last1,
+                          InputIt2 first2, InputIt2 last2,
+                          OutputIt d_first, Compare comp);
+```
+Kesisim ($\cap$) islemi
+
+[Ornek](res/src/set_operations01.cpp)
+
+<details>
+<summary><b>Possible implementation</b> (Click to expand)</summary>
+
+```C++
+template<typename InputIt1, typename InputIt2, typename OutputIt, typename Compare>
+OutputIt set_intersection(InputIt1 first1, InputIt1 last1,
+                          InputIt2 first2, InputIt2 last2, OutputIt d_first, Compare comp)
+{
+    while (first1 != last1 && first2 != last2)
+    {
+        if (comp(*first1, *first2))
+            ++first1;
+        else
+        {
+            if (!comp(*first2, *first1))
+                *d_first++ = *first1++; // *first1 and *first2 are equivalent.
+            ++first2;
+        }
+    }
+    return d_first;
+}
+```
+</details>
+<!--  -->
+
+
+### `std::set_union`
+```C++
+template<typename InputIt1, typename InputIt2, typename OutputIt>
+OutputIt set_union( InputIt1 first1, InputIt1 last1,
+                    InputIt2 first2, InputIt2 last2, OutputIt d_first );
+
+template<typename InputIt1, typename InputIt2, typename OutputIt, typename Compare>
+OutputIt set_union(InputIt1 first1, InputIt1 last1,
+                   InputIt2 first2, InputIt2 last2,
+                   OutputIt d_first, Compare comp);
+```
+Birlesim ($\cup$) islemi  
+
+[Ornek](res/src/set_operations01.cpp)
+
+<details>
+<summary><b>Possible implementation</b> (Click to expand)</summary>
+
+```C++
+template<typename InputIt1, typename InputIt2, typename OutputIt, typename Compare>
+OutputIt set_union(InputIt1 first1, InputIt1 last1,
+                   InputIt2 first2, InputIt2 last2, OutputIt d_first, Compare comp)
+{
+    for (; first1 != last1; ++d_first)
+    {
+        if (first2 == last2)
+            // Finished range 2, include the rest of range 1:
+            return std::copy(first1, last1, d_first);
+ 
+        if (comp(*first2, *first1))
+            *d_first = *first2++;
+        else
+        {
+            *d_first = *first1;
+            if (!comp(*first1, *first2)) // Equivalent => don't need to include *first2.
+                ++first2;
+            ++first1;
+        }
+    }
+    // Finished range 1, include the rest of range 2:
+    return std::copy(first2, last2, d_first);
+}
+```
+</details>
+<!--  -->
+
+
+### `std::set_difference`
+```C++
+template<typename InputIt1, typename InputIt2, typename OutputIt>
+OutputIt set_difference(InputIt1 beg_a, InputIt1 end_a,
+                        InputIt2 beg_b, InputIt2 end_b, OutputIt d_first);
+
+template<typename InputIt1, typename InputIt2, typename OutputIt, typename Compare>
+OutputIt set_difference(InputIt1 beg_a, InputIt1 end_a,
+                        InputIt2 beg_b, InputIt2 end_b,
+                        OutputIt d_first, Compare comp);
+```
+Fark ($a-b$) islemi  
+
+[Ornek](res/src/set_operations01.cpp)
+
+<details>
+<summary><b>Possible implementation</b> (Click to expand)</summary>
+
+```C++
+template<typename InputIt1, typename InputIt2, typename OutputIt, typename Compare>
+OutputIt set_difference(InputIt1 first1, InputIt1 last1,
+                        InputIt2 first2, InputIt2 last2, OutputIt d_first, Compare comp)
+{
+    while (first1 != last1)
+    {
+        if (first2 == last2)
+            return std::copy(first1, last1, d_first);
+ 
+        if (comp(*first1, *first2))
+            *d_first++ = *first1++;
+        else
+        {
+            if (!comp(*first2, *first1))
+                ++first1;
+            ++first2;
+        }
+    }
+    return d_first;
+}
+```
+</details>
+<!--  -->
+
+### `std::set_symmetric_difference`
+```C++
+template<typename InputIt1, typename InputIt2, typename OutputIt>
+OutputIt set_symmetric_difference( InputIt1 first1, InputIt1 last1,
+                                   InputIt2 first2, InputIt2 last2, OutputIt d_first );
+
+template<typename InputIt1, typename InputIt2, typename OutputIt, typename Compare>
+OutputIt set_symmetric_difference(InputIt1 first1, InputIt1 last1,
+                                  InputIt2 first2, InputIt2 last2,
+                                  OutputIt d_first, Compare comp);
+```
+Simetrik fark ($(a-b) \cup (b-a)$) islemi  
+
+[Ornek](res/src/set_operations01.cpp)
+
+<details>
+<summary><b>Possible implementation</b> (Click to expand)</summary>
+
+```C++
+template<typename InputIt1, typename InputIt2, typename OutputIt, typename Compare>
+OutputIt set_symmetric_difference(InputIt1 first1, InputIt1 last1,
+                                  InputIt2 first2, InputIt2 last2,
+                                  OutputIt d_first, Compare comp)
+{
+    while (first1 != last1)
+    {
+        if (first2 == last2)
+            return std::copy(first1, last1, d_first);
+ 
+        if (comp(*first1, *first2))
+            *d_first++ = *first1++;
+        else
+        {
+            if (comp(*first2, *first1))
+                *d_first++ = *first2;
+            else
+                ++first1;
+            ++first2;
+        }
+    }
+    return std::copy(first2, last2, d_first);
+}
+```
+</details>
+<!--  -->
+
+###  `std::merge`
+```C++
+template<typename InputIt1, typename InputIt2, typename OutputIt>
+OutputIt merge(InputIt1 first1, InputIt1 last1,
+               InputIt2 first2, InputIt2 last2, OutputIt d_first);
+
+template<typename InputIt1, typename InputIt2, typename OutputIt, typename Compare>
+OutputIt merge(InputIt1 first1, InputIt1 last1,
+               InputIt2 first2, InputIt2 last2,
+               OutputIt d_first, Compare comp);
+```
+Merges two sorted ranges [first1, last1) and [first2, last2) into one sorted range beginning at d_first.
+
+> :triangular_flag_on_post: 
+> `std::set_union` sadece unique degerleri output ederken, merge coklu degerleri de dahil eder.
+
+[Ornek](res/src/set_operations02.cpp)
+
+<details>
+<summary><b>Possible implementation</b> (Click to expand)</summary>
+
+```C++
+template<typename InputIt1, typename InputIt2, typename OutputIt, typename Compare>
+OutputIt merge(InputIt1 first1, InputIt1 last1,
+               InputIt2 first2, InputIt2 last2,
+               OutputIt d_first, Compare comp)
+{
+    for (; first1 != last1; ++d_first)
+    {
+        if (first2 == last2)
+            return std::copy(first1, last1, d_first);
+ 
+        if (comp(*first2, *first1))
+        {
+            *d_first = *first2;
+            ++first2;
+        }
+        else
+        {
+            *d_first = *first1;
+            ++first1;
+        }
+    }
+    return std::copy(first2, last2, d_first);
+}
+```
+</details>
+<!--  -->
+
+
+
 
 ## Heap operations
 ### `std::is_heap`
 ```C++
-template< class RandomIt >
+template<typename RandomIt>
 bool is_heap( RandomIt first, RandomIt last );
 
-template< class RandomIt, class Compare >
+template<typename RandomIt, typename Compare>
 bool is_heap( RandomIt first, RandomIt last, Compare comp );
 ```
 Checks whether the elements in range `[first, last)` are a *max heap*
@@ -704,10 +1116,10 @@ Checks whether the elements in range `[first, last)` are a *max heap*
 
 ### `std::is_heap_until`
 ```C++
-template< class RandomIt >
+template<typename RandomIt>
 RandomIt is_heap_until( RandomIt first, RandomIt last );
 
-template< class RandomIt, class Compare >
+template<typename RandomIt, typename Compare>
 RandomIt is_heap_until( RandomIt first, RandomIt last, Compare comp );
 ```
 Examines the range [first, last) and finds the largest range beginning at first which is a max heap
@@ -716,10 +1128,10 @@ Examines the range [first, last) and finds the largest range beginning at first 
 
 ### `std::make_heap`
 ```C++
-template< class RandomIt >
+template<typename RandomIt>
 void make_heap( RandomIt first, RandomIt last );
 
-template< class RandomIt, class Compare >
+template<typename RandomIt, typename Compare>
 void make_heap( RandomIt first, RandomIt last, Compare comp );
 ```
 Constructs a max heap in the range [first, last). The first version of the function uses operator< to compare the elements, the second uses the given comparison function comp.
@@ -728,10 +1140,10 @@ Constructs a max heap in the range [first, last). The first version of the funct
 
 ### `std::push_heap`
 ```C++
-template< class RandomIt >
+template<typename RandomIt>
 void push_heap( RandomIt first, RandomIt last );
 
-template< class RandomIt, class Compare >
+template<typename RandomIt, typename Compare>
 void push_heap( RandomIt first, RandomIt last,
                 Compare comp );
 ```
@@ -741,10 +1153,10 @@ Inserts the element at the position last-1 into the max heap defined by the rang
 
 ### `std::pop_heap`
 ```C++
-template< class RandomIt >
+template<typename RandomIt>
 void pop_heap( RandomIt first, RandomIt last );
 
-template< class RandomIt, class Compare >
+template<typename RandomIt, typename Compare>
 void pop_heap( RandomIt first, RandomIt last, Compare comp );
 ```
 Swaps the value in the position first and the value in the position last-1 and makes the subrange [first, last-1) into a heap. This has the effect of removing the first element from the heap defined by the range [first, last).
@@ -753,10 +1165,10 @@ Swaps the value in the position first and the value in the position last-1 and m
 
 ### `std::sort_heap`
 ```C++
-template< class RandomIt >
+template<typename RandomIt>
 void sort_heap( RandomIt first, RandomIt last );
 
-template< class RandomIt, class Compare >
+template<typename RandomIt, typename Compare>
 void sort_heap( RandomIt first, RandomIt last, Compare comp );
 ```
 Converts the max heap [first, last) into a sorted range in ascending order. The resulting range no longer has the heap property.
@@ -765,14 +1177,14 @@ Converts the max heap [first, last) into a sorted range in ascending order. The 
 <summary><b>Possible implementation</b> (Click to expand)</summary>
 
 ```C++
-template< class RandomIt >
+template<typename RandomIt>
 void sort_heap( RandomIt first, RandomIt last )
 {
     while (first != last)
         std::pop_heap(first, last--);
 }
 
-template< class RandomIt, class Compare >
+template<typename RandomIt, typename Compare>
 void sort_heap( RandomIt first, RandomIt last, Compare comp )
 {
     while (first != last)
@@ -787,16 +1199,16 @@ void sort_heap( RandomIt first, RandomIt last, Compare comp )
 ## Minimum/maximum operations
 ### `std::min_element`/`std::max_element`
 ```C++
-template<class ForwardIt>
+template<typename ForwardIt>
 ForwardIt min_element(ForwardIt first, ForwardIt last);
 
-template<class ForwardIt, class Compare>
+template<typename ForwardIt, typename Compare>
 ForwardIt min_element(ForwardIt first, ForwardIt last, Compare comp);
 
-template<class ForwardIt>
+template<typename ForwardIt>
 ForwardIt max_element(ForwardIt first, ForwardIt last);
 
-template<class ForwardIt, class Compare>
+template<typename ForwardIt, typename Compare>
 ForwardIt max_element(ForwardIt first, ForwardIt last, Compare comp);
 ```
 
@@ -804,7 +1216,7 @@ ForwardIt max_element(ForwardIt first, ForwardIt last, Compare comp);
 <summary><b>Possible implementation</b> (Click to expand)</summary>
 
 ```C++
-template<class ForwardIt>
+template<typename ForwardIt>
 ForwardIt min_element(ForwardIt first, ForwardIt last)
 {
     if (first == last)
@@ -820,7 +1232,7 @@ ForwardIt min_element(ForwardIt first, ForwardIt last)
     return smallest;
 }
 
-template<class ForwardIt, class Compare>
+template<typename ForwardIt, typename Compare>
 ForwardIt min_element(ForwardIt first, ForwardIt last, Compare comp)
 {
     if (first == last)
@@ -837,7 +1249,7 @@ ForwardIt min_element(ForwardIt first, ForwardIt last, Compare comp)
 }
 ```
 ```C++
-template<class ForwardIt>
+template<typename ForwardIt>
 ForwardIt max_element(ForwardIt first, ForwardIt last)
 {
     if (first == last)
@@ -853,7 +1265,7 @@ ForwardIt max_element(ForwardIt first, ForwardIt last)
     return largest;
 }
 
-template<class ForwardIt, class Compare>
+template<typename ForwardIt, typename Compare>
 ForwardIt max_element(ForwardIt first, ForwardIt last, Compare comp)
 {
     if (first == last)
@@ -876,10 +1288,10 @@ ForwardIt max_element(ForwardIt first, ForwardIt last, Compare comp)
 
 ### `std::minmax_element`
 ```C++
-template<class ForwardIt>
+template<typename ForwardIt>
 std::pair<ForwardIt, ForwardIt> minmax_element(ForwardIt first, ForwardIt last);
 
-template<class ForwardIt, class Compare>
+template<typename ForwardIt, typename Compare>
 std::pair<ForwardIt, ForwardIt> minmax_element(ForwardIt first, ForwardIt last, Compare comp);
 ```
 
@@ -887,7 +1299,7 @@ std::pair<ForwardIt, ForwardIt> minmax_element(ForwardIt first, ForwardIt last, 
 <summary><b>Possible implementation</b> (Click to expand)</summary>
 
 ```C++
-template<class ForwardIt>
+template<typename ForwardIt>
 std::pair<ForwardIt, ForwardIt>
     minmax_element(ForwardIt first, ForwardIt last)
 {
@@ -895,7 +1307,7 @@ std::pair<ForwardIt, ForwardIt>
     return std::minmax_element(first, last, std::less<value_type>());
 }
 
-template<class ForwardIt, class Compare>
+template<typename ForwardIt, typename Compare>
 std::pair<ForwardIt, ForwardIt>
     minmax_element(ForwardIt first, ForwardIt last, Compare comp)
 {
@@ -977,7 +1389,7 @@ Lexicographical comparison islemi asagidaki ozelliklere sahiptir:
 <summary><b>Possible implementation</b> (Click to expand)</summary>
 
 ```C++
-template<class InputIt1, class InputIt2>
+template<typename InputIt1, typename InputIt2>
 bool lexicographical_compare(InputIt1 first1, InputIt1 last1,
                              InputIt2 first2, InputIt2 last2)
 {
@@ -992,7 +1404,7 @@ bool lexicographical_compare(InputIt1 first1, InputIt1 last1,
     return (first1 == last1) && (first2 != last2);
 }
 
-template<class InputIt1, class InputIt2, class Compare>
+template<typename InputIt1, typename InputIt2, typename Compare>
 bool lexicographical_compare(InputIt1 first1, InputIt1 last1,
                              InputIt2 first2, InputIt2 last2, Compare comp)
 {
@@ -1023,7 +1435,7 @@ bool lexicographical_compare(InputIt1 first1, InputIt1 last1,
 
 ### `reverse_copy`
 ```C++
-template<class BidirIt, class OutputIt>
+template<typename BidirIt, typename OutputIt>
 OutputIt reverse_copy(BidirIt first, BidirIt last, OutputIt d_first);
 ```
 Range'in tersini hedef iterator'un gosterdigi konuma yazar.
@@ -1032,7 +1444,7 @@ Range'in tersini hedef iterator'un gosterdigi konuma yazar.
 <summary><b>Possible implementation</b> (Click to expand)</summary>
 
 ```C++
-template<class BidirIt, class OutputIt>
+template<typename BidirIt, typename OutputIt>
 OutputIt reverse_copy(BidirIt first, BidirIt last, OutputIt d_first)
 {
     for (; first != last; ++d_first)
@@ -1088,11 +1500,12 @@ OutIter remove_copy_if(InIter beg, InIter end, OutIter dst_end, UnPred f)
 
 ### `replace_copy` / `replace_copy_if`
 ```C++
-template< class InputIt, class OutputIt, class T >                        // (1)
+template<typename InputIt, typename OutputIt, typename T>                 // (1)
 OutputIt replace_copy( InputIt first, InputIt last, OutputIt d_first,
                        const T& old_value, const T& new_value );
 
-template< class InputIt, class OutputIt, class UnaryPredicate, class T >  // (2)
+template<typename InputIt, typename OutputIt, 
+         typename UnaryPredicate, typename T>  // (2)
 OutputIt replace_copy_if( InputIt first, InputIt last, OutputIt d_first,
                           UnaryPredicate p, const T& new_value );
 ```
@@ -1105,7 +1518,7 @@ Copies the elements from the range [first, last) to another range beginning at d
 <summary><b>Possible implementation</b> (Click to expand)</summary>
 
 ```C++
-template<class InputIt, class OutputIt, class T>
+template<typename InputIt, typename OutputIt, typename T>
 OutputIt replace_copy(InputIt first, InputIt last, OutputIt d_first,
                       const T& old_value, const T& new_value)
 {
@@ -1114,8 +1527,8 @@ OutputIt replace_copy(InputIt first, InputIt last, OutputIt d_first,
     return d_first;
 }
 
-template<class InputIt, class OutputIt, 
-         class UnaryPredicate, class T>
+template<typename InputIt, typename OutputIt, 
+         typename UnaryPredicate, typename T>
 OutputIt replace_copy_if(InputIt first, InputIt last, OutputIt d_first,
                          UnaryPredicate p, const T& new_value)
 {

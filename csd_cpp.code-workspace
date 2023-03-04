@@ -70,7 +70,9 @@
 			"version": "cpp",
 			"codecvt": "cpp",
 			"ratio": "cpp",
-			"iterator": "cpp"
+			"iterator": "cpp",
+			"map": "cpp",
+			"unordered_set": "cpp"
 		},
 	},
 	"extensions": {

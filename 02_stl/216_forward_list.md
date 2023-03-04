@@ -56,7 +56,3 @@ iterator erase_after( const_iterator first, const_iterator last );        // (2)
 ```
 
 [Ornek](res/src/forward_list03.cpp)
-
-
-
-Notlar 38. dersten devam ediyor.
