@@ -162,7 +162,6 @@ Bir fonksiyon 3 farkli sekilde gecerli adres donebilir.
 
 ## Pointers ve `const`
 
-<!-- TODO Derslerden notlari tamamla, bi yerde anlatiliyordu ama neresiydi? -->
 ```C++
 int x = 10;
 

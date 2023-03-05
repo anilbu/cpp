@@ -214,8 +214,6 @@ Eger bir sinif nested olarak olusturulmus ise:
 
 Bu idiom **sinifin `private` bolumunu gizleme**ye yonelik bir tekniktir. 
 
-<!-- TODO Ders 18: 16:00:00 -->
-
 Sinifin `private` bolumunun baslik dosyasinda yer almasi bir takim dezavantajlar olusturabiliyor. 
 
 * Compile isleminin suresinin uzamasina neden olur.

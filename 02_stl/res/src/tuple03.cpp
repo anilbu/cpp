@@ -11,7 +11,9 @@
 int main(int argc, char const *argv[])
 {
     using namespace std;
-
+    
+    using person = tuple<int, string, double>;
+    
     vector<person> pvec;
     pvec.reserve(10);
 

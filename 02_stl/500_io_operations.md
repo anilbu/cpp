@@ -62,8 +62,8 @@ Genel olarak `operator<<` global fonksiyonu overload edilerek yapilmaktadir. But
 cout << 10 << 3.14;     // cout.operator<<(10).operator<<(3.14);
 ```
 
-> **DIKKAT!**
-> `operator<<` overloadlarindan ikisi cok karistirilmaktadir:
+> :warning: `operator<<` overloadlarindan ikisi cok karistirilmaktadir. 
+> 
 > ```C++
 > operator<<(cout, "necati");  // operator<<(ostream&, const char*);  prints necati
 > operator<<(cout, 'A');       // operator<<(ostream&, char);         prints A
@@ -342,8 +342,7 @@ Her stream nesnesinin durumunu belirten `ios::iostate` turunden bir **condition 
   </details>
   <!--  -->
   
-  > :triangular_flag_on_post: 
-  > Windows'da `cin`'de eof durumu `CTRL+Z`, Linux/bash'de `CTRL+D` ile olusturulabilir. 
+  > :information_source: Windows'da `cin`'de EOF durumu `CTRL+Z`, Linux/bash'de `CTRL+D` ile olusturulabilir. 
   
 * Eger stream recovery yapilamayacak bir durumda ise `bad` state'de bulunur.
 
@@ -415,8 +414,7 @@ cin.setstate(ios::failbit);     // condition_state |= failbit
   *Ctor* ile bir dosyanin acilmasi saglanabilmektedir.   
   *Eger dtor cagrildigi bir dosyanin yonetimi kontrol ediliyor ise dosyayi kapatacaktir.*  
 
-  > **Dikkat**  
-  > `ofstream` turunden bir nesnenin olmasi, bu nesnenin bir dosya ile iliskilendirilmis oldugu anlamina gelmemektedir.
+  > :warning: `ofstream` turunden bir nesnenin olmasi, bu nesnenin bir dosya ile iliskilendirilmis oldugu anlamina gelmemektedir.
   >    * `ofs` hicbir dosya ile ilgili degildir ama hayattadir.
   >    * `ofs` belirli bir timepoint'deki bir dosyayi yonetmektedir.
   >    * Dosya islemleri tamamlanmis ancak `ofs` hala hayatta olabilir.
@@ -514,17 +512,16 @@ ifs.seekg(-1000, ios::cur); // bulundugu yerden 1000 byte geri
 ifs.seekg(0, ios:cur);      // dosya konum gostericini bulundugu konuma konumlandirma: okumadan yazmaya yazmadan okumaya geciste
 ```
 
-[Ornek: ios::ate ve tellg](res/src/io_fstream05.cpp)
-[Ornek: binary read/write](res/src/io_fstream06.cpp)
-[Ornek: binary primes](res/src/io_fstream10.cpp)
+[Ornek: ios::ate ve tellg](res/src/io_fstream05.cpp)  
+[Ornek: binary read/write](res/src/io_fstream06.cpp)  
+[Ornek: binary primes](res/src/io_fstream10.cpp)  
 
-<!-- TODO Ders 49 1:51:00 -->
-[Ornek: bol/birlestir](res/src/io_fstream11.cpp)
+[Ornek: bol/birlestir](res/src/io_fstream11.cpp)  
 
 **`istream::gcount()`**  
 Son yapilan okumadaki byte sayisi  
 
-[Ornek: writing directly into a vector](res/src/io_fstream12.cpp)
-[Ornek: writing directly into a vector](res/src/io_fstream13.cpp)
+[Ornek: writing directly into a vector](res/src/io_fstream12.cpp)  
+[Ornek: writing directly into a vector](res/src/io_fstream13.cpp)  
 
 

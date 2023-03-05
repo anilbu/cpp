@@ -24,6 +24,36 @@
   };
   ```
 
+### **Pointer to data member**
+
+```C++
+struct Myclass{
+  static int x;
+  int mx;
+};
+```
+  
+* Sinifin **static** data member'ini gosteren bir adres turu, *`this` pointeri olmadigi icin*, normal nesne adresi gibi adresi tutulabilir.
+
+  ```C++
+  int* p1 = &Myclass{}.x;
+  int* p2 = &Myclass::x;
+  ```
+* Sinifin **non-static** data member'ini gosteren bir pointer, pointer isminden once sinif nitelenmesini gerektirmektedir.
+  ```C++
+  Myclass m;
+  int Myclass::*px = &Myclass::mx;  
+  auto py = &Myclass::my; // py = int Myclass::*
+  ```
+* Sinifin veri elemani pointer'i kullanilarak cagri yapilabilmesi icin sinif nesnesi ile `.*` yada `->*` operatorlerinden biri kullanilmalidir.
+  ```C++
+  Myclass obj;
+  obj.*py = 777;
+  ```
+
+[Ornek 1](res/src/data_member_pointer01.cpp)  
+[Ornek 2 - Candle](res/src/data_member_pointer02.cpp)  
+
 ## Non-static member function
 ```C++
 class Myclass {
@@ -406,4 +436,40 @@ std::move(cm).bax();// gecerli
   </details>
   <!--  -->
   
+### **Function pointers to Member functions**
+
+* Fonksiyon pointerlari eger bir sinifin **static** member function'ini gosterecek ise, this pointeri olmadigi icin, normal global functionlar gibi adres atamasi yapilabilir.
+  ```C++
+  void (*fp1)(int) = Myclass::s_func;
+  void (*fp2)(int) = &Myclass::s_func;
+  ```
+* Fonksiyon pointerlari eger bir sinifin **non-static** member function'ini gosterecek ise, pointer isminden once sinif ismi de belirtilmelidir.
+  > :warning: Non-static member function'lar decay'e ugramadigi icin adres operatoru `&` kullanimi zorunludur.
+  ```C++
+  void (Myclass::*fp3)(int) = Myclass::func;  // syntax error
+  void (Myclass::*fp4)(int) = &Myclass::func;
+  ```
+  `const` da imzanin bir parcasi oldugu icin, `const` da bildirilmelidir:
+  ```C++
+  int (Date::*fpx)() const = &Date::year_day;
+  ```
   
+* Fonksiyon pointer'i kullanilarak cagri yapilabilmesi icin sinif nesnesi ile `.*` yada `->*` operatorlerinden biri kullanilmalidir.
+  > :warning: fonksiyon cagri operatoru `()` onceligi `.*` ve `->*`'dan yuksektir.
+  ```C++
+  Date mdate {21, 6, 1999};
+  Date* date_ptr = &mdate;
+  
+  (mdate.*fpx)();
+  ((*date_ptr).*fpx)();
+  (date_ptr->*fpx)();
+  ```
+  > :triangular_flag_on_post: 
+  > `.` ve `.*` operatorleri overload edilemez, ancak `->` ve `->*` overload edilebilir.
+  
+  
+* Hem global hemde member function pointer turleri yazimi zahmetli olmasi nedeniyle genellikle tures isim bildirimleri ile birlikte tanimlanarak kullanilmaktadir. [[bknz: Tures isim bildirimleri](050_basics.md#tur-es-isim-bildirimleri)]
+
+[Ornek: Basit kullanim](res/src/member_func_pointers01.cpp)  
+[Ornek: Fighter](res/src/member_func_pointers03.cpp)  
+[Ornek](res/src/member_func_pointers02.cpp)  

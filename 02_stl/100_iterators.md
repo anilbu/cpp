@@ -346,10 +346,7 @@ BidirIt prev(BidirIt it, int n = 1)
 [Ornek](res/src/next_prev01.cpp)
 
 ## Range Access
-### `std::begin()`/`std::cbegin`
-### `std::end()`/`std::cend`
-### `std::rbegin()`/`std::crbegin`
-### `std::rend()`/`std::crend`
+`std::begin()` `std::cbegin` `std::end()` `std::cend` `std::rbegin()` `std::crbegin` `std::rend()` `std::crend` 
 
 ### `std::size`
 ```C++
@@ -644,10 +641,76 @@ back_insert_iterator<C> back_inserter(C& c) {
 
 ## Stream Iterators
 
+### `std::ostream_iterator`
+```C++
+template<typename T,
+         typename CharT = char,
+         typename Traits = std::char_traits<CharT>>
+class ostream_iterator;
+```
+
+* data sink / target
+* single-pass: each position can only be accessed once
+* stores reference to output stream on construction
+* `*it = value` puts value into stream
+* `*` and `++` are no-ops, `*` just returns a reference to the iterator itself
+
+[Ornek](res/src/ostream_iterator01.cpp)  
+
+#### Member Functions
+`(constructor)` `(destructor)` `operator=` `operator*` `operator++` `operator++(int)` 
+
+<details>
+<summary><b>Possible implementation</b> (Click to expand)</summary>
+
+```C++
+class ostream_iterator
+{
+public:
+    ostream_iterator(std::ostream& os, const char* sep = ""): m_os{os}, m_sep{sep} {}
+    ostream_iterator& operator*() { return *this; }
+    ostream_iterator& operator++() { return *this; }
+    ostream_iterator& operator++(int) { return *this; }
+    
+    template <typename T> 
+    ostream_iterator& operator=(const T& t) {
+        m_os << t;
+        if(m_sep)
+           m_os << m_sep; 
+        return *this;
+    }
+private:
+    std::ostream& m_os;
+    const char* m_sep;
+};
+```
+</details>
+<!--  -->
+
 ### `istream_iterator`
-### `ostream_iterator`
-### `istreambuf_iterator`
+```C++
+template<typename T,
+         typename CharT = char,
+         typename Traits = std::char_traits<CharT>,
+         typename Distance = std::ptrdiff_t>
+class istream_iterator;
+```
+
+* data source
+* single-pass: each position can only be accessed once
+* stores reference to input stream on construction
+* `*it` gets current value from stream
+* `++it` advances stream to next value
+
+[Ornek](res/src/istream_iterator01.cpp)  
+
+#### Member Functions
+`(constructor)` `(destructor)` `operator*` `operator->` `operator++` `operator++(int)` 
+
+> :triangular_flag_on_post: an istream_iterator constructed without argument can be used to indicate end-of-range
+
 ### `ostreambuf_iterator`
+### `istreambuf_iterator`
 
 
 ## `const_iterator`

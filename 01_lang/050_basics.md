@@ -345,7 +345,8 @@ Hayata gelmesi/yok edilmesi programci tarafindan belirlenmis nesnelerin storage 
 Tipik olarak `heap`'de barindirilir.
 
 ##  Thread-local storage
-<!-- TODO -->
+Bir thread'e ozgu statik omurlu degiskenlerdir.
+<!-- TODO Concurrency ile ilgili -->
 
 
 # Name lookup
@@ -762,7 +763,41 @@ Karsilastirma operatorlerinde sik yapilan yapilan hatalar:
 # Tur-es isim bildirimleri
 
 > :information_source: 
-> Bir tur es ismi tanimi icin:
-> 1. Hangi ture es isim verilecekse o turden bir degisken tanimla
-> 2. Basina `typedef` koy.
-> 3. Degiskenin ismini tur es ismi olarak degisitir.
+> Complex turler icin tur es ismi atama yontemi  
+> 1. Hangi ture es isim vereceksiniz o turden bir **degisken tanimla**yin.  
+> 2. Tanimlamanin basina `typedef` anahtar sozcugunu koyun.  
+> 3. Tanimladiginiz degisken isminin yerine ture verilecek **tures ismi** yazin.  
+
+   ```C++
+   unsigned char var;               // Adim 1
+   typedef unsigned char var;       // Adim 2
+   typedef unsigned char uchar;     // Adim 3
+   ```
+   ```C++
+   int a[5];                        // Adim 1
+   typedef int a[5];                // Adim 2
+   typedef int INTA5[5];            // Adim 3
+   ```
+   ```C++
+   int(*fp)(int, int);              // Adim 1
+   typedef int(*fp)(int, int);      // Adim 2
+   typedef int(*FPTR)(int, int);    // Adim 3
+   ```
+
+* Geri donus degeri `int (*)(int, int)` olan bar isminde bir fonksiyon tanimlayin:
+  ```C++
+  int (*bar())(int, int) {
+      return &foo;
+  }
+  ```
+  
+* `int (*)(int, int)` turunden bir parametre alan geri donus degeri `int (*)(int, int)` olan baz isminde bir fonksiyon tanimlayin:
+  ```C++
+  int (*baz(int(*fp)(int,int)))(int, int) {
+      return fp;
+  }
+  ```
+
+[Ornekler](res/src/typedef_func.cpp)
+
+<!-- ## `using` ile tures isim bildirimi -->
