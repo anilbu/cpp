@@ -258,7 +258,16 @@
 
 --------------
 
-* [`new` ve `delete`](900_dynamic_memory.md#`new` ve `delete`)
+* [Dinamik Bellek Yonetimi](380_dynamic_memory_management.md)
+
+  * [`operator new`/`operator delete` fonksiyonlari](380_dynamic_memory_management.md#operator-newoperator-delete-fonksiyonlari)
+    * [Overloading `operator new`/`operator delete`](380_dynamic_memory_management.md#overloading-operator-newoperator-delete)
+    * [`operator new`/`operator delete` vs `malloc`/`free` ](380_dynamic_memory_management.md#operator-newoperator-delete-vs-mallocfree)
+  * [`new` ve `delete` ifadeleri](380_dynamic_memory_management.md#new-ve-delete-ifadeleri)
+    * [Array new/delete](380_dynamic_memory_management.md#array-newdelete)
+    * [const new](380_dynamic_memory_management.md#const-new)
+    * [placement new](380_dynamic_memory_management.md#placement-new)
+    * [nothrow new](380_dynamic_memory_management.md#nothrow-new)
 
 --------------
 
