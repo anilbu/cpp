@@ -1,5 +1,5 @@
 # Type traits
-[[bknz: type_traits kutuphanesi - genel calisma mantigi](512_type_traits_details.md)]  
+[[bknz: type_traits kutuphanesi - genel calisma mantigi](521_type_traits_details.md)]  
 
 Bir tur hakkinda belirli ozelliklere sahip olup olmadigini compile-time'da bilgi edinilmesini/sinanmasini saglayan *helper template/meta function*'lardan olusan bir kutuphanedir. Farkli turler icin farkli kodlarin secimini saglanmasi, uyumsuz olarak kullanilan turlerde sentaks hatasi uretilebilmesi gibi olanaklara imkan saglamaktadir. 
 
