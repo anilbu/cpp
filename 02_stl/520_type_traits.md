@@ -21,7 +21,7 @@ Bir tur hakkinda belirli ozelliklere sahip olup olmadigini compile-time'da bilgi
 * [Basit tur sorgulama](res/src/type_traits01.cpp)
 * [Bir template fonksiyonun sadece pointer turleri icin kullanilmasinin saglanmasi](res/src/type_traits02.cpp)
 * [Pointer turler icin ayri, olmayan turler icin ayri implementasyonlarin yapilmasi (tag dispatch metodu)](res/src/type_traits03.cpp)
-* [lvalue ref icin ayri rvalue ref icin ayri implementasyon (if-constexpr)](src/type_traits04.cpp)
+* [lvalue ref icin ayri rvalue ref icin ayri implementasyon (if-constexpr)](res/src/type_traits04.cpp)
 
 <!--  -->
 
