@@ -1,46 +1,52 @@
 #ifndef PERSON_H_
 #define PERSON_H_
-
 #include <iostream>
-#include <memory>
 #include <string>
-#include "nutility.h"
+#include <memory>
 
-class Person
-{
+class Person {
 public:
-    Person(std::string fname, std::string lname)
-    : m_fname{ std::move(fname) }, m_lname{ std::move(lname) } {
-        std::cout << *this << " is being created this = " << this <<"\n";
+    using SharedPtr = std::shared_ptr<Person>;
+    using UniquePtr = std::unique_ptr<Person>;
+
+    Person(): m_name{ "default" }
+    {
+        std::cout << "Person()\n";
     }
-    
+
+    Person(std::string _name) : m_name{ std::move(_name) }
+    {
+        std::cout << "Person() name = " << m_name << "\n";
+    }
+
     ~Person()
     {
-        std::cout << *this << " is being destroyed this = " << this << '\n';
+        std::cout << "~Person() name = " << m_name << "\n";
     }
     
-    friend std::ostream& operator<<(std::ostream& os, const Person& p)
-    {
-        return os << p.m_fname << " " << p.m_lname;
-    }
-    
-    auto operator<=>(const Person& p) const = default;
-    
-    Person& set_name(const std::string& name)
-    {
-        m_fname = name;
+    Person& name(const std::string& _name) {
+        m_name = _name;
         return *this;
     }
     
-    static Person create_person()
+    std::string name() const { return m_name; }
+    
+    friend std::ostream& operator<<(std::ostream& os, const Person& m)
     {
-        return Person{rname(), rfname()};
+        return os << m.m_name;
+    }
+
+    auto operator<=>(const Person& other) const = default;
+
+    static inline std::unique_ptr<Person> create_person()
+    {
+        static size_t n = 0;
+        return std::make_unique<Person>("person" + std::to_string(n++));
     }
     
-    // tamamla
 private:
-    std::string m_fname;
-    std::string m_lname;
+    std::string m_name;
 };
 
-#endif // PERSON_H_
+
+#endif // Person_H_

@@ -8,6 +8,8 @@ Dinamik omurlu bir nesnenin hayata getirilmesi `new` ifadeleri, hayatlarini sonl
 
 Dinamik omurlu olarak olusturulan nesneler isi bittiginde `delete` edilmelidir. Aksi halde sinifin destructor'i cagrilmayacagi icin **memory leak**'in yani sira **resource leak** olusma ihtimali de bulunmaktadir.
 
+> :warning: **double deletion**: Dinamik omurlu bir nesnenin birden fazla kere `delete` edilmesi **UB**'dir.
+
 ## `operator new`/`operator delete` fonksiyonlari
 ```C++
 void* operator new(std::size_t sz);
@@ -80,10 +82,13 @@ void operator delete(void* ptr) noexcept;
   </details>
   <!--  -->
   
+  > :triangular_flag_on_post: Uye fonksiyon olarak tanimlanan operator new/delete fonksiyonlari `static` anahtar sozcugu kullanilmasa dahi varsayilan olarak static uye fonksiyondur. 
+  
+  
 [Psuedocode: new_handler impl](res/src/dmm03.cpp)  
 [Psuedocode: new_handler usage demo](res/src/dmm04.cpp)  
 
-Farkli isteklere yonelik farkli allocator kullanma stratejisi yerine gore verimi arttirabilir. Ornegin; cok kucuk nesneler allocate edilmesi icin ozel bir mekanizma kullanilmasi. [[bknz:SBO vb.](../01_lang/999_kavramlar.md#small-buffer-optimization-sbo)]
+Farkli isteklere yonelik farkli allocator kullanma stratejisi yerine gore verimi arttirabilir. Ornegin; cok kucuk nesneler allocate edilmesi icin ozel bir mekanizma kullanilmasi. [[bknz:SBO vb.](../04_advanced/001_sbo.md#small-buffer-optimization-sbo)]
 
 ### `operator new`/`operator delete` vs `malloc`/`free` 
 `malloc`/`free` fonksiyonlari C dilinde bellek yonetimi icin kullanilmaktadir.

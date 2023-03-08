@@ -3,8 +3,6 @@
 
 #include <ostream>
 
-namespace nec::car_v1 {
-	
 class Car {
 public:
 	virtual void start() = 0;
@@ -98,7 +96,5 @@ public:
 Car* create_random_car(void);
 
 std::ostream& operator<<(std::ostream&, const Car& c);
-
-}
 
 #endif

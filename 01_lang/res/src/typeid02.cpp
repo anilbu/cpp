@@ -1,8 +1,6 @@
 #include <iostream>
 #include "car.h"
 
-using namespace nec::car_v1;
-
 void car_game(Car* carptr)
 {
     carptr->start();

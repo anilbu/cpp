@@ -4,8 +4,6 @@
 #include "nutility.h"
 #include <iostream>
 
-namespace nec::car_v1 {
-
 void Bmw::start()
 {
 	std::cout << "Bmw has just started\n";
@@ -230,6 +228,4 @@ Car* create_random_car()
 	case 6: return new Volvo;
 	default: return nullptr;
 	}
-}
-
 }

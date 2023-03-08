@@ -266,6 +266,44 @@ Myclass x6 = { 9, 12};  // copy initialization
 > :pushpin: 
 > Brace init `{ }` ile narrowing conversion olusur ise sentaks hatasi olusur.
 
+### Parametreli constructorlarin sadelestirilmesi
+
+Constructor'larda `const T&` parametre yerine `T` parametre + `std::move` kullanimi
+
+```C++
+class Myclass {
+public:
+  Myclass(const string& _name) : name{_name} {}
+private:
+  string name;
+};
+
+string s{};                 // default ctor
+Myclass m1{ s };            // ( lvalue expr ile) copy ctor
+Myclass m2{ string{} };     // (prvalue expr ile) default ctor + copy ctor
+```
+
+Yukaridaki senaryoda ctor bir *lvalue expr* ile cagrilirsa, `_name` isimli referans'a baglanacak ve `_name`'den `name`'e bir kopyalama yapilacaktir.  
+Eger bu ctor bir *prvalue expr* ile calistirilir ise gecici bir nesne olusturulacak, bu nesne `_name` isimli referans'a baglanacak ve `_name`'den `name`'e bir kopyalama yapilacaktir.  
+
+Tasima semantiginin dile eklenmesi ile referans parametre yerine direkt olarak sinif nesnesi turunden bir degisken kullanilabilme secenegi olusmaktadir. Asagidaki kodda, kopyalama `_name` parametresine yapilmakta ve kopyalanan nesne `name` isimli veri elemanina tasinmaktadir. *prvalue expr* ile cagrilan ctor'da copy elision uygulanacagi icin daha avantajli olabilmektedir.
+
+Ayrica daha sade bir kod olusturulabilmesine olanak saglamaktadir.
+```C++
+class Myclass {
+public:
+  Myclass(string _name) : name{ std::move(_name) } {}
+private:
+  string name;
+};
+
+string s{};                 // default ctor
+Myclass m1{ s };            // ( lvalue expr ile) copy ctor + move ctor
+Myclass m2{ string{} };     // (prvalue expr ile) default ctor + move ctor
+```
+
+[Ornek](res/src/ctor_parameter01.cpp)
+
 
 ## Conversion Constructor
 Aslen varlik nedeninin yani sira, ortulu tur donusumlerini tanimlamak amaciyla kullanilabilen `ctor`lardir. SMF'lerden biri degildir.

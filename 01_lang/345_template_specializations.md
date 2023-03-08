@@ -187,6 +187,7 @@ Myclass<string*> n5;    // partial specialization for Myclass<T*>
 ```
 
 * Sadece **sinif sablonlari** icin kullanilabilir. Fonksiyonlar icin kullanilamamaktadir.
+* Bir sinif sablonu icin bildirilen partial specialization, **farkli bir interface**'e sahip olabilmektedir.
 * Bir sinif templateine birden fazla ayri partial specializationlar tanimlanabilir.
   <details>
   <summary><b>Ornek</b> (Click to expand)</summary>

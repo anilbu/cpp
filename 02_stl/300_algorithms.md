@@ -470,6 +470,33 @@ void replace_if(ForwardIt first, ForwardIt last,
 
 [Ornek](res/src/replace01.cpp)
 
+### `std::move`
+```C++
+template<typename InputIt, typename OutputIt>
+OutputIt move( InputIt first, InputIt last, OutputIt d_first);
+```
+Bir range'deki nesneleri baska bir range'e tasinmasini saglamaktadir. 
+
+[Ornek](res/src/move01.cpp)  
+
+<details>
+<summary><b>Possible implementation</b> (Click to expand)</summary>
+
+```C++
+template<typename InputIt, typename OutputIt>
+OutputIt move( InputIt first, InputIt last, OutputIt d_first)
+{
+    for (; first != last; ++d_first, ++first)
+        *d_first = std::move(*first);
+ 
+    return d_first;
+}
+```
+</details>
+<!--  -->
+
+
+
 ## Partitioning operations
 ### `std::partition`
 ```C++

@@ -30,6 +30,8 @@ C++ dili, herhangi bir firmaya bagli olmayan bir standart komitesi tarafindan ge
 * **The Standard C++ Library, 2nd edition**
   N.M.Josuttis
 
+* **Effective Modern C++**  
+  Scott Meyers
 
 # Yararli Baglantilar
 

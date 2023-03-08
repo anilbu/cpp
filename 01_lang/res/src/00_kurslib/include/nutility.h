@@ -163,6 +163,14 @@ void print(const C& c, const char* p = " ", std::ostream& os = std::cout)
 	os << dline;
 }
 
+template<typename C>
+void printp(const C& c, const char* p = " ", std::ostream& os = std::cout)
+{
+	for (const auto& elem : c)
+		os << *elem << p;
+	os << dline;
+}
+
 //--------------------------------------------------
 //--------------------------------------------------
 

@@ -638,6 +638,30 @@ back_insert_iterator<C> back_inserter(C& c) {
 [Ornek](res/src/back_inserter01.cpp)
 
 ### `move_iterator` / `make_move_iterator`
+```C++
+template<typename Iter>
+class move_iterator;
+```
+Dereference edildiginde bir rvalue ifadesi geri donen bir iterator adaptorudur.
+
+[Ornek](res/src/move_iterator01.cpp)
+
+
+<details>
+<summary><b>Possible implementation</b> (Click to expand)</summary>
+
+```C++
+template<typename Iter>
+std::move_iterator<Iter> make_move_iterator(Iter it)
+{
+  return std::move_iterator<Iter>{it};
+}
+```
+</details>
+<!--  -->
+
+<!-- ### `std::move_backward` / `make_move_backward` -->
+
 
 ## Stream Iterators
 

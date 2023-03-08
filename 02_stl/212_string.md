@@ -16,7 +16,7 @@ Bir sinifin iyi tanimlanmis tek bir sorumlulugu olmali, degisecek ise tek bir ne
   ```
   *Yukarida bildirilen 3 degiskenin turu aynidir.*
 
-* Modern string implementasyonlari, [small buffer optimization](999_kavramlar.md#small-buffer-optimization-sbo) uygulanmakta ve kucuk boyutlu string nesneleri icin dinamik bellek alani tahsis edilmemektedir.
+* Modern string implementasyonlari, [small buffer optimization](../04_advanced/001_sbo.md#small-buffer-optimization-sbo) uygulanmakta ve kucuk boyutlu string nesneleri icin dinamik bellek alani tahsis edilmemektedir.
   [Ornek](res/src/string/string01.cpp)
 
 * `string` sinifinin bazi uye fonksiyonlari ayrica index bazli overloadlar bulundurur.

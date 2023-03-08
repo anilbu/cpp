@@ -222,29 +222,6 @@ Bir sinif nesnesinin state'ini text olarak ifade edilmesine **serialization**, b
 * Pointer degiskenler
 
 
-
-# Small Buffer Optimization (SBO)
-
-Runtime'da meydana gelen dinamik bellek tahsisi sayisini azaltmak amaciyla uygulanan bir optimizasyon teknigidir. 
-
-Bilindigi uzere stack uzerinde bellek tahsisi, heap uzerinde bellek tahsisine gore daha hizlidir. SBO'nun ana uyguladigi ana fikir; eger normelde heap uzerinde tutulmasi gereken bir nesne boyut olarak kucuk bir buffer alanina sigabilecek kadar kucuk ise, heap uzerinde bellek tahsisi yapilmasi yerine nesne icin stack uzerinde olusturulmus bir buffer alaninda depolanmasidir. Optimizasyon sonucu tipik olarak dinamik bellek allocation miktari azaltilmakla calisma zamani ek maliyetini dusurulmesi, dolayisi ile performansi artisini saglayabilmektedir.
-
-```C++
-class string
-{
-  union Buffer
-  {
-    char*    _begin;
-    char[16] _local;
-  };
-   
-  Buffer _buffer;
-  size_t _size;
-  size_t _capacity;
-  // ...
-};
-```
-
 # Copy on write
 <!-- TODO: Aciklama ekle -->
 
