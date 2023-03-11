@@ -520,7 +520,7 @@ Myclass<> m2;           // T = int
 Myclass m3;             // T = int (CTAD)
 ```
 
-> :warning:   
+> :warning: 
 > Function template'leri icin default template argumanlari C++11 ile dile eklenmistir. Daha oncesinde sadece sinif sablonlarinda kullanilabiliyordu.
 
 * Template tur cikarimi fonksiyonun varsayilan argumana karsi yapilamaz. Varsayilan fonksiyon argumani ile varsayilan template argumani karistirilmamalidir.

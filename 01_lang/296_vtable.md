@@ -90,7 +90,7 @@ p->vptr[2]();
   * Programin runtime'i basladigi zaman her polymorphic sinif icin ilgili vtable'larin olusturulmasinin yer ve zaman maliyeti.
   * Runtime polymorphism'den faydalanmak icin senaryolarin buyuk cogunlugunda **dinamik omurlu nesneler** olusturulmaktadir. Bu nesnelere bellek alani ayrilmasinin ve iade edilmesinin de ayrica maliyeti bulunmaktadir ve bu maliyet otomatik omurlu nesne olusturma maliyetine kiyasla **yuksek bir maliyettir**.
 
-> :warning:   
+> :warning: Dikkat!
 > ```C++
 > Myclass x; 
 > 

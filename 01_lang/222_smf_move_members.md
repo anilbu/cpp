@@ -68,7 +68,7 @@ constexpr T&& move(T&& t) noexcept {
 ```C++
 Myclass y = std::move(x);   // x ifadesi bir lvalue expr iken, std::move(x) ifadesi bir rvalue expr
 ```
-> :warning:   
+> :warning: 
 > *Move doesn't move! -Scott Meyers*
 > 
 > `std::move` fonksiyonun ismi *move* olmasina ragmen tasima yapmaz, sadece *casting* yaparak degerin value kategorisini degistirir. Tasima islemini **move member function**lar yapar!

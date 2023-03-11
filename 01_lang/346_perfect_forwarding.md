@@ -66,7 +66,7 @@ void call_func(T&& x)
 
 Kisaca, **universal reference** parametreli bir template'iniz varsa, olusturulacak specialization parametre degiskenleri ya `lvalue ref` yada `rvalue ref` olacaktir.
 
-> :warning:   
+> :warning: Dikkat!  
 > Universal ref bir parametreye **lvalue expr** gonderilirse `T` icin cikarim `T&` olarak yapilir, 
 > ancak **rvalue expr** arguman ile cagrildiginda `T` turu icin cikarim `T` *(bir referans turu degil)* olarak yapilir. [bknz: Reference collapsing](100_ref_semantics.md#reference-collapsing)
 > ```C++

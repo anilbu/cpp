@@ -19,7 +19,7 @@ catch(type_of_error e) {
 
 `catch` blogu; hatayi isleyecek kodlari *(exception handler)* barindirmaktadir.
 
-> :warning:   
+> :warning: 
 > Yakalanmamis hata birakmamak hedeflenmelidir. Ancak, mudahale edilmemesi gereken bir exception da **yakalanmamalidir**.  
 > *Yakaladiginda ne yapilacagi bilinmeyen bir exception, en basta yakalanmamalidir!*
 
@@ -264,7 +264,7 @@ catch(...) {
 
 Bir ctor, basarisiz olacagini biliyor ise, exception throw etmelidir. ctor'lar, exception gonderme ihtimali en yuksek olan fonksiyonlardan biridir. 
 
-> :pushpin:   
+> :pushpin: 
 > Bir nesnenin hayata geldiginin kabul edilebilmesi icin ctor ana blok kodu tamamen calisarak tamamlanmalidir.
 
 

@@ -28,7 +28,7 @@ Function overloading'den soz edilebilmesi icin iki yada daha fazla fonksiyonun a
 > 2. namespace scope
 > 3. class scope
 > 
-> :warning:   
+> :warning: 
 > Fonksiyonlari parametre turu ve geri donus turu `dizi` ve/ya `fonksiyon turu` olamaz! Ancak fonksiyona yada diziye pointer olabilir. Aksi halde **decay uygulanarak ilgili tur pointer'a donusturulur**.
 > 
 

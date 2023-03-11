@@ -93,7 +93,7 @@ private:
 Eger sinifin default ctor'i derleyici tarafindan yazilirsa, veri elemanlari da default init edilmektedir. Bu, veri elemanlarinin sinif turunden oldugunda [default ctor](210_ctors_dtor.md#default-constructor)'u cagrilmaktadir.
 **Istisna**: Eger [default member initializer](210_ctors_dtor.md#default-member-initializer) ile initialize edilmis ise, derleyicinin yazdigi default ctor'da belirtilen ctor cagrilacaktir.
 
-> :warning:   
+> :warning: 
 > Eger sinifin data memberlarindan birinin default ctor'u bulunmuyor ise, derleyici sinifin default ctor'u `delete` etmektedir!
 
 

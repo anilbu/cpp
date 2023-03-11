@@ -62,7 +62,7 @@ Yukaridaki tablo[1] kisaca soyle aciklanabilir:
 
 <!--  -->
 
-> :warning:   
+> :warning: 
 > `copy member`larin bildirip, `move member`lari **asla** delete etmeyin!
 > 
 > Cunku bu durumda tasima yapilmasi gereken yerde kopyalama yapilmasi istenmektedir. Ancak, move members bildirildigi icin function overload resolution'a girecek ve delete edildigi icin **sentaks hatasi** olusacaktir!

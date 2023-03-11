@@ -48,7 +48,7 @@ Class taniminda erisim kontrolu belirtme amaci ile kullanilir.
 * `protected`: Sinifin kendi kodlari ve bu siniftan turetilen siniflarin siniflarin erisimi ile kisitlanmis kisimdir.
 * `public`: Erisim kisitlamasi olmayan uyelerin bulundugu kisimdir.
 
-> :warning:   
+> :warning: 
 > Sinifin `public`, `private`, `protected` bolumleri ayri scopelar degildir.
 
 Bir sinif `class` tagi ile tanimlanmis ise default access **private**, `struct` tagi ile tanimlanmis ise default access **public**'dir.

@@ -77,7 +77,7 @@ Myclass::~Myclass() { }
 
 [Ornek: Ctor ve Dtor cagrilarinin yapilmasi sirasi](res/src/class_ctor01.cpp)
 
-> :warning:   
+> :warning: Dikkat!  
 > Dynamic storage ile dynamic storage duration birbiri ile karistirilmamalidir. [[bknz: storage duration](050_basics.md#storage-duration)]
 >
 > Dinamik omurlu nesne ayri bir kavram, programin calisma zamaninda dinamik olarak bellek alani elde etmek birbiri ile iliskili ancak farkli kavramlardir. [[bknz: new/deleteoperator ](900_dynamic_memory.md)]
@@ -119,7 +119,7 @@ Parametre degiskeni olmayan yada tum parametre degiskenleri varsayilan argumani 
    * Elemanlarin ctorlari dizinin basindan sonuna dogru sirayla cagrilir. dtor ise ters sira ile cagrilir.
 
 
-> :warning:   
+> :warning: 
 > Bir sinifin default ctor'u olmak zorunda degildir.
 >
 > Parametreli bir ctor bildirildiginde default ctor **not declared** olur. Eger default ctor gerektiren bir durumda ctor'un var olmamasi durumunda sentaks hatasi olusur. 
@@ -229,7 +229,7 @@ private:
   double dval = 3.14; // default member initializer
 };
 ```
-> :warning:   
+> :warning: 
 > Default member initializer, `=` ile kullanilabilir ancak normal parantez `( )` ile kullanilamamaktadir. 
 
 > :triangular_flag_on_post: 

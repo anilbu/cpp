@@ -114,7 +114,7 @@ void Myclass::foo() {
 }
 ```
 
-> :warning:   
+> :warning: 
 > Class scope'daki bir isim global scope'u maskeliyor olabilir!
 > [Soru](sorular/soru10.cpp)
 

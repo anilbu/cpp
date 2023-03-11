@@ -27,5 +27,5 @@ public:
 > :warning: 
 > Yukaridaki ornekte `<<` ve `>>` operatorleri member function olarak degil, **global inline friend function** olarak bildirilmistir.
 
-> :triangular_flag_on_post:   
+> :triangular_flag_on_post: 
 > `ostream` sinifi sadece declaration'da kullanilacak ise `<iosfwd>` eklenirken; definition icin `<iostream>` baslik dosyasi eklenmelidir.

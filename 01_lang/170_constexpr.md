@@ -10,9 +10,8 @@ Ifadenin degeri derleyici tarafindan compile-time'da biliyor ise constant expres
 * switch icinde bulunan case ifadeleri
 * bitfield member
 
-> :warning:   
-> `const` ve `constexpr` farkli anahtar sozcuklerdir ve benzer noktalari olmasina ragmen farkli islevleri vardir.  
-> [[bknz: const anahtar sozcugu](050_basics.md#const-anahtar-sozcugu)]
+> :warning: 
+> `const` ve `constexpr` farkli anahtar sozcuklerdir ve benzer noktalari olmasina ragmen farkli islevleri vardir. [[bknz: const anahtar sozcugu](050_basics.md#const-anahtar-sozcugu)]
 
 
 ```C++

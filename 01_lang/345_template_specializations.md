@@ -103,7 +103,7 @@ Bu durumda kullanilabilecek farkli araclar:
   func(p);  // 4
   ```
 
-> :warning:   
+> :warning: 
 > Fonksiyon sablonlari icin explicit specialization bazi durumlarda gorulmesi zor hatalara neden olabildiginden; programcilar fonksiyon sablonlarinda explicit specialization yerine template'leri overload etmeyi terchi ediyorlar.
 
 * class template icin explicit specialization bildirimi:
