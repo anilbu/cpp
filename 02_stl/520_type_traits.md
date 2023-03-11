@@ -1,8 +1,10 @@
 # Type traits
 [[bknz: type_traits kutuphanesi - genel calisma mantigi](521_type_traits_details.md)]  
 
-Bir tur hakkinda belirli ozelliklere sahip olup olmadigini compile-time'da bilgi edinilmesini/sinanmasini saglayan *helper template/meta function*'lardan olusan bir kutuphanedir. Farkli turler icin farkli kodlarin secimini saglanmasi, uyumsuz olarak kullanilan turlerde sentaks hatasi uretilebilmesi gibi olanaklara imkan saglamaktadir. 
+Bir tur hakkinda belirli ozelliklere sahip olup olmadigini compile-time'da bilgi edinilmesini/sinanmasini saglayan *meta fonksiyonlardan[^metafunc]* olusan bir kutuphanedir. Farkli turler icin farkli kodlarin secimini saglanmasi, uyumsuz olarak kullanilan turlerde sentaks hatasi uretilebilmesi gibi olanaklara imkan saglamaktadir. 
 
+[^metafunc]: **Meta fonksiyonlar**: Compile-time'da hesaplanan fonksiyonlar
+ 
 `<type_traits>` baslik dosyasinda tanimlanmistir.  
 
 | Yardimci sinif    | Aciklama                                         |
@@ -11,23 +13,38 @@ Bir tur hakkinda belirli ozelliklere sahip olup olmadigini compile-time'da bilgi
 | true_type         | `std::integral_constant<bool, true>`             |
 | false_type        | `std::integral_constant<bool, false>`            |
 
-> :triangular_flag_on_post: Yazim kolayligi icin standart kutuphanede type traits icin [variable_templates](variable_templates.md)'ler tanimlanmistir.  
-> Sonu `_t` ile bitenler `::type` ifade etmektedir.  
-> Sonu `_v` ile bitenler `::value` ifade etmektedir.  
-> `is_class<Myclass>::value` yerine `is_class_v<Myclass>` yazilabilir. 
+:triangular_flag_on_post: Yazim kolayligi icin standart kutuphanede type traits icin [variable_templates](variable_templates.md)'ler tanimlanmistir.  
+* Deger hesaplayan meta fonksiyonlar icin sonu `_v` ile biten, statik veri elemani `::value`'u ifade eden variable template tanimlari bulunmaktadir.  
+ Ornegin: `is_class<Myclass>::value` yerine `is_class_v<Myclass>` kullanilabilir.   
+* Tur hesaplayan meta fonksiyonlar icin sonu `_t` ile biten, nested type `::type`'i ifade eden variable template tanimlari bulunmaktadir.  
+ Ornegin: `typename remove_reference<int&&>::type` yerine `remove_reference_t<int&&>` kullanilabilir.  
+
+<!--  -->
+
+**Tipik kullanim senaryolari**  
+1. [static_assert](../01_lang/321_static_assert.md#static_assert)  
+2. [tag dispatch](../04_advanced/002_tag_dispatch.md)  
+3. [constexpr *(static if)*](../01_lang/171_constexpr_if.md#if-constexpr)  
+4. [SFINAE](../04_advanced/003_sfinae.md#sfinae)
+5. concepts  
+
+<!--  -->
 
 **Ornekler**  
 
-* [Basit tur sorgulama](res/src/type_traits01.cpp)
+* [Turler ile ilgili compile-time hesaplari](res/src/type_traits01.cpp)
 * [Bir template fonksiyonun sadece pointer turleri icin kullanilmasinin saglanmasi](res/src/type_traits02.cpp)
 * [Pointer turler icin ayri, olmayan turler icin ayri implementasyonlarin yapilmasi (tag dispatch metodu)](res/src/type_traits03.cpp)
 * [lvalue ref icin ayri rvalue ref icin ayri implementasyon (if-constexpr)](res/src/type_traits04.cpp)
+* [is_same ve static_assert](res/src/type_traits05.cpp)  
 
 <!--  -->
 
+<br/>
+<br/>
+<br/>
 
-
-<!--  -->
+## Metaprogramming library[C++11] fonksiyonlari
 
 <details>
 <summary><b>Primary type categories</summary>
@@ -98,6 +115,11 @@ Bir tur hakkinda belirli ozelliklere sahip olup olmadigini compile-time'da bilgi
 <details>
 <summary><b>Miscellaneous transformations</summary>
 
-`decay` `remove_cvref` `enable_if` `conditional` `common_type` `common_reference` `basic_common_reference` `underlying_type` `void_t` `type_identity`  
+`decay` `remove_cvref` [`enable_if`](../04_advanced/003_sfinae.md#stdenable_if) `conditional` `common_type` `common_reference` `basic_common_reference` `underlying_type` `void_t` `type_identity`  
+
+> :pushpin: `type_identity`, template tur cikarimi yapilmak istenmeyen kapsamlarda kullanilabilmektedir. 
+
+> :pushpin: `enable_if` genellikle [SFINAE](../04_advanced/003_sfinae.md) ile birlikte kullanilir.
+
 </details>
 <!--  -->

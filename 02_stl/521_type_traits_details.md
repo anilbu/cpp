@@ -97,7 +97,77 @@ template <>
 struct IsInteger<long int>: TrueType {};
 ```
 Artik, **ortak bir arayuze** uygun olacak bicimde *meta fonksiyon*lar kolayca tanimlanabilmektedir.  
-[Ornek: IsInteger ve IsPointer (kalitim ile)](res/src/type_traits_detail03.cpp)
+
+Ayrica, `_v` ve `_t` uzantili [variable template](../01_lang/344_variable_templates.md) tanimlari yapilarak daha pratik bir kullanim da saglanabilir.
+```C++
+template <typename T>
+constexpr bool IsInteger_v = IsInteger<T>::value;
+
+template <typename T>
+constexpr bool IsInteger_t = IsInteger<T>::type;
+```
+
+[Ornek: IsInteger ve IsPointer (kalitim ile)](res/src/type_traits_detail03.cpp)  
+
+
+<br/>
+
+**Turlerin tranform edilmesi**  
+Bazi meta fonksiyonlarin amaci deger hesaplamak yerine tur hesaplamasi da olabilmektedir.
+Ornegin; `T` eger bir referans turu ise, referans olmayan turunu, degil ise kendi turunu kullanmak isteniyor olsun.
+
+Yukarida aciklanan yonteme benzer sekildi bir sinifin icine `type` isimli bir alias tanimlayalim:
+```C++
+template <typename T>
+struct RemoveReference {
+    using type = T;
+};
+```
+[template arguman deduction](../01_lang/341_template_params_and_args.md#template-argument-deduction)'dan faydalanarak asagidaki gibi specialization tanimlari yapildiginda tur cikarim `T` icin yapilmasindan dolayi `type` isimli alias turun kendisini belirtmektedir:
+```C++
+template <typename T>
+struct RemoveReference<T&> {
+    using type = T;         //  T& turleri icin type = T
+};
+
+template <typename T>
+struct RemoveReference<T&&> {
+    using type = T;         // T&& turleri icin type = T
+};
+```template <typename T>
+using RemoveReference_t = typename RemoveReference<T>::type;
+```
+> :pushpin: Nested type'i ifade etmek icin kullanilan `typename` anahtar sozcugune dikkat edin.
+
+[Ornek: RemoveReference type transformation](res/src/type_traits_detail06.cpp)
+
+<br/>
+
+**x**
+Template parametresine yapilan cikarim, bir baska parametre icin'de farkli turler ile kullanilabiliyor olsun istenmektedir. Ornegin; asagida verilen func fonksiyonu icin `func(1,1)` cagrisiyla `func(1, 3.14)` cagrisi gecerli olsun istenmektedir.
+```C++
+template <typename T>
+void func(T x, T y);
+```
+Yukaridaki tanima gore, hem *x* parametresi hem de *y* parametresi icin tur cikarimi yapilmakta, ancak farkli turlerden argumanlar ile cagri yapildiginda `T` cikarimi ambiguity nedeniyle yapilamayacagi icin [sentaks hatasi](../01_lang/341_template_params_and_args.md#template-argument-deduction) olusmaktadir.  
+
+Asagidaki gibi `type` alias ile ayni turu ifade edecek bicimde bir template tanimi yapilsin:
+```C++
+template <typename T>
+struct TypeIndentitiy {
+    using type = T;
+};
+
+template <typename T>
+using TypeIndentitiy_t = typename TypeIndentitiy<T>::type;
+```
+Fonksiyon tanimi asagidaki gibi yapildiginda ikinci parametredeki `T` icin tur cikarimi yapmak yerine ayni turu ifade edecek bicimde bir `TypeIndentitiy` instantiation'i yapilacaktir.
+Bu durumda *func* fonksiyonu icin tur cikarimi sadece *x* parametresi ile yapilmaktadir. *y* parametresi ise turunu *x*'e yapilan cikarimdan alacaktir:
+```C++
+template <typename T>
+void func(T x, TypeIdentity_t<T> y);
+```
+[Ornek: Type indentity](res/src/type_traits_detail07.cpp)
 
 <br/>
 

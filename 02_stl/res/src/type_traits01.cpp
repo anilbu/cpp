@@ -3,14 +3,14 @@
 #include "nutility.h"
 
 class Myclass {};
-struct Nec {};
-union Data
+struct Mystruct {};
+union Myunion
 {
     int a : 3;
     int b : 5;
 };
-enum Pos { OFF, ON, HOLD };
-enum class Color { Red, Green, Blue };
+enum Myenum { OFF, ON, HOLD };
+enum class Myenumclass { Red, Green, Blue };
 
 template <typename T>
 void func(T x)
@@ -24,8 +24,9 @@ void func(T x)
 int main(int argc, char const *argv[])
 {
     using namespace std;
-    {
+    std::cout << boolalpha;
 
+    {
         constexpr auto b1 = is_integral<double>::value;   // b1 = false
         constexpr auto b2 = is_integral<int>::value;      // b2 = true
 
@@ -36,10 +37,10 @@ int main(int argc, char const *argv[])
         func(3.14);
     }
     {
-        is_class<Myclass>::value;       // true
-        is_class<Nec>::value;           // true
-        is_class<Data>::value;          // false
-        is_class<Pos>::value;           // false
-        is_class<Color>::value;         // false
+        std::cout << "is_class_v<Myclass> = " << is_class_v<Myclass> << '\n';           // true
+        std::cout << "is_class_v<Mystruct> = " << is_class_v<Mystruct> << '\n';         // true
+        std::cout << "is_class_v<Myunion> = " << is_class_v<Myunion> << '\n';           // false
+        std::cout << "is_class_v<Myenum> = " << is_class_v<Myenum> << '\n';             // false
+        std::cout << "is_class_v<Myenumclass> = " << is_class_v<Myenumclass> << '\n';   // false
     }
 }

@@ -26,6 +26,6 @@ Dinamik omurlu kaynak veya nesnelerin hayatini kontrol eden *pointer-like* sinif
   *Benzer sekilde ctor'da exception throw edilmesi durumunda raw pointer ile tutularak initialize edilmis bir veri elemani icin dtor calistirilmayacaktir.*  
   [Ornek 2: Ctor'da exception throw edilmesi](res/src/smart_ptr02.cpp)  
 
-  > :pushpin: Dinamik omurlu nesneler icin [stack unwinding](../01_lang/321_exception_handling.md#stack-unwinding) surecinde exception yakalandigi zaman otomatik omurlu nesnelerin dtor cagrilmaktadir.
+  > :pushpin: Dinamik omurlu nesneler icin [stack unwinding](../01_lang/325_exception_handling.md#stack-unwinding) surecinde exception yakalandigi zaman otomatik omurlu nesnelerin dtor cagrilmaktadir.
   
 <!-- > Programci basini belaya sokmaya niyetli ise bir yolunu bulup... -->
